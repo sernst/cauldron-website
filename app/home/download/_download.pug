@@ -48,7 +48,10 @@ div(class='download')
                 div Windows
                 div(class='download__platform-details') (8.1+)
               div(class='download__spacer')
-              a(class='download__button') Download
+              a(
+                class='download__button'
+                href='http://nexus.cauldron-notebook.com/editor/win/Cauldron-1.340.413-Setup.exe'
+              ) Download
             div(class='download__platform')
               img(
                 class='download__platform-icon'
@@ -59,8 +62,11 @@ div(class='download')
                 div(class='download__platform-details').
                   (macOS 10.11+ El Capitan)
               div(class='download__spacer')
-              a(class='download__button') Download
-            div(class='download__platform')
+              a(
+                class='download__button'
+                href='http://nexus.cauldron-notebook.com/editor/osx/Cauldron-1.340.415.dmg'
+              ) Download
+            div(class='download__platform' style='display: none')
               img(
                 class='download__platform-icon'
                 src='/assets/images/linux-logo.svg'
@@ -71,7 +77,7 @@ div(class='download')
                   (Fedora or Redhat Flavors)
               div(class='download__spacer')
               a(class='download__button') Download
-            div(class='download__platform')
+            div(class='download__platform' style='display: none')
               img(
               class='download__platform-icon'
               src='/assets/images/linux-logo.svg'
@@ -82,4 +88,14 @@ div(class='download')
                   (Ubuntu or Debian Flavors)
               div(class='download__spacer')
               a(class='download__button') Download
+            div(class='download__platform')
+              img(
+              class='download__platform-icon'
+              src='/assets/images/linux-logo.svg'
+              )
+              div(class='download__platform-name')
+                div Linux Coming Soon
+                div(class='download__platform-details').
+                  (RPM &amp; DEB Distros)
+              div(class='download__spacer')
           div(class='download__spacer')

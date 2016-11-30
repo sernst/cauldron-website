@@ -44,7 +44,7 @@ function renderMenuButtons(state) {
       { attrs: { href: state.downloadUrl } },
       'Install'
     ),
-    a(name('btn'), { attrs: { href: '/gallery' } }, 'Gallery'),
+    // a(name('btn'), { attrs: { href: '/gallery' } }, 'Gallery'),
     a(name('btn'), { attrs: { href: '/docs' } }, 'Documentation'),
     a({ attrs: { href: GITHUB_PAGE } }, [
       img(name('iconBtn'), { attrs: { src: GITHUB_LOGO } })
@@ -72,7 +72,7 @@ function renderDropdownMenu(state) {
         { attrs: { href: state.downloadUrl } },
         'Install'
       ),
-      a(name('btn'), { attrs: { href: '/gallery' } }, 'Gallery'),
+      // a(name('btn'), { attrs: { href: '/gallery' } }, 'Gallery'),
       a(name('btn'), { attrs: { href: '/docs' } }, 'Documentation'),
       a(name('btn'), { attrs: { href: GITHUB_PAGE } }, [
         img(name('btnIcon'), { attrs: { src: GITHUB_LOGO } }),

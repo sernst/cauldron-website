@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
+const AWS = require('aws-sdk');
 const named = require('vinyl-named');
 const concat = require('gulp-concat');
 const del = require('del');
@@ -14,6 +15,9 @@ const uglify = require('gulp-uglify');
 const webpack = require('webpack-stream');
 const gulpIf = require('gulp-if');
 const rename = require('gulp-rename');
+const awsPublish = require('gulp-awspublish');
+const mergeStream = require('merge-stream');
+const argv = require('yargs').argv;
 
 const babelPreset = 'es2015';
 const watchDefinitions = [];
@@ -72,7 +76,7 @@ function js() {
         ]
       }
     }))
-    .pipe(gulpIf(false, uglify()))
+    .pipe(gulpIf(argv.production, uglify()))
     .pipe(gulp.dest(makeOutputPath()));
 }
 watchDefinitions.push({ task: js, files: 'app/**/*.js' });
@@ -162,6 +166,35 @@ function clean() {
   return del('bin/**');
 }
 exports.clean = clean;
+
+
+/**
+ * TASK: publish
+ *  Deploys the locally built site to the S3 bucket that is the origin for
+ *  the public site
+ */
+function publish() {
+  const publisher = awsPublish.create({
+    region: 'us-west-2',
+    params: { Bucket: 'www.unnotebook.com' },
+    credentials: new AWS.SharedIniFileCredentials({ profile: 'cauldron' })
+  });
+
+  // define custom headers
+  const headers = {
+    'Cache-Control': 'max-age=3600, no-transform, public'
+  };
+
+  const binary$ = gulp.src(['bin/**/*', '!bin/**/*.{js,css,html,svg}']);
+  const text$ = gulp.src('bin/**/*.{js,css,html,svg}')
+    .pipe(awsPublish.gzip({ ext: '' }));
+
+  return mergeStream(text$, binary$)
+    .pipe(publisher.publish(headers))
+    .pipe(publisher.cache())
+    .pipe(awsPublish.reporter());
+}
+exports.publish = publish;
 
 
 /**

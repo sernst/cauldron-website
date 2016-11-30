@@ -12,6 +12,7 @@
     "xstream": "^8.0.0"
   },
   "devDependencies": {
+    "aws-sdk": "^2.7.8",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",
@@ -27,6 +28,7 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.7.1",
     "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-awspublish": "^3.3.0",
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.0",
     "gulp-if": "^2.0.2",
@@ -36,6 +38,8 @@
     "gulp-sass": "^2.3.2",
     "gulp-uglify": "^2.0.0",
     "jstransformer-markdown-it": "^2.0.0",
-    "vinyl-named": "^1.1.0"
+    "merge-stream": "^1.0.1",
+    "vinyl-named": "^1.1.0",
+    "yargs": "^6.4.0"
   }
 }
