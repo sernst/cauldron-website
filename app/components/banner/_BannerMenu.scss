@@ -1,0 +1,41 @@
+.BannerMenu {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+
+  &__box {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+
+    @media #{$less-than-m} {
+      display: none;
+    }
+  }
+
+  &__btn {
+    color: white;
+    cursor: pointer;
+    font-size: 1.1em;
+    padding: 0.25em 0.75em;
+    margin: 0 0.5em;
+    opacity: 0.8;
+    transition: opacity 0.5s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__iconBtn {
+    opacity: 0.8;
+    height: 32px;
+    cursor: pointer;
+    margin: 0 0.5em;
+    transition: opacity 0.5s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

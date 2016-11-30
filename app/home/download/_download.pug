@@ -1,0 +1,85 @@
+div(class='download')
+  a(name='download')
+  div(class='download__aligner')
+    div(class='download__title') Cauldron Installation
+    :markdown-it
+      Cauldron takes advantage of the latest and greatest features of
+      Python and requires __Python 3.5+__. It will not work with Python 2.7.
+
+    div(class='download__step')
+      div(class='download__icon-box')
+        img(
+          class='download__number-icon'
+          src='/assets/images/number-circle-1.svg'
+        )
+      div(class='download__instruction-box')
+        div(class='download__header') Python Package
+        div The cauldron python package can be installed using either conda:
+        pre(class='download__code-box') $ conda install -c sernst cauldron
+        div or pip:
+        pre(class='download__code-box') $ pip install cauldron-notebook
+        div
+          span.
+            More detailed installation information for the package is
+            available at the&nbsp;
+          a(
+            class='download__link'
+            href='https://www.github.com/sernst/cauldron'
+          ) Cauldron Github
+          span &nbsp;page
+
+    div(class='download__step')
+      div(class='download__icon-box')
+        img(
+          class='download__number-icon'
+          src='/assets/images/number-circle-2.svg'
+        )
+      div(class='download__instruction-box')
+        div(class='download__header') Desktop Application
+        div The Cauldron desktop application is only available in 64 bit
+        div(class='download__platform-box')
+          div(class='download__platforms')
+            div(class='download__platform')
+              img(
+                class='download__platform-icon'
+                src='/assets/images/windows-logo.svg'
+                )
+              div(class='download__platform-name')
+                div Windows
+                div(class='download__platform-details') (8.1+)
+              div(class='download__spacer')
+              a(class='download__button') Download
+            div(class='download__platform')
+              img(
+                class='download__platform-icon'
+                src='/assets/images/apple-logo.svg'
+              )
+              div(class='download__platform-name')
+                div Mac
+                div(class='download__platform-details').
+                  (macOS 10.11+ El Capitan)
+              div(class='download__spacer')
+              a(class='download__button') Download
+            div(class='download__platform')
+              img(
+                class='download__platform-icon'
+                src='/assets/images/linux-logo.svg'
+              )
+              div(class='download__platform-name')
+                div RPM Linux
+                div(class='download__platform-details').
+                  (Fedora or Redhat Flavors)
+              div(class='download__spacer')
+              a(class='download__button') Download
+            div(class='download__platform')
+              img(
+              class='download__platform-icon'
+              src='/assets/images/linux-logo.svg'
+              )
+              div(class='download__platform-name')
+                div DEB Linux
+                div(class='download__platform-details').
+                  (Ubuntu or Debian Flavors)
+              div(class='download__spacer')
+              a(class='download__button') Download
+          div(class='download__spacer')

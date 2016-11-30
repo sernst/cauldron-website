@@ -1,0 +1,18 @@
+html
+  head
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title Cauldron: The Unnotebook
+    link(rel='stylesheet' href='external.css')
+    link(rel='stylesheet' href='home/home.css')
+    include components/gitter/_gitter
+
+  body
+    div(id='app')
+      section(id='bannerSection')
+      include home/headline/_headline
+      // include components/home/about/_about
+      include home/benefits/_benefits
+      div(style='flex:grow')
+      include home/download/_download
+      include components/footer/_footer
+      script(src='home/home.js')

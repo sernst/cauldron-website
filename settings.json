@@ -1,0 +1,13 @@
+{
+  "npm": {
+    "js": [
+      "systemjs/dist/system.js",
+      "@cycle/dom/dist/cycle-dom:",
+      "@cycle/xstream-adapter/dist/xstream:",
+      "@cycle/xstream-run/dist/cycle:"
+    ],
+    "css": [
+      "normalize-css/normalize.css"
+    ]
+  }
+}

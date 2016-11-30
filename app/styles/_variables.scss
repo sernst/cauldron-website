@@ -1,0 +1,37 @@
+$centered-page-width: 920px;
+
+$cauldron-green: #8CC63F;
+$cauldron-green-dark: #577f2c;
+
+$xs-max: '479px';
+$s-min: '480px';
+$s-max: '767px';
+$m-min: '768px';
+$m-max: '1023px';
+$l-min: '1024px';
+$l-max: '1920px';
+$xl-min: '1921px';
+
+$screen-xs: "(max-width: #{$xs-max})";
+$screen-s: "(min-width: #{$s-min}) and (max-width: #{$s-max})";
+$screen-m: "(min-width: #{$m-min}) and (max-width: #{$m-max})";
+$screen-l: "(min-width: #{$l-min}) and (max-width: #{$l-max})";
+$screen-xl: "(min-width: #{$xl-min})";
+
+$less-than-s: "(max-width: #{$xs-max})";
+$less-than-m: "(max-width: #{$s-max})";
+$less-than-l: "(max-width: #{$m-max})";
+$less-than-xl: "(max-width: #{$l-max})";
+
+$greater-than-xs: "(min-width: #{$s-min})";
+$greater-than-s: "(min-width: #{$m-min})";
+$greater-than-m: "(min-width: #{$l-min})";
+$greater-than-l: "(min-width: #{$xl-min})";
+
+@mixin no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

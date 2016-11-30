@@ -1,0 +1,12 @@
+.footer {
+  background-color: black;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8em;
+  padding-bottom: 2.0em;
+
+  &__aligner {
+    max-width: $centered-page-width;
+    margin: 0 auto;
+    padding: 0.5em 1.0em;
+  }
+}

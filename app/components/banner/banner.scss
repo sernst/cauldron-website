@@ -1,0 +1,28 @@
+@import "BannerMenu";
+@import "BannerMenuDropdown";
+@import "BannerLogo";
+
+.Banner {
+  background-color: black;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0.5em;
+
+  &__container {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    max-width: $centered-page-width;
+  }
+
+  &__spacer {
+    display: flex;
+    flex-grow: 1;
+  }
+
+  &__toggleMenuBtn {
+    @media #{$greater-than-s} {
+      display: none;
+    }
+  }
+}
