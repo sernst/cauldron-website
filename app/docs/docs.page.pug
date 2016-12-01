@@ -2,9 +2,8 @@ html
   head
     meta(name='viewport' content='width=device-width, initial-scale=1')
     title Cauldron Documentation
-    link(rel='stylesheet' href='/external.css')
+    include ../components/common-header
     link(rel='stylesheet' href='docs.css')
-    include ../components/gitter/_gitter
 
   body
     div(id='app')
@@ -17,7 +16,7 @@ html
         p.
           There are a few key concepts when programming Cauldron notebooks that
           differ from traditional notebooks. The first is the display. Anything
-          that you want to appear in the notebook from text to graphs, must be
+          that you want to appear in the notebook from text to graphs must be
           added to the notebook display:
 
         pre.
@@ -289,3 +288,6 @@ html
         p.
           This does exactly the same thing as the python script shown above, but
           can be called directly from a terminal or added to a shell script.
+
+    div(style='height: 200px')
+    include ../components/footer/_footer

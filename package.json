@@ -2,6 +2,10 @@
   "name": "cauldron-website",
   "version": "0.0.1",
   "description": "Website for Cauldron: the unnotebook",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/sernst/cauldron.git"
+  },
   "license": "MIT",
   "dependencies": {
     "@cycle/core": "^7.0.0",
@@ -40,6 +44,7 @@
     "jstransformer-markdown-it": "^2.0.0",
     "merge-stream": "^1.0.1",
     "vinyl-named": "^1.1.0",
+    "webpack-stream": "^3.2.0",
     "yargs": "^6.4.0"
   }
 }
