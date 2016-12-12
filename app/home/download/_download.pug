@@ -1,5 +1,4 @@
-div(class='download')
-  a(name='download')
+div(id='download' class='download')
   div(class='download__aligner')
     div(class='download__title') Cauldron Installation
     :markdown-it
@@ -36,7 +35,11 @@ div(class='download')
         )
       div(class='download__instruction-box')
         div(class='download__header') Desktop Application
-        div The Cauldron desktop application is only available in 64 bit
+        div.
+          If you experience issues installing the desktop application, please
+          check to make sure antivirus protection isn't blocking the
+          installation process. Also, the Cauldron desktop application is only
+          available for 64 bit operating systems.
         div(class='download__platform-box')
           div(class='download__platforms')
             div(class='download__platform')
@@ -50,7 +53,7 @@ div(class='download')
               div(class='download__spacer')
               a(
                 class='download__button'
-                href='http://nexus.cauldron-notebook.com/editor/win/Cauldron-1.340.413-Setup.exe'
+                href='http://nexus.cauldron-notebook.com/editor/win/CauldronSetup.exe'
               ) Download
             div(class='download__platform')
               img(

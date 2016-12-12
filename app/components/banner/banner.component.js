@@ -47,7 +47,7 @@ function model(click$, props$) {
 function mainBanner(dom$, props$) {
   const click$ = intent(dom$);
   const state$ = model(click$, props$);
-  return { banner: state$.map(render) };
+  return { DOM: state$.map(render) };
 }
 
 export { mainBanner as default };

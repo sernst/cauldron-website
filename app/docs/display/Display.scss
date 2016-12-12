@@ -1,0 +1,130 @@
+.Display {
+  flex: 2;
+  padding: 0.5em;
+
+  &__title {
+    font-size: 2em;
+    margin-top: 1em;
+  }
+
+  &__subtitle {
+    font-size: 1.4em;
+  }
+
+  &__breadcrumb {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 1.1em;
+  }
+
+  p {
+    line-height: 1.5;
+    font-size: 1.1em;
+  }
+
+  pre {
+    font-family: "Lucida Console", Monaco, "Courier New", Courier, monospace;
+    background-color: #EEE;
+    color: #777;
+    padding: 0.5em 1em;
+    white-space: pre;
+    line-height: 1.7;
+    font-size: 0.9em;
+    width: 100%;
+  }
+
+  li {
+    margin: 0.25em 0;
+    color: #666;
+    padding-left: 30px;
+    text-indent: -30px;
+    vertical-align: top;
+  }
+
+  strong {
+    font-style: normal;
+    font-weight: bold;
+    color: black;
+  }
+
+  em {
+    font-style: italic;
+    color: black;
+    color: rgba(49, 62, 26, 0.7);
+  }
+
+  .DisplayFunc__args {
+    li {
+      margin: 0.5em 0;
+    }
+
+    em {
+      font-size: 1em;
+      font-style: normal;
+      font-weight: bold;
+      color: $cauldron-green-dark;
+    }
+  }
+
+}
+
+
+.Function {
+  margin-top: 2em;
+
+  &__description {
+    font-size: 1.2em;
+    line-height: 1.5;
+  }
+
+  &__header {
+    margin-top: 1em;
+    font-size: 1.2em;
+    color: #999;
+    border-bottom: 1px dotted #CCC;
+    padding: 0.25em 0.5em;
+  }
+}
+
+.Argument {
+  display: flex;
+  margin-top: 1em;
+
+  &__box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em;
+    align-items: center;
+
+    &--default{
+      color: black;
+    }
+
+    &--optional {
+      color: #999;
+    }
+  }
+
+  &__name {
+    font-weight: bolder;
+    font-size: 1.2em;
+  }
+
+  &__type {
+    font-style: italic;
+    opacity: 0.7;
+    font-size: 0.8em;
+  }
+
+  &__description {
+    flex: 4;
+    padding: 0.5em;
+    line-height: 1.5;
+  }
+
+  &__optional {
+    font-style: italic;
+    color: #999;
+    margin-top: 0.25em;
+  }
+}

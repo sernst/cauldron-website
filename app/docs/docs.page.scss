@@ -3,48 +3,16 @@
 @import "../components/banner/banner";
 @import "../components/footer/footer";
 
+@import "navigator/Navigator";
+@import "display/Display";
 
-.DocBody {
-  margin: 2.0em auto;
-  max-width: $centered-page-width;
+.Page {
+  display: flex;
+  width: 100%;
+  max-width: $centered-page-width + 300;
+  margin: auto;
 
-  p {
-    line-height: 1.5;
+  @media #{$less-than-m} {
+    flex-direction: column;
   }
-
-  pre {
-    font-family: "Lucida Console", Monaco, "Courier New", Courier, monospace;
-    background-color: #EEE;
-    color: #777;
-    padding: 1em;
-  }
-
-  li {
-    margin: 0.25em 0;
-    color: #666;
-    padding-left: 30px;
-    text-indent: -30px;
-    vertical-align: top;
-  }
-
-  em {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 1.2em;
-    color: black;
-  }
-
-  .DisplayFunc__args {
-    li {
-      margin: 0.5em 0;
-    }
-
-    em {
-      font-size: 1em;
-      font-style: normal;
-      font-weight: bold;
-      color: $cauldron-green-dark;
-    }
-  }
-
 }

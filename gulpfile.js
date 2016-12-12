@@ -18,6 +18,7 @@ const rename = require('gulp-rename');
 const awsPublish = require('gulp-awspublish');
 const mergeStream = require('merge-stream');
 const argv = require('yargs').argv;
+const pugger = require('./pugger');
 
 const babelPreset = 'es2015';
 const watchDefinitions = [];
@@ -44,16 +45,54 @@ function makeOutputPath(...segments) {
  *    compiled into HTML files of their own.
  */
 function html() {
-  return gulp.src('app/**/*.page.pug')
-    .pipe(plumber())
-    .pipe(pug())
-    .pipe(rename((file) => {
-      Object.assign(file, { basename: 'index' });
-    }))
-    .pipe(gulp.dest(makeOutputPath()));
+  function renderHtml(locals, resolve, reject) {
+    return gulp.src('app/**/*.page.pug')
+      .pipe(plumber())
+      .pipe(pug({ locals }))
+      .pipe(rename((file) => {
+        Object.assign(file, { basename: 'index' });
+      }))
+      .pipe(gulp.dest(makeOutputPath()))
+      .on('end', resolve)
+      .on('error', reject);
+  }
+
+  return pugger.fetchLocals()
+    .then(locals => new Promise(renderHtml.bind(null, locals)));
 }
-watchDefinitions.push({ task: html, files: 'app/**/*.pug' });
+watchDefinitions.push({
+  task: html,
+  files: ['app/**/*.pug', 'app/components/**/*.pug', 'data/**/*.json']
+});
 exports.html = html;
+
+
+/**
+ * TASK: htmlFragments
+ *    Compiles pug fragments into HTML files to be loaded by the app at
+ *    run time
+ */
+function htmlFragments() {
+  function renderHtml(locals, resolve, reject) {
+    return gulp.src('app/**/*.fragment.pug')
+      .pipe(plumber())
+      .pipe(pug({ locals }))
+      .pipe(rename((file) => {
+        Object.assign(file, { basename: file.basename.split('.')[0] });
+      }))
+      .pipe(gulp.dest(makeOutputPath()))
+      .on('end', resolve)
+      .on('error', reject);
+  }
+
+  return pugger.fetchLocals()
+    .then(locals => new Promise(renderHtml.bind(null, locals)));
+}
+watchDefinitions.push({
+  task: htmlFragments,
+  files: ['app/**/*.fragment.pug', 'app/components/**/*.pug', 'data/**/*.json']
+});
+exports.htmlFragments = htmlFragments;
 
 
 /**
@@ -205,6 +244,7 @@ const build = gulp.series(
   clean,
   gulp.parallel(
     html,
+    htmlFragments,
     css,
     js,
     assets,

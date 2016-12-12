@@ -1,0 +1,23 @@
+mixin createFunctionDoc(data)
+  div(class='Function')
+    div(class='Function__description')
+      :markdown-it=data.doc
+
+    div(class='Function__header') Arguments
+
+    for arg in data.params
+      div(class='Argument')
+        div(class=[
+          'Argument__box',
+          arg.optional ? 'Argument__box--optional' : 'Argument__box--default'
+          ])
+          div(class='Argument__name')
+            :markdown-it=arg.name
+          div(class='Argument__type')
+            :markdown-it=arg.type
+        div(class='Argument__description')
+          :markdown-it=arg.description
+          if(arg.optional)
+            div(class='Argument__optional') Default Value:&nbsp;
+              span(class='Argument__default')= arg.default
+

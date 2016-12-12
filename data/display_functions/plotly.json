@@ -1,0 +1,28 @@
+{
+  "doc": "Creates a plotly plot in the display with the specified data and layout",
+  "params": [
+    {
+      "index": 0,
+      "optional": false,
+      "type": "Any",
+      "name": "data",
+      "description": " The plotly trace data to be plotted"
+    },
+    {
+      "index": 1,
+      "optional": false,
+      "type": "dict",
+      "name": "layout",
+      "description": " The layout data used for the plot"
+    },
+    {
+      "type": "float",
+      "description": " The display scale with units of fractional screen height. A value of 0.5 constrains the output to a maximum height equal to half the height of browser window when viewed. Values below 1.0 are usually recommended so the entire output can be viewed without scrolling.",
+      "index": 2,
+      "optional": true,
+      "name": "scale",
+      "default": "0.5"
+    }
+  ],
+  "name": "plotly"
+}

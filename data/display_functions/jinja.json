@@ -1,0 +1,20 @@
+{
+  "doc": "Renders the specified jinja template to HTML and adds the output to the display",
+  "params": [
+    {
+      "index": 0,
+      "optional": false,
+      "type": "str",
+      "name": "path",
+      "description": " The fully-qualified path to the template to be rendered."
+    },
+    {
+      "index": 1,
+      "optional": false,
+      "type": "Any",
+      "name": "kwargs",
+      "description": " Any keyword arguments that will be use as variable replacements within the template"
+    }
+  ],
+  "name": "jinja"
+}

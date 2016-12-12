@@ -9,7 +9,9 @@ import mainBanner from '../components/banner/banner.component';
  *
  */
 function main({ banner }) {
-  return mainBanner(banner, xs.of({ downloadUrl: '#download' }));
+  return {
+    banner: mainBanner(banner, xs.of({ downloadUrl: '#download' })).DOM
+  };
 }
 
 run(main, {

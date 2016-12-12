@@ -1,0 +1,21 @@
+{
+  "doc": "Adds a text header to the display with the specified level.",
+  "params": [
+    {
+      "index": 0,
+      "optional": false,
+      "type": "str",
+      "name": "header_text",
+      "description": " The text to display in the header"
+    },
+    {
+      "type": "int",
+      "description": " The level of the header, which corresponds to the html header levels, such as <h1>, <h2>, ...",
+      "index": 1,
+      "optional": true,
+      "name": "level",
+      "default": "1"
+    }
+  ],
+  "name": "header"
+}

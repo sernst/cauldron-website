@@ -89,13 +89,21 @@ function renderDropdownMenu(state) {
  * @returns {*}
  */
 function render(state) {
-  const name = bem('Banner');
+  const namer = bem('Banner');
 
-  return div(name(), [
-    div(name('container'), [
+  return div(namer(), [
+    div(namer('container'), [
       renderLogo(),
-      div(name('spacer')),
-      a(name('toggleMenuBtn'), 'Menu'),
+      div(namer('spacer')),
+      a(
+        namer('toggleMenuBtn'),
+        [
+          img(
+            namer('toggleMenuIcon'),
+            { attrs: { src: '/assets/images/menu-white.svg' } }
+          )
+        ]
+      ),
       renderMenuButtons(state),
     ]),
     renderDropdownMenu(state)

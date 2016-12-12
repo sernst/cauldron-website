@@ -1,0 +1,21 @@
+{
+  "doc": "An unordered or ordered list of the specified *source* iterable where each element is converted to a string representation for display.",
+  "params": [
+    {
+      "index": 0,
+      "optional": false,
+      "type": "list",
+      "name": "source",
+      "description": " The iterable to display as a list"
+    },
+    {
+      "type": "bool",
+      "description": " Whether or not the list should be ordered. If False, which is the default, an unordered bulleted list is created.",
+      "index": 1,
+      "optional": true,
+      "name": "ordered",
+      "default": "False"
+    }
+  ],
+  "name": "listing"
+}

@@ -1,0 +1,123 @@
+const fs = require('fs');
+const path = require('path');
+const Rx = require('rx');
+
+const DATA_DIRECTORY = path.normalize(path.join(__dirname, 'data'));
+
+
+/**
+ * Returns a stream that has an observable for each file in the specified
+ * directory. Each observable is an object containing the filename and
+ * fully-qualified path to the the file in the directory.
+ *
+ * @param directoryPath
+ *  The directory in which to list files
+ */
+function listFiles(directoryPath) {
+  return Rx.Observable.fromNodeCallback(fs.readdir)(directoryPath)
+    .catch(() => Rx.Observable.just([]))
+    .flatMap(files => files)
+    .map(filename => ({ filename, path: path.join(directoryPath, filename) }));
+}
+
+
+/**
+ * Reads the specified file and returns a stream with a single observable
+ * containing the JSON-parsed object for that file, including a path property
+ * that contains the filePath used to load the file
+ *
+ * @param fileData
+ */
+function readFile(fileData) {
+  function parseJson(source) {
+    try {
+      return JSON.parse(source);
+    } catch (ignore) {
+      return {};
+    }
+  }
+
+  return Rx.Observable.fromNodeCallback(fs.readFile)(fileData.path, 'utf8')
+    .map(contents => Object.assign(parseJson(contents), fileData));
+}
+
+
+/**
+ * Converts a date string in the format MM/DD/YYYY or MM-DD-YYYY into a
+ * JavaScript date object
+ *
+ * @param dateString
+ * @returns {Date}
+ */
+function fromDateString(dateString) {
+  const parts = dateString
+    .replace(/\\/g, '-')
+    .split('-')
+    .map(x => parseInt(x, 10));
+
+  return new Date(parts[2], parts[0] - 1, parts[1]);
+}
+
+
+/**
+ * Sorts data files by the value of their date properties such that the most
+ * recent date will be last
+ *
+ * @param firstEntry
+ *  A data file for comparison, which has a date property
+ * @param secondEntry
+ *  A data file for comparison, which has a date property
+ * @returns {number}
+ *  Standard sorting (-1, 0, 1) indicating the relative ordering of the two
+ *  entries
+ */
+function sortByDate(firstEntry, secondEntry) {
+  const firstDate = fromDateString(firstEntry.date || '1-1-2000').getTime();
+  const secondDate = fromDateString(secondEntry.date || '1-1-2000').getTime();
+
+  if (firstDate === secondDate) {
+    return 0;
+  }
+
+  return firstDate < secondDate ? -1 : 1;
+}
+
+
+/**
+ * Reads all files in the specified directory and returns a stream where each
+ * observable is the JSON-parsed contents of that file
+ *
+ * @param targetDirectory
+ *  Directory in which to read the contents of files
+ *
+ * @returns {Disposable|IDisposable}
+ *  Stream with observables for each file read
+ */
+function readAllFiles(targetDirectory) {
+  return listFiles(targetDirectory)
+    .map(p => readFile(p))
+    .concatAll()
+    .toArray()
+    .map(array => array.sort(sortByDate).reverse());
+}
+
+
+/**
+ *
+ */
+function fetchLocals() {
+  return Rx.Observable.combineLatest(
+    readAllFiles(path.join(DATA_DIRECTORY, 'display_functions')),
+    readAllFiles(path.join(DATA_DIRECTORY, 'projects')),
+    (displayFunctions, projects) => ({ displayFunctions, projects })
+  ).toPromise()
+    .then((locals) => {
+      const displayFunctions = {};
+      locals.displayFunctions.forEach((data) => {
+        displayFunctions[data.name] = data;
+      });
+
+      return Object.assign({}, locals, { displayFunctions });
+    });
+}
+exports.fetchLocals = fetchLocals;

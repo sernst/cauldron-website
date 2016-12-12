@@ -10,8 +10,14 @@
   "dependencies": {
     "@cycle/core": "^7.0.0",
     "@cycle/dom": "^14.1.0",
+    "@cycle/history": "^4.0.2",
+    "@cycle/http": "^11.2.0",
     "@cycle/xstream-run": "^3.1.0",
+    "cyclic-router": "^3.0.1",
+    "history": "^4.4.1",
     "normalize-css": "^2.3.1",
+    "rx": "^4.1.0",
+    "switch-path": "^1.1.8",
     "systemjs": "^0.19.41",
     "xstream": "^8.0.0"
   },
