@@ -48,7 +48,7 @@ function html() {
   function renderHtml(locals, resolve, reject) {
     return gulp.src('app/**/*.page.pug')
       .pipe(plumber())
-      .pipe(pug({ locals }))
+      .pipe(pug({ locals, filters: pugger.filters }))
       .pipe(rename((file) => {
         Object.assign(file, { basename: 'index' });
       }))
@@ -76,7 +76,7 @@ function htmlFragments() {
   function renderHtml(locals, resolve, reject) {
     return gulp.src('app/**/*.fragment.pug')
       .pipe(plumber())
-      .pipe(pug({ locals }))
+      .pipe(pug({ locals, filters: pugger.filters }))
       .pipe(rename((file) => {
         Object.assign(file, { basename: file.basename.split('.')[0] });
       }))

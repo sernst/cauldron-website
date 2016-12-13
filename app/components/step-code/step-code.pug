@@ -1,0 +1,7 @@
+mixin stepCode(title, color)
+  div(class='StepCode')
+    div(class=['StepCode__banner', 'StepCode__banner--' + (color || 'black')])
+      div(class='StepCode__prefix') Step:
+      div(class='StepCode__title')= title
+    div(class='StepCode__box')
+      block

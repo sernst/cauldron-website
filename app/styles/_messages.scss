@@ -1,0 +1,32 @@
+.Message {
+  padding: 1em;
+  margin: 1em;
+  display: flex;
+  align-items: center;
+
+  @media #{$less-than-m} {
+    flex-direction: column;
+  }
+
+  &--bad {
+    background-color: #ff9999;
+    border: 1px solid #ab2b2b;
+    color: #791a1a;
+  }
+
+  &__icon {
+    max-width: 72px;
+  }
+
+  &__box {
+    padding-left: 1em;
+  }
+
+  &__title {
+    font-size: 1.25em;
+  }
+
+  &__info {
+    opacity: 0.7;
+  }
+}

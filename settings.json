@@ -7,7 +7,8 @@
       "@cycle/xstream-run/dist/cycle:"
     ],
     "css": [
-      "normalize-css/normalize.css"
+      "normalize-css/normalize.css",
+      "highlightjs/styles/github-gist.css"
     ]
   }
 }

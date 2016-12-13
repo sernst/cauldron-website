@@ -1,0 +1,7 @@
+mixin messageBox(type, title, info)
+  div(class=[ 'Message', 'Message--' + type ])
+    img(class='Message__icon', src='/assets/images/message-' + type + '.svg')
+    div(class='Message__box')
+      div(class='Message__title')= title
+      if(info)
+        div(class='Message__info')= info

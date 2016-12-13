@@ -1,6 +1,9 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 const fs = require('fs');
 const path = require('path');
 const Rx = require('rx');
+const highlight = require('highlightjs');
 
 const DATA_DIRECTORY = path.normalize(path.join(__dirname, 'data'));
 
@@ -121,3 +124,29 @@ function fetchLocals() {
     });
 }
 exports.fetchLocals = fetchLocals;
+
+
+/**
+ *
+ * @param text
+ * @param options
+ * @returns {*}
+ */
+function highlightFilter(text, options) {
+  const code = text.trim();
+  const raw = highlight.highlight(options.language || 'Python', code).value;
+  const lineNumbers = raw
+    .split(/\n/g)
+    .map((line, index) => {
+      const number = index < 9 ? `0${index + 1}` : `${index + 1}`;
+      return `<div class="CodeBlock__lineNumber">${number}</div>`;
+    })
+    .join('\n');
+
+  return `<div class="CodeBlock"><div class="CodeBlock__lineNumbers">${lineNumbers}</div><div class="CodeBlock__code">${raw}</div></div>`;
+}
+exports.highlightFilter = highlightFilter;
+
+exports.filters = {
+  highlight: highlightFilter
+};

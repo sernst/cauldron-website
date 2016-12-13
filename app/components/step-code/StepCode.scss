@@ -1,0 +1,42 @@
+.StepCode {
+  margin: 1em auto;
+
+  &__banner {
+    font-size: 0.8em;
+    padding: 0.25em;
+    display: flex;
+
+    &--black {
+      background-color: #555;
+      color: white;
+    }
+
+    &--blue {
+      background-color: #99beff;
+      color: #293f66;
+    }
+
+    &--orange {
+      background-color: #ffd099;
+      color: #66351c;
+    }
+
+    &--green {
+      background-color: #bcffa4;
+      color: #34663f;
+    }
+
+    &--red {
+      background-color: #fa9696;
+      color: #791a1a;
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+  }
+
+  &__prefix {
+    margin-right: 0.5em;
+  }
+}

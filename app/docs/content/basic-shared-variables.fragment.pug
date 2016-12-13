@@ -1,37 +1,45 @@
+include ../../components/step-code/step-code
+
 div(class='Display__title') Shared &amp; Local Variables
 
 p.
-  Cauldron does not share all variables between cells. Instead all
-  variables are local unless you explicitly share them using the cauldron
-  shared object. Consider a step (cell) in a notebook with the following
-  code:
+  In Cauldron, all variables are local within a step unless you explicitly
+  share them. If we have a notebook step named "S01.py" that contains the
+  following code:
 
-pre.
-  import cauldron as cd
-  x = 12
-
-p And then another step (cell) with the following code:
-
-pre.
-  import cauldron as cd
-  print(x)
++stepCode('S01.py', 'blue')
+  :highlight()
+    import cauldron as cd
+    x = 12
 
 p.
-  If you run these steps in order the second step will raise an exception
-  because the x variable is not defined in that step. The proper way to
-  share variables between steps is to add them to the cauldron shared
-  object like this:
+  And we want to share the #[em x] variable with the "S02.py" step, we might
+  expect this to work:
 
-pre.
-  import cauldron as cd
-  cd.shared.x = 12
-
-p And then another step (cell) with the following code:
-
-pre.
-  import cauldron as cd
-  print(cd.shared.x)
++stepCode('S02.py', 'green')
+  :highlight()
+    import cauldron as cd
+    print(x)
 
 p.
-  In this case the second step will correctly print a value of 12 in the
-  second step.
+  But if you run this notebook, the "S02.py" step will raise an error
+  because the #[em x] variable is not defined in that step. It needs to be
+  explicitly shared between the steps by using Cauldron's shared module
+  like this:
+
++stepCode('S01.py', 'blue')
+  :highlight
+    import cauldron as cd
+    cd.shared.x = 12
+
+p.
+  We can then access the variable in "S02.py" by accessing the variable from
+  Cauldrons shared module:
+
++stepCode('S02.py', 'green')
+  :highlight
+    import cauldron as cd
+    print(cd.shared.x)
+
+p.
+  Now "S02.py" correctly prints a value of 12 to the notebook.
