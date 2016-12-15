@@ -1,0 +1,79 @@
+@import "Platform";
+
+.DownloadSection {
+  background-color: $cauldron-green;
+  min-height: 100px;
+
+  &__aligner {
+    max-width: $centered-page-width;
+    margin: 0 auto;
+    padding: 1.0em;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: 2em;
+    margin-top: 1em;
+  }
+
+  &__header {
+    font-size: 1.4em;
+  }
+
+  &__step {
+    margin: 1em 0;
+    display: flex;
+
+    @media #{$less-than-m} {
+      flex-direction: column;
+    }
+  }
+
+  &__iconBox {
+    display: flex;
+    padding: 0 1em;
+
+    @media #{$less-than-m} {
+      justify-content: center;
+      padding: 1em;
+    }
+  }
+
+  &__numberIcon {
+    height: 48px;
+  }
+
+  &__instructionBox {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  &__codeBox {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    padding: 0.25em;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: white;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__platformBox {
+    display: flex;
+    margin-top: 1em;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__platforms {
+    display: flex;
+    flex-direction: column;
+  }
+}

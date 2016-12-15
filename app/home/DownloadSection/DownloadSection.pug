@@ -1,0 +1,69 @@
+include _mixins
+
+div(id='download' class='DownloadSection')
+  .DownloadSection__aligner
+    .DownloadSection__title Cauldron Installation
+    :markdown-it
+      Cauldron takes advantage of the latest and greatest features of
+      Python and requires __Python 3.5+__. It will not work with Python 2.7.
+
+    .DownloadSection__step
+      .DownloadSection__iconBox
+        img(
+          class='DownloadSection__numberIcon'
+          src='/assets/images/number-circle-1.svg'
+        )
+      .DownloadSection__instructionBox
+        .DownloadSection__header Python Package
+        div The cauldron python package can be installed using either conda:
+        .DownloadSection__codeBox $ conda install -c sernst cauldron
+        div or pip:
+        .DownloadSection__codeBox $ pip install cauldron-notebook
+        div
+          span.
+            More detailed installation information for the package is
+            available at the&nbsp;
+          a(
+            class='DownloadSection__link'
+            href='https://www.github.com/sernst/cauldron'
+          ) Cauldron Github
+          span &nbsp;page
+
+    .DownloadSection__step
+      .DownloadSection__iconBox
+        img(
+          class='DownloadSection__numberIcon'
+          src='/assets/images/number-circle-2.svg'
+        )
+      .DownloadSection__instructionBox
+        .DownloadSection__header Desktop Application
+        div.
+          If you experience issues installing the desktop application, please
+          check to make sure antivirus protection isn't blocking the
+          installation process. Also, the Cauldron desktop application is only
+          available for 64 bit operating systems.
+
+        .DownloadSection__platformBox
+          .DownloadSection__platforms
+            +makePlatform(
+              'Windows',
+              '(8.1+)',
+              'windows-logo',
+              'http://nexus.cauldron-notebook.com/editor/win/CauldronSetup.exe'
+            )
+            +makePlatform(
+              'Mac',
+              '(macOS 10.11+ El Capitan)',
+              'apple-logo',
+              'http://nexus.cauldron-notebook.com/editor/osx/Cauldron-1.340.415.dmg'
+            )
+            +makePlatform(
+              'Fedora/Redhat',
+              '(RPM Flavors)',
+              'linux-logo'
+            )
+            +makePlatform(
+              'Ubuntu',
+              '(DEB Flavors)',
+              'linux-logo'
+            )

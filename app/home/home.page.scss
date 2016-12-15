@@ -1,8 +1,9 @@
 @import "../styles/styles";
 
 @import "../components/PageBanner/PageBanner";
-@import "headline/headline";
+@import "../components/PageFooter/PageFooter";
+
+@import "Headline/Headline";
 @import "benefits/benefits";
-@import "download/download";
-@import "about/about";
-@import "../components/footer/footer";
+@import "DownloadSection/DownloadSection";
+

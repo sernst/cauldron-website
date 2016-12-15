@@ -7,11 +7,10 @@ html
   body
     div(id='app')
       section(id='bannerSection')
-      include home/headline/_headline
-      // include components/home/about/_about
+      include home/Headline/Headline
       include home/benefits/_benefits
       div(style='flex: 1')
-      include home/download/_download
-      include components/footer/_footer
+      include home/DownloadSection/DownloadSection
+      include components/PageFooter/PageFooter
 
     script(src='home/home.js')

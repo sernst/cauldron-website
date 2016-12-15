@@ -1,0 +1,15 @@
+mixin makePlatform(title, details, logo, link)
+  .Platform
+    img(
+    class='Platform__icon'
+    src=`/assets/images/${logo}.svg`
+    )
+    .Platform__name
+      div=title
+      .Platform__details=details
+    .Platform__spacer
+
+    if (link)
+      a(class='Platform__button' href=link) Download
+    else
+      .Platform__info Coming Soon
