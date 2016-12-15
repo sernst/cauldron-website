@@ -24,10 +24,16 @@ html
           span for reference.
 
         .GalleryPage__items
+
           +createNotebookLink('v1', 'bokeh-basics', 'Bokeh Basics')
             div
               | Basic plotting with Bokeh inside Cauldron. Uses the Auto MPG
-              | dataset to plot bar and scatter plots.
+              | dataset to create bar and scatter plots.
 
-      div(style='flex: 1')
+          +createNotebookLink('v1', 'plotly-basics', 'Plotly Basics')
+            div
+              | Basic plotting with Plotly inside Cauldron. Uses the Auto MPG
+              | dataset to create histogram, bar and scatter plots.
+
+      div(style='flex: 1; min-height: 150px;')
       script(src='gallery.js')
