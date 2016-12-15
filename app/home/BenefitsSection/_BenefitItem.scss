@@ -1,26 +1,4 @@
-.benefits {
-  padding: 0 0 2em 0;
-
-  &__header {
-    text-align: center;
-    font-size: 2em;
-    margin-top: 2em;
-  }
-
-  &__aligner {
-    max-width: $centered-page-width;
-    margin: 2em auto;
-    display: flex;
-    align-items: flex-start;
-
-    @media #{$less-than-m} {
-      display: block;
-      padding: 0 1em;
-    }
-  }
-}
-
-.benefits-li {
+.BenefitsSection .BenefitItem {
   display: flex;
   flex-direction: column;
   justify-content: center;
