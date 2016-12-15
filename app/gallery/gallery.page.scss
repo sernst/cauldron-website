@@ -1,3 +1,29 @@
 @import "../styles/styles";
 
-@import "../components/banner/banner";
+@import "../components/PageBanner/PageBanner";
+@import "../components/footer/footer";
+@import "../components/NotebookLink/NotebookLink";
+
+.GalleryPage {
+  display: flex;
+  flex-direction: column;
+  max-width: $centered-page-width;
+  margin: 2em auto 0 auto;
+
+  &__title {
+    font-size: 2em;
+  }
+
+  &__subtitle {
+    font-size: 0.9em;
+  }
+
+  &__link {
+    @include green-link;
+    margin: 0 0.3em;
+  }
+
+  &__items {
+    margin: 2em 1em;
+  }
+}

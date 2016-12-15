@@ -4,7 +4,7 @@ import { makeDOMDriver } from '@cycle/dom';
 import { makeHTTPDriver } from '@cycle/http';
 
 import makeLocationHashDriver from './LocationHashDriver';
-import Banner from '../components/banner/banner.component';
+import PageBanner from '../components/PageBanner/PageBanner';
 import Navigator from './navigator/Navigator';
 import Display from './display/Display';
 
@@ -31,6 +31,13 @@ const definitions = [
     label: 'Advanced',
     links: [
       { label: 'In Production', id: 'advanced-production' }
+    ]
+  },
+  {
+    label: 'Step Functions',
+    links: [
+      { label: 'breathe', id: 'step-breathe' },
+      { label: 'stop', id: 'step-stop' }
     ]
   },
   {
@@ -64,7 +71,10 @@ const definitions = [
  */
 function main(sources) {
   const display = Display(sources.HTTP);
-  const banner = Banner(sources.banner, xs.of({ downloadUrl: '/#download' }));
+  const banner = PageBanner(
+    sources.banner,
+    xs.of({ downloadUrl: '/#download' })
+  );
   const navigator = Navigator(
     sources.navigator,
     sources.hash,

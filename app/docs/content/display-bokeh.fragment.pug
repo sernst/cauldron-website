@@ -1,6 +1,30 @@
-include ../../components/function-documentation/function-documentation
+include ../../components/FunctionDocumentation/FunctionDocumentation
+include ../../components/NotebookLink/NotebookLink
 
-div(class='Display__title') bokeh
-div(class='Display__breadcrumb') cauldron.display.bokeh
+.Display__title bokeh
+.Display__breadcrumb cauldron.display.bokeh()
 
 +createFunctionDoc(displayFunctions.bokeh)
+
+.Display__h1 Basic Usage
+
++createBullet()
+  div No special initialization necessary to use Bokeh in Cauldron
+
+:highlight()
+  import cauldron as cd
+  from bokeh.charts import Bar
+  from bokeh.sampledata.autompg import autompg as df
+
+  # Create bar chart from data frame
+  bar_plot = Bar(df, label='cyl', title='Distribution of Cyclinders')
+
+  # Add the bar chart to the notebook
+  cd.display.bokeh(bar_plot)
+
+.Display__h1 Examples
+
++createNotebookLink('v1', 'bokeh-basics', 'Bokeh Basics')
+  div
+    | Basic plotting with Bokeh inside Cauldron. Uses the Auto MPG
+    | dataset to plot bar and scatter plots.

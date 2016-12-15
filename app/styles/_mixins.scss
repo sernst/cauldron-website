@@ -1,0 +1,24 @@
+@mixin no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+@mixin green-link {
+  font-weight: bolder;
+  font-style: italic;
+  border-bottom: 2px solid transparent;
+  opacity: 0.8;
+  color: $cauldron-green-dark;
+  transition:
+          color 0.5s ease,
+          border-bottom 0.5s ease;
+
+  &:hover {
+    color: $cauldron-green;
+    border-bottom: 2px solid $cauldron-green;
+  }
+}

@@ -1,38 +1,38 @@
 {
-  "doc": "Updates the status display, which is only visible while a step is running. This is useful for providing feedback and information during long-running steps. A section progress is also available for cases where long running tasks consist of multiple tasks and you want to display sub-progress messages within the context of the larger status. Note: this is only supported when running in the Cauldron desktop application.",
+  "name": "status",
   "params": [
     {
-      "type": "str",
-      "description": " The status message you want to display. If left blank the previously set status message will be retained. Should you desire to remove an existing message, specify a blank string for this argument.",
       "index": 0,
       "optional": true,
+      "default": "None",
       "name": "message",
-      "default": "None"
+      "type": "str",
+      "description": " The status message you want to display. If left blank the previously set status message will be retained. Should you desire to remove an existing message, specify a blank string for this argument."
     },
     {
-      "type": "float",
-      "description": " A number between zero and one that indicates the overall progress for the current status. If no value is specified, the previously assigned progress will be retained.",
       "index": 1,
       "optional": true,
+      "default": "None",
       "name": "progress",
-      "default": "None"
+      "type": "float",
+      "description": " A number between zero and one that indicates the overall progress for the current status. If no value is specified, the previously assigned progress will be retained."
     },
     {
-      "type": "str",
-      "description": " The status message you want to display for a particular task within a long-running step. If left blank the previously set section message will be retained. Should you desire to remove an existing message, specify a blank string for this argument.",
       "index": 2,
       "optional": true,
+      "default": "None",
       "name": "section_message",
-      "default": "None"
+      "type": "str",
+      "description": " The status message you want to display for a particular task within a long-running step. If left blank the previously set section message will be retained. Should you desire to remove an existing message, specify a blank string for this argument."
     },
     {
-      "type": "float",
-      "description": " A number between zero and one that indicates the progress for the current section status. If no value is specified, the previously assigned section progress value will be retained.",
       "index": 3,
       "optional": true,
+      "default": "None",
       "name": "section_progress",
-      "default": "None"
+      "type": "float",
+      "description": " A number between zero and one that indicates the progress for the current section status. If no value is specified, the previously assigned section progress value will be retained."
     }
   ],
-  "name": "status"
+  "doc": "Updates the status display, which is only visible while a step is running. This is useful for providing feedback and information during long-running steps. A section progress is also available for cases where long running tasks consist of multiple tasks and you want to display sub-progress messages within the context of the larger status. Note: this is only supported when running in the Cauldron desktop application."
 }

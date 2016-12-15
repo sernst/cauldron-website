@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(/assets/icons/MaterialIcons-Regular.woff2) format('woff2'),
+    url(/assets/icons/MaterialIcons-Regular.woff) format('woff'),
+    url(/assets/icons/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.Icon {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+}
+
+/* Rules for sizing the icon. */
+.Icon--xxs { font-size: 18px; }
+.Icon--xs { font-size: 24px; }
+.Icon--s { font-size: 28px; }
+.Icon--m { font-size: 32px; }
+.Icon--l { font-size: 36px; }
+.Icon--xl { font-size: 48px; }
+.Icon--xxl { font-size: 64px; }
+
+/* Rules for using icons as black on a light background. */
+.Icon--dark { color: rgba(0, 0, 0, 0.54); }
+.Icon--dark-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.Icon--light { color: rgba(255, 255, 255, 1); }
+.Icon--light-inactive { color: rgba(255, 255, 255, 0.3); }
+
+/** Orange **/
+.Icon--orange { color: #FB8C00; }
+.Icon--orange-inactive { color: opacify(#FB8C00, 0.2); }
+
+/** Green **/
+.Icon--green { color: $cauldron-green; }
+.Icon--green-inactive { color: opacify($cauldron-green, 0.3); }

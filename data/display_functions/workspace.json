@@ -1,22 +1,22 @@
 {
-  "doc": "Adds a list of the shared variables currently stored in the project workspace.",
+  "name": "workspace",
   "params": [
     {
-      "type": "bool",
-      "description": " When true the values for each variable will be shown in addition to their name",
       "index": 0,
       "optional": true,
+      "default": "True",
       "name": "show_values",
-      "default": "True"
+      "type": "bool",
+      "description": " When true the values for each variable will be shown in addition to their name"
     },
     {
-      "type": "bool",
-      "description": " When true the data types for each shared variable will be shown in addition to their name",
       "index": 1,
       "optional": true,
+      "default": "True",
       "name": "show_types",
-      "default": "True"
+      "type": "bool",
+      "description": " When true the data types for each shared variable will be shown in addition to their name"
     }
   ],
-  "name": "workspace"
+  "doc": "Adds a list of the shared variables currently stored in the project workspace."
 }

@@ -1,0 +1,8 @@
+mixin createNotebookLink(version, name, title)
+  a(class='NotebookLink' href='/notebooks/' + version + '/' + name + '.html')
+    .NotebookLink__thumbnail
+      img(src='/assets/notebook-thumbnails/' + version + '/' + name + '.jpg')
+    .NotebookLink__text
+      .NotebookLink__title=title
+      .NotebookLink__summary
+        block

@@ -1,13 +1,33 @@
+include ../components/NotebookLink/NotebookLink
+
 html
   head
     meta(name='viewport' content='width=device-width, initial-scale=1')
     title Cauldron Gallery
-    link(rel='stylesheet' href='/external.css')
+    include ../components/common-header
     link(rel='stylesheet' href='gallery.css')
-    include ../components/gitter/_gitter
 
   body
     div(id='app')
       section(id='bannerSection')
-      div(style='flex:grow')
+
+      .GalleryPage
+        .GalleryPage__title Gallery of Example Cauldron Notebooks
+        .GalleryPage__subtitle
+          span.
+            The code for the all the examples shown in this gallery are
+            available in the
+          a(
+            class='GalleryPage__link'
+            href='https://github.com/sernst/cauldron-gallery'
+          ) Cauldron-Gallery GitHub Repository
+          span for reference.
+
+        .GalleryPage__items
+          +createNotebookLink('v1', 'bokeh-basics', 'Bokeh Basics')
+            div
+              | Basic plotting with Bokeh inside Cauldron. Uses the Auto MPG
+              | dataset to plot bar and scatter plots.
+
+      div(style='flex: 1')
       script(src='gallery.js')

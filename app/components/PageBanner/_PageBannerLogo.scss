@@ -1,0 +1,18 @@
+.PageBannerLogo {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  @include no-select;
+
+  &__image {
+    width: 32px;
+    height: 32px;
+  }
+
+  &__title {
+    color: white;
+    font-size: 1.2em;
+    padding-left: 0.5em;
+  }
+}

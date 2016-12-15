@@ -1,13 +1,13 @@
 {
-  "doc": "A string containing an HTML DOM snippet",
+  "name": "html",
   "params": [
     {
-      "index": 0,
-      "optional": false,
-      "type": "str",
       "name": "dom",
+      "index": 0,
+      "type": "str",
+      "optional": false,
       "description": " The HTML string to add to the display"
     }
   ],
-  "name": "html"
+  "doc": "A string containing a valid HTML snippet"
 }

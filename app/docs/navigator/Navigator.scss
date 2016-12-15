@@ -31,12 +31,16 @@
   &__header {
     font-weight: bolder;
     margin: 1em 0 0.5em 0;
+
+    @include no-select;
   }
 
   &__link {
     cursor: pointer;
-    margin: 0.25em 1em;
+    margin: 0.5em 1em;
     color: $cauldron-green-dark;
+
+    @include no-select;
 
     &:hover {
       color: $cauldron-green;

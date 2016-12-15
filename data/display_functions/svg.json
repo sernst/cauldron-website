@@ -1,21 +1,21 @@
 {
-  "doc": "Adds the specified SVG string to the display. If a filename is included, the SVG data will also be saved to that filename within the project results folder.",
+  "name": "svg",
   "params": [
     {
-      "index": 0,
-      "optional": false,
-      "type": "str",
       "name": "svg_dom",
+      "index": 0,
+      "type": "str",
+      "optional": false,
       "description": " The SVG string data to add to the display"
     },
     {
-      "type": "str",
-      "description": " An optional filename where the SVG data should be saved within the project results folder",
       "index": 1,
       "optional": true,
+      "default": "None",
       "name": "filename",
-      "default": "None"
+      "type": "str",
+      "description": " An optional filename where the SVG data should be saved within the project results folder"
     }
   ],
-  "name": "svg"
+  "doc": "Adds the specified SVG string to the display. If a filename is included, the SVG data will also be saved to that filename within the project results folder."
 }

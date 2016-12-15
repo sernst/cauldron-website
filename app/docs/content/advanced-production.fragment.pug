@@ -1,9 +1,9 @@
-div(class='Display__title') Running in Production
+.Display__title Running in Production
 
-p.
+.Display__p.
   Cauldron is designed to make it easy to run a notebook in a production
   environment from within Python or directly from a command line.
-p.
+.Display__p.
   When called from within Python the execution would look like this:
 
 :highlight
@@ -13,11 +13,11 @@ p.
 
   cauldron.run_project(project_directory, output_directory, logging_path)
 
-p.
+.Display__p.
   This will open, run and then close the specified project. The HTML will
   be exported to the output directory. The data normally printed to the
   console will be saved to the specified logging_path file.
-p.
+.Display__p.
   The exact same command can be run from the command line using the
   cauldron command and supplying the necessary arguments:
 
@@ -26,6 +26,6 @@ p.
              --output='/save/my/results/in/this/directory' \
              --log='/log/data/to/this/filename.log'
 
-p.
+.Display__p.
   This does exactly the same thing as the python script shown above, but
   can be called directly from a terminal or added to a shell script.

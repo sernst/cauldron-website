@@ -1,21 +1,21 @@
 {
-  "doc": "Adds the specified data frame to the display in a nicely formatted scrolling table",
+  "name": "table",
   "params": [
     {
-      "index": 0,
-      "optional": false,
-      "type": "Any",
       "name": "data_frame",
+      "index": 0,
+      "type": "Any",
+      "optional": false,
       "description": " The pandas data frame to be rendered to a table"
     },
     {
-      "type": "float",
-      "description": " The display scale with units of fractional screen height. A value of 0.5 constrains the output to a maximum height equal to half the height of browser window when viewed. Values below 1.0 are usually recommended so the entire output can be viewed without scrolling.",
       "index": 1,
       "optional": true,
+      "default": "0.7",
       "name": "scale",
-      "default": "0.7"
+      "type": "float",
+      "description": " The display scale with units of fractional screen height. A value of 0.5 constrains the output to a maximum height equal to half the height of browser window when viewed. Values below 1.0 are usually recommended so the entire output can be viewed without scrolling."
     }
   ],
-  "name": "table"
+  "doc": "Adds the specified data frame to the display in a nicely formatted scrolling table"
 }

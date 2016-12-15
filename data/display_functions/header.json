@@ -1,21 +1,21 @@
 {
-  "doc": "Adds a text header to the display with the specified level.",
+  "name": "header",
   "params": [
     {
-      "index": 0,
-      "optional": false,
-      "type": "str",
       "name": "header_text",
+      "index": 0,
+      "type": "str",
+      "optional": false,
       "description": " The text to display in the header"
     },
     {
-      "type": "int",
-      "description": " The level of the header, which corresponds to the html header levels, such as <h1>, <h2>, ...",
       "index": 1,
       "optional": true,
+      "default": "1",
       "name": "level",
-      "default": "1"
+      "type": "int",
+      "description": " The level of the header, which corresponds to the html header levels, such as <h1>, <h2>, ..."
     }
   ],
-  "name": "header"
+  "doc": "Adds a text header to the display with the specified level."
 }

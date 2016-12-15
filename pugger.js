@@ -109,19 +109,28 @@ function readAllFiles(targetDirectory) {
  *
  */
 function fetchLocals() {
-  return Rx.Observable.combineLatest(
-    readAllFiles(path.join(DATA_DIRECTORY, 'display_functions')),
-    readAllFiles(path.join(DATA_DIRECTORY, 'projects')),
-    (displayFunctions, projects) => ({ displayFunctions, projects })
-  ).toPromise()
-    .then((locals) => {
-      const displayFunctions = {};
-      locals.displayFunctions.forEach((data) => {
-        displayFunctions[data.name] = data;
-      });
-
-      return Object.assign({}, locals, { displayFunctions });
+  function toObject(source) {
+    const out = {};
+    source.forEach((data) => {
+      out[data.name] = data;
     });
+
+    return out;
+  }
+
+  return Rx.Observable
+    .combineLatest(
+      readAllFiles(path.join(DATA_DIRECTORY, 'display_functions')),
+      readAllFiles(path.join(DATA_DIRECTORY, 'step_functions')),
+      (display, step) => ({ display, step })
+    )
+    .toPromise()
+    .then(locals => (
+      Object.assign({}, locals, {
+        displayFunctions: toObject(locals.display),
+        stepFunctions: toObject(locals.step)
+      })
+    ));
 }
 exports.fetchLocals = fetchLocals;
 

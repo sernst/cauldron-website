@@ -1,21 +1,21 @@
 {
-  "doc": "Adds text to the display. If the text is not preformatted, it will be displayed in paragraph format. Preformatted text will be displayed inside a pre tag with a monospace font.",
+  "name": "text",
   "params": [
     {
-      "index": 0,
-      "optional": false,
-      "type": "str",
       "name": "value",
+      "index": 0,
+      "type": "str",
+      "optional": false,
       "description": " The text to display"
     },
     {
-      "type": "bool",
-      "description": " Whether or not to preserve the whitespace display the text",
       "index": 1,
       "optional": true,
+      "default": "False",
       "name": "preformatted",
-      "default": "False"
+      "type": "bool",
+      "description": " Whether or not to preserve the whitespace display the text"
     }
   ],
-  "name": "text"
+  "doc": "Adds text to the display. If the text is not preformatted, it will be displayed in paragraph format. Preformatted text will be displayed inside a pre tag with a monospace font."
 }

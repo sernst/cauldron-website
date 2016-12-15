@@ -1,6 +1,6 @@
-div(class='Display__title') The Notebook Display
+.Display__title The Notebook Display
 
-p.
+.Display__p.
   Cauldron approaches the display differently than other notebooks.
   Anything that you want to appear in the notebook output, from text to graphs,
   must be added using Cauldron's display module, which is available from the
@@ -10,17 +10,17 @@ p.
   import cauldron as cd
   cd.display.text('Hello World!')
 
-p.
+.Display__p.
   There is only one exception to this rule. Python's built-in print function
   will also add text to the display:
 
 :highlight()
   print('Hello World!')
 
-p.
+.Display__p.
   exactly the same way it does in any other Python runtime environment.
 
-p.
+.Display__p.
   The display module has a number of functions for adding different types of
   content. For more information on these functions see the "Display Functions"
   section of this documentation where they are listed individually.

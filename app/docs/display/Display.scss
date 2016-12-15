@@ -17,25 +17,19 @@
     font-size: 1.1em;
   }
 
-  a {
-    font-weight: bolder;
-    font-style: italic;
-    border-bottom: 2px solid transparent;
-    opacity: 0.8;
-    color: $cauldron-green-dark;
-    transition:
-      color 0.5s ease,
-      border-bottom 0.5s ease;
-
-    &:hover {
-      color: $cauldron-green;
-      border-bottom: 2px solid $cauldron-green;
-    }
+  &__link {
+    @include green-link;
   }
 
-  p {
+  &__h1 {
+    margin: 2em 0 0.5em 0;
+    font-size: 1.8em;
+  }
+
+  &__p {
     line-height: 1.5;
     font-size: 1.1em;
+    margin: 0.5em auto 1em auto;
   }
 
   li {
@@ -56,18 +50,5 @@
     font-style: italic;
     color: black;
     color: rgba(49, 62, 26, 0.7);
-  }
-
-  .DisplayFunc__args {
-    li {
-      margin: 0.5em 0;
-    }
-
-    em {
-      font-size: 1em;
-      font-style: normal;
-      font-weight: bold;
-      color: $cauldron-green-dark;
-    }
   }
 }

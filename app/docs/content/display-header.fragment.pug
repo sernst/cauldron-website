@@ -1,6 +1,20 @@
-include ../../components/function-documentation/function-documentation
+include ../../components/FunctionDocumentation/FunctionDocumentation
 
-div(class='Display__title') header
-div(class='Display__breadcrumb') cauldron.display.header
+.Display__title header
+.Display__breadcrumb cauldron.display.header()
 
 +createFunctionDoc(displayFunctions.header)
+
+.Display__h1 Basic Usage
+
+:highlight()
+  import cauldron as cd
+
+  # Add a level-1 header (the largest)
+  cd.display.header('Title')
+
+  # Add a level-2 header (smaller than a level-1)
+  cd.display.header('Subtitle', 2)
+
+  # Add a level-3 header (smaller than a level-2)
+  cd.display.header('Section Title', 3)

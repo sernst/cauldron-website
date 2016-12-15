@@ -1,21 +1,21 @@
 {
-  "doc": "Displays a specified number of elements in a source object of many different possible types.",
+  "name": "head",
   "params": [
     {
-      "index": 0,
-      "optional": false,
-      "type": "Any",
       "name": "source",
+      "index": 0,
+      "type": "Any",
+      "optional": false,
       "description": " DataFrames will show *count* rows of that DataFrame. A list, tuple or other iterable, will show the first *count* rows. Dictionaries will show *count* keys from the dictionary, which will be randomly selected unless you are using an OrderedDict. Strings will show the first *count* characters."
     },
     {
-      "type": "int",
-      "description": " The number of elements to show from the source.",
       "index": 1,
       "optional": true,
+      "default": "5",
       "name": "count",
-      "default": "5"
+      "type": "int",
+      "description": " The number of elements to show from the source."
     }
   ],
-  "name": "head"
+  "doc": "Displays a specified number of elements in a source object of many different possible types."
 }

@@ -2,7 +2,7 @@ import xs from 'xstream';
 import { run } from '@cycle/xstream-run';
 import { makeDOMDriver } from '@cycle/dom';
 
-import mainBanner from '../components/banner/banner.component';
+import mainBanner from '../components/PageBanner/PageBanner';
 
 
 /**

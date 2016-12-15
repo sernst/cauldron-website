@@ -1,13 +1,13 @@
 {
-  "doc": "Adds the specified data to the the output display window with the specified key. This allows the user to make available arbitrary JSON-compatible data to the display for runtime use.",
+  "name": "json",
   "params": [
     {
-      "index": 0,
-      "optional": false,
-      "type": "Any",
       "name": "kwargs",
+      "index": 0,
+      "type": "Any",
+      "optional": false,
       "description": " Each keyword argument is added to the CD.data object with the specified key and value."
     }
   ],
-  "name": "json"
+  "doc": "Adds the specified data to the the output display window with the specified key. This allows the user to make available arbitrary JSON-compatible data to the display for runtime use."
 }

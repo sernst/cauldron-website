@@ -1,7 +1,19 @@
-include ../../components/function-documentation/function-documentation
+include ../../components/FunctionDocumentation/FunctionDocumentation
 
-div(class='Display__title') html
-div(class='Display__breadcrumb') cauldron.display.html
+.Display__title html
+.Display__breadcrumb cauldron.display.html()
 
 +createFunctionDoc(displayFunctions.html)
+
+.Display__h1 Basic Usage
+
++createBullet('warning')
+  div.
+    Page-level tags such as head or body are not allowed
+
+:highlight()
+  import cauldron as cd
+
+  # Adds a div tag containing the text: Hello World!
+  cd.display.html('<div>Hello World!</div>')
 

@@ -1,8 +1,8 @@
-include ../../components/message-box
+include ../../components/MessageBox/MessageBox
 
-div(class='Display__title') Introduction
+.Display__title Introduction
 
-p.
+.Display__p.
   Cauldron is called the #[em unnotebook] because it
   differs fom traditional notebooks in two key ways:
 
@@ -12,35 +12,35 @@ p.
   'Cauldron notebooks are made up of multiple files'
 )
 
-p.
+.Display__p.
   Sharing code use to be cumbersome. Single file notebooks were a way around
   that problem, but today code-hosting services like
-    #[a(href='https://github.com') GitHub]
+    #[a(class='Display__link' href='https://github.com') GitHub]
   and
-    #[a(href='https://bitbucket.org/') BitBucket]
+    #[a(class='Display__link' href='https://bitbucket.org/') BitBucket]
   make code sharing easy. Single notebook files have now become the cumbersome
   way to share code because they don't play nicely with these code hosting
   services. Collaboration results in unnecessary merge conflicts. Code can't
   be easily reviewed by peers. And extra display data is stored in every commit
   whether you want it or not.
-p.
+.Display__p.
   Cauldron notebooks are folders containing multiple project files instead of
   storing everything in one file. Each cell of a notebook is stored in its own
   code file. A settings file, named #[em cauldron.json], resides within that
   folder and contains the metadata and information Cauldron uses to run the
   notebook.
-p.
+.Display__p.
   Display data is also stored in separate files. They can be saved, or
   not, when you choose to avoid polluting the version control system
   with meaningless updates caused by re-running unmodified steps.
 
 +messageBox(
   'bad',
-  'No Writing Code Inline with Display',
+  'No Editing Code in the Display',
   'Cauldron separates authoring from display and lets you use the code editor of your choice'
 )
 
-p.
+.Display__p.
   Cauldron has no code editing capabilities of its own. There's absolutely no
   reason to reinvent the wheel when there are so many fantastic code editors
   available already. These code editors come with productivity features that

@@ -1,9 +1,10 @@
 @import "../styles/styles";
 
-@import "../components/banner/banner";
+@import "../components/PageBanner/PageBanner";
 @import "../components/footer/footer";
-@import "../components/step-code/StepCode";
-@import "../components/function-documentation/function-documentation";
+@import "../components/StepCode/StepCode";
+@import "../components/NotebookLink/NotebookLink";
+@import "../components/FunctionDocumentation/FunctionDocumentation";
 
 @import "navigator/Navigator";
 @import "display/Display";

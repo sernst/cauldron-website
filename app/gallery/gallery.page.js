@@ -2,14 +2,18 @@ import xs from 'xstream';
 import { run } from '@cycle/xstream-run';
 import { makeDOMDriver } from '@cycle/dom';
 
-import mainBanner from '../components/banner/banner.component';
+import Banner from '../components/PageBanner/PageBanner';
 
 
 /**
  *
  */
-function main({ banner }) {
-  return mainBanner(banner, xs.of({ downloadUrl: '/#download' }));
+function main(sources) {
+  const banner = Banner(sources.banner, xs.of({ downloadUrl: '/#download' }));
+
+  return {
+    banner: banner.DOM
+  };
 }
 
 run(main, {

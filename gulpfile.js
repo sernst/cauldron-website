@@ -151,6 +151,18 @@ exports.assets = assets;
 
 
 /**
+ * TASK: notebooks
+ */
+function notebooks() {
+  return gulp.src('notebooks/**/*')
+    .pipe(plumber())
+    .pipe(gulp.dest(makeOutputPath('notebooks')));
+}
+watchDefinitions.push({ task: notebooks, files: 'notebooks/**/*.*' });
+exports.notebooks = notebooks;
+
+
+/**
  * TASK: npmScripts
  *
  */
@@ -248,6 +260,7 @@ const build = gulp.series(
     css,
     js,
     assets,
+    notebooks,
     npmStyles
   ));
 exports.build = build;

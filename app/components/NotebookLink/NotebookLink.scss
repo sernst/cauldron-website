@@ -1,0 +1,49 @@
+.NotebookLink {
+  display: flex;
+  padding: 0.5em;
+  border: 1px solid transparent;
+  margin: 1em 0;
+  transition:
+          background-color 0.5s ease,
+          border 0.5s ease;
+
+  @media #{$less-than-m} {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__thumbnail {
+    max-width: 220px;
+    border: 1px solid #CCC;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__text {
+    padding: 1em;
+
+    @include no-select;
+
+    @media #{$less-than-m} {
+      padding: 1em 0;
+    }
+  }
+
+  &__title {
+    font-size: 2em;
+    color: black;
+  }
+
+  &__summary {
+    font-size: 1em;
+    color: rgba(0, 0, 0, 0.8);
+    line-height: 1.6;
+  }
+
+  &:hover {
+    background-color: #EEE;
+    border: 1px solid #CCC;
+  }
+}
