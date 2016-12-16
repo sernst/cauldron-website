@@ -3,8 +3,11 @@
 .Display__p.
   Cauldron is designed to make it easy to run a notebook in a production
   environment from within Python or directly from a command line.
+
+.Display__h1 Python Execution
+
 .Display__p.
-  When called from within Python the execution would look like this:
+  Production execution would look like this when called within Python:
 
 :highlight
   project_directory = '/directory/of/my/cauldron/notebook/project'
@@ -15,11 +18,21 @@
 
 .Display__p.
   This will open, run and then close the specified project. The HTML will
-  be exported to the output directory. The data normally printed to the
-  console will be saved to the specified logging_path file.
+  be exported to the output directory if one is provided. The data normally
+  printed to the console will be saved to the specified logging_path file.
 .Display__p.
-  The exact same command can be run from the command line using the
-  cauldron command and supplying the necessary arguments:
+  Production execution from within Python makes it easy to turn Cauldron
+  notebooks into
+  #[a(class='Display__link' href='https://github.com/spotify/luigi') Luigi tasks]
+  that can be run as part of a larger data pipeline. It can be very beneficial
+  to create multiple Cauldron notebooks as pieces of a data pipeline and then
+  use Luigi to run them and manage ordering of dependencies.
+
+.Display__h1 Command Line Execution
+
+.Display__p.
+  The exact same command shown above can also be run from the command line
+  using the #[em cauldron] command and supplying the necessary arguments:
 
 :highlight(language='Bash')
   $ cauldron --project='/directory/of/my/cauldron/notebook/project' \
@@ -29,3 +42,93 @@
 .Display__p.
   This does exactly the same thing as the python script shown above, but
   can be called directly from a terminal or added to a shell script.
+
+.Display__h1 Single Instruction Multiple Data (SIMD) Parallelism
+.Display__p.
+  A common data analysis task is to carry out the same analysis
+  (Single Instruction) on multiple segments of data (Multiple Data). This is
+  known among the parallel computing community as a Single Instruction
+  Multiple Data (SIMD) execution task. Most mapping operations are essentially
+  SIMD tasks.
+.Display__p.
+  Cauldron notebooks can be used in SIMD tasks if invoked from within Python
+  as shown above with additional arguments. Consider a case where we want to
+  carry out an analysis on census data on a per-state basis. We build a
+  Cauldron notebook to carry out the analysis on a particular state by loading
+  the data for that state along these lines:
+
+:highlight()
+  import pandas as pd
+
+  df = pd.load('census_data/California.csv')
+
+  # Analysis of data...
+
+.Display__p.
+  Then we want to run the analysis on all 50 states. This would be annoying to
+  do manually. But with Cauldron, you can do production executions for each
+  state easily. First let's modify the notebook step that loads the data from
+  what we had above to:
+
+:highlight()
+  import pandas as pd
+  import cauldron as cd
+
+  state_name = cd.shared.fetch('state_name', default_value='California')
+
+  df = pd.load('census_data/{}.csv'.format(state_name))
+
+  # Analysis of data...
+
+.Display__p.
+  Unless we set the shared #[em state_name] variable ourselves within the
+  notebook, Cauldron will have no value stored for it when we try to fetch it
+  on line 4 above. In that case it will default to 'California' as specified.
+  This gives us the exact same behavior as we had in the original version of
+  this code where 'California' was hard coded into the path string.
+.Display__p.
+  When run in production, we want to execute the same project for each state.
+  All we need to do is specify the #[em state_name] shared variable so that the
+  same notebook will run on different data for each state. This would look like:
+
+:highlight
+  for state_name in states:
+
+      project_directory = '/directory/of/my/cauldron/notebook/project'
+      output_directory = '/results/{}'.format(state_name)
+      logging_path = '/log/{}.log'.format(state_name)
+
+      cauldron.run_project(
+          project_directory,
+          output_directory,
+          logging_path,
+          state_name=state_name
+      )
+
+.Display__p.
+  We wrap the production execution call in a for loop that iterates over all of
+  the state names and produce state-name-specific output and logging paths so
+  that the output of each state doesn't overwrite the previous ones. Then add
+  the #[em state_name] variable to the execution call on line 11. Any parameter
+  specified here will be added to Cauldron's shared object before the notebook
+  is run.
+.Display__p.
+  Now the notebook will be run once for each state with a different value for
+  the #[em state_name] shared variable in each run. This was done in a
+  non-destructive fashion. You can always open the notebook up later for
+  interactive editing to update and improve the analysis and then re-run in
+  production without modification.
+.Display__p.
+  There's also no reason that these calls have to be made within a single
+  for-loop like shown above. They don't even have to be run on the same
+  computer. They could be run as 50 different python scripts on 50 different
+  nodes of a cluster if you want. They could also be made into 50 Luigi tasks
+  as part of a larger data pipeline. The point is that an analysis built in
+  a Cauldron notebook can be used directly in production in a larger context.
+
+.Display__h1 Pure Python
+
+.Display__p.
+  The Cauldron Python library is pure Python, and has no complicated external
+  dependencies. It can be bundled and distributed to cluster nodes with other
+  Python code without requiring root installation support.
