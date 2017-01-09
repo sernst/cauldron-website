@@ -1,7 +1,10 @@
 mixin createFunctionDoc(data)
+  if (!attributes.hideTitle)
+    .Function__title
+      .Function__titleFunc def
+      | #{data.name}
   .Function
-    .Function__description
-      :markdown-it=data.doc
+    .Function__description!=data.doc
 
     if (data.params && data.params.length > 0)
       .Function__banner
@@ -23,15 +26,33 @@ mixin createFunctionDoc(data)
           'Argument__box',
           arg.optional ? 'Argument__box--optional' : 'Argument__box--required'
           ])
-          .Argument__name
-            :markdown-it=arg.name
-          .Argument__type
-            :markdown-it=arg.type
-        .Argument__description
-          :markdown-it=arg.description
+          .Argument__name=arg.name
+          .Argument__type!=arg.type
+        .Argument__description!=arg.description
           if(arg.optional)
             .Argument__optional Default Value:&nbsp;
-              span(class='Argument__default')= arg.default
+              span(class='Argument__default')!=arg.default
+
+    if data.returns.description
+      .FunctionReturns
+        .Function__banner
+          .Function__header Returns
+          .Function__spacer
+          .FunctionReturns__type!=data.returns.type
+        .FunctionReturns__description!=data.returns.description
+
+
+mixin createPropertyDoc(data)
+  if (!attributes.hideTitle)
+    .Function__title
+      .Function__titleProp prop
+      | #{data.name}
+  .Function
+    .FunctionReturns__typeRow
+      | Type:&nbsp;
+      .FunctionReturns__propType!=data.returns.type
+    .Function__description!=data.doc
+
 
 mixin createBullet(type)
   div(class=[

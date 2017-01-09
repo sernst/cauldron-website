@@ -1,0 +1,24 @@
+include ../../../components/FunctionDocumentation/FunctionDocumentation
+include ../../../components/NotebookLink/NotebookLink
+
+.Display__title
+  .Display__titleProp prop
+  | shared
+.Display__breadcrumb cauldron.shared
+
++createPropertyDoc({
+  returns: { type: 'SharedCache' },
+  doc: 'A container that holds all of the variables shared between notebooks'
+})(hideTitle=true)
+
+.Display__entry1
+  +createFunctionDoc(SharedCache.clear)
+
+.Display__entry1
+  +createFunctionDoc(SharedCache.fetch)
+
+.Display__entry1
+  +createFunctionDoc(SharedCache.grab)
+
+.Display__entry1
+  +createFunctionDoc(SharedCache.put)

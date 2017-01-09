@@ -1,0 +1,9 @@
+{
+  "params": [],
+  "doc": "Hook method for deconstructing the class fixture after running all tests in the class.",
+  "name": "tearDownClass",
+  "returns": {
+    "description": "",
+    "type": null
+  }
+}

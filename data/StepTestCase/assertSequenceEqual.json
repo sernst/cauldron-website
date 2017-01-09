@@ -1,0 +1,40 @@
+{
+  "params": [
+    {
+      "description": "",
+      "index": 0,
+      "optional": false,
+      "name": "seq1",
+      "type": "Any"
+    },
+    {
+      "description": "",
+      "index": 1,
+      "optional": false,
+      "name": "seq2",
+      "type": "Any"
+    },
+    {
+      "name": "msg",
+      "type": "Any",
+      "description": "",
+      "index": 2,
+      "optional": true,
+      "default": "None"
+    },
+    {
+      "name": "seq_type",
+      "type": "Any",
+      "description": "",
+      "index": 3,
+      "optional": true,
+      "default": "None"
+    }
+  ],
+  "doc": "An equality assertion for ordered sequences (like lists and tuples).\nFor the purposes of this function, a valid ordered sequence type is one\nwhich can be indexed, has a length, and has an equality operator.\nArgs:\nseq1: The first sequence to compare.\nseq2: The second sequence to compare.\nseq_type: The expected datatype of the sequences, or None if no\ndatatype should be enforced.\nmsg: Optional message to use on failure instead of a list of\ndifferences.",
+  "name": "assertSequenceEqual",
+  "returns": {
+    "description": "",
+    "type": null
+  }
+}

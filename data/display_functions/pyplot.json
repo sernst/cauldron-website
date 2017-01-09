@@ -1,38 +1,42 @@
 {
-  "name": "pyplot",
   "params": [
     {
-      "index": 0,
-      "optional": true,
-      "default": "None",
       "name": "figure",
       "type": "Any",
-      "description": " The matplotlib figure to plot. If omitted, the currently active figure will be used."
+      "description": "\nThe matplotlib figure to plot. If omitted, the currently active\nfigure will be used.",
+      "index": 0,
+      "optional": true,
+      "default": "None"
     },
     {
-      "index": 1,
-      "optional": true,
-      "default": "0.8",
       "name": "scale",
       "type": "float",
-      "description": " The display scale with units of fractional screen height. A value of 0.5 constrains the output to a maximum height equal to half the height of browser window when viewed. Values below 1.0 are usually recommended so the entire output can be viewed without scrolling."
+      "description": "\nThe display scale with units of fractional screen height. A value\nof 0.5 constrains the output to a maximum height equal to half the\nheight of browser window when viewed. Values below 1.0 are usually\nrecommended so the entire output can be viewed without scrolling.",
+      "index": 1,
+      "optional": true,
+      "default": "0.8"
     },
     {
-      "index": 2,
-      "optional": true,
-      "default": "True",
       "name": "clear",
       "type": "bool",
-      "description": " Clears the figure after it has been rendered. This is useful to prevent persisting old plot data between repeated runs of the project files. This can be disabled if the plot is going to be used later in the project files."
+      "description": "\nClears the figure after it has been rendered. This is useful to\nprevent persisting old plot data between repeated runs of the\nproject files. This can be disabled if the plot is going to be\nused later in the project files.",
+      "index": 2,
+      "optional": true,
+      "default": "True"
     },
     {
-      "index": 3,
-      "optional": true,
-      "default": "None",
       "name": "aspect_ratio",
       "type": "list, tuple",
-      "description": " The aspect ratio for the displayed plot as a two-element list or tuple. The first element is the width and the second element the height. The units are \"inches,\" which is an important consideration for the display of text within the figure. If no aspect ratio is specified, the currently assigned values to the plot will be used instead."
+      "description": "\nThe aspect ratio for the displayed plot as a two-element list or\ntuple. The first element is the width and the second element the\nheight. The units are \"inches,\" which is an important consideration\nfor the display of text within the figure. If no aspect ratio is\nspecified, the currently assigned values to the plot will be used\ninstead.",
+      "index": 3,
+      "optional": true,
+      "default": "None"
     }
   ],
-  "doc": "Creates a matplotlib plot in the display for the specified figure. The size of the plot is determined automatically to best fit the notebook."
+  "doc": "Creates a matplotlib plot in the display for the specified figure. The size\nof the plot is determined automatically to best fit the notebook.",
+  "name": "pyplot",
+  "returns": {
+    "description": "",
+    "type": null
+  }
 }

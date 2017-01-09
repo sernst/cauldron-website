@@ -1,21 +1,25 @@
 {
-  "name": "listing",
   "params": [
     {
-      "name": "source",
+      "description": "\nThe iterable to display as a list",
       "index": 0,
-      "type": "list",
       "optional": false,
-      "description": " The iterable to display as a list"
+      "name": "source",
+      "type": "list"
     },
     {
-      "index": 1,
-      "optional": true,
-      "default": "False",
       "name": "ordered",
       "type": "bool",
-      "description": " Whether or not the list should be ordered. If False, which is the default, an unordered bulleted list is created."
+      "description": "\nWhether or not the list should be ordered. If False, which is the\ndefault, an unordered bulleted list is created.",
+      "index": 1,
+      "optional": true,
+      "default": "False"
     }
   ],
-  "doc": "An unordered or ordered list of the specified *source* iterable where each element is converted to a string representation for display."
+  "doc": "An unordered or ordered list of the specified *source* iterable where\neach element is converted to a string representation for display.",
+  "name": "listing",
+  "returns": {
+    "description": "",
+    "type": null
+  }
 }

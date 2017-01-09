@@ -1,9 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 const fs = require('fs');
+const fsp = require('fs-promise');
 const path = require('path');
 const Rx = require('rx');
 const highlight = require('highlightjs');
+const _ = require('lodash');
+const markdown = require('markdown-it')();
 
 const DATA_DIRECTORY = path.normalize(path.join(__dirname, 'data'));
 
@@ -17,10 +20,44 @@ const DATA_DIRECTORY = path.normalize(path.join(__dirname, 'data'));
  *  The directory in which to list files
  */
 function listFiles(directoryPath) {
-  return Rx.Observable.fromNodeCallback(fs.readdir)(directoryPath)
-    .catch(() => Rx.Observable.just([]))
-    .flatMap(files => files)
-    .map(filename => ({ filename, path: path.join(directoryPath, filename) }));
+  function fileStats(name) {
+    const filePath = path.join(directoryPath, name);
+    return fsp.stat(filePath)
+      .then(stats => ({
+        sourceName: name,
+        isFile: stats.isFile(),
+        isDirectory: stats.isDirectory(),
+        sourcePath: filePath
+      }));
+  }
+
+  function getFileInfo() {
+    return fsp.readdir(directoryPath)
+      .then(entries => Promise.all(entries.map(fileStats)));
+  }
+
+  return Rx.Observable.fromPromise(getFileInfo())
+    .catch(() => Rx.Observable.just([]));
+}
+
+/**
+ * Converts an array of objects to an object where the keys are taken from the
+ * key argument in each object and the values are the objects themselves.
+ *
+ * @param key
+ *  The name of the key in each entry to use as the key for the entry in the
+ *  returned object
+ * @param entries
+ *  The array of objects to be turned into an object of objects
+ * @returns {{}}
+ */
+function toObject(key, entries) {
+  const out = {};
+  entries.forEach((entry) => {
+    out[entry[key]] = entry;
+  });
+
+  return out;
 }
 
 
@@ -40,8 +77,38 @@ function readFile(fileData) {
     }
   }
 
-  return Rx.Observable.fromNodeCallback(fs.readFile)(fileData.path, 'utf8')
-    .map(contents => Object.assign(parseJson(contents), fileData));
+  function renderEntry(entry) {
+    if (_.isString(entry)) {
+      return markdown.render(entry);
+    }
+
+    if (Array.isArray(entry)) {
+      return entry.map(v => renderEntry(v));
+    }
+
+    if (_.isNull(entry) || _.isUndefined(entry)) {
+      return entry;
+    }
+
+    if (!_.isPlainObject(entry)) {
+      return entry;
+    }
+
+    const out = {};
+    Object.keys(entry).forEach((key) => {
+      const value = entry[key];
+      const skipRender = _.isString(value) && (key === 'name');
+      out[key] = skipRender ? value : renderEntry(value);
+    });
+
+    return out;
+  }
+
+
+  return Rx.Observable
+    .fromNodeCallback(fs.readFile)(fileData.sourcePath, 'utf8')
+    .map(contents => Object.assign(renderEntry(parseJson(contents)), fileData))
+    .do(x => console.log(x));
 }
 
 
@@ -90,18 +157,34 @@ function sortByDate(firstEntry, secondEntry) {
  * Reads all files in the specified directory and returns a stream where each
  * observable is the JSON-parsed contents of that file
  *
- * @param targetDirectory
- *  Directory in which to read the contents of files
- *
+ * @param parentDirectory
+ *  Path to the directory that contains the folder in which to read the
+ *  contents of files
+ * @param folderName
+ *  Name of the directory
  * @returns {Disposable|IDisposable}
  *  Stream with observables for each file read
  */
-function readAllFiles(targetDirectory) {
-  return listFiles(targetDirectory)
+function readAllFiles(parentDirectory, folderName) {
+  const directoryPath = path.join(parentDirectory, folderName);
+
+  return listFiles(directoryPath)
+    .flatMap(entry => entry)
+    .filter(entry => entry.isFile)
     .map(p => readFile(p))
     .concatAll()
     .toArray()
-    .map(array => array.sort(sortByDate).reverse());
+    .map((array) => {
+      const files = array.sort(sortByDate).reverse();
+      const fileEntries = toObject('name', files);
+
+      return {
+        files,
+        fileEntries,
+        key: folderName,
+        path: directoryPath
+      };
+    });
 }
 
 
@@ -109,28 +192,20 @@ function readAllFiles(targetDirectory) {
  *
  */
 function fetchLocals() {
-  function toObject(source) {
+  function combineLocals(target, entry) {
     const out = {};
-    source.forEach((data) => {
-      out[data.name] = data;
-    });
-
-    return out;
+    out[entry.key] = entry.fileEntries;
+    return Object.assign(out, target);
   }
 
-  return Rx.Observable
-    .combineLatest(
-      readAllFiles(path.join(DATA_DIRECTORY, 'display_functions')),
-      readAllFiles(path.join(DATA_DIRECTORY, 'step_functions')),
-      (display, step) => ({ display, step })
-    )
-    .toPromise()
-    .then(locals => (
-      Object.assign({}, locals, {
-        displayFunctions: toObject(locals.display),
-        stepFunctions: toObject(locals.step)
-      })
-    ));
+  return listFiles(DATA_DIRECTORY)
+    .flatMap(entry => entry)
+    .filter(entry => entry.isDirectory)
+    .map(entry => readAllFiles(DATA_DIRECTORY, entry.sourceName))
+    .concatAll()
+    .toArray()
+    .map(entries => entries.reduce(combineLocals, {}))
+    .toPromise();
 }
 exports.fetchLocals = fetchLocals;
 

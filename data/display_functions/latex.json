@@ -1,13 +1,17 @@
 {
-  "name": "latex",
   "params": [
     {
-      "name": "source",
+      "description": "\nThe string representing the latex equation to be rendered.",
       "index": 0,
-      "type": "str",
       "optional": false,
-      "description": " The string representing the latex equation to be rendered."
+      "name": "source",
+      "type": "str"
     }
   ],
-  "doc": "Add a mathematical equation in latex math-mode syntax to the display. Instead of the traditional backslash escape character, the @ character is used instead to prevent backslash conflicts with Python strings. For example, \\delta would be @delta."
+  "doc": "Add a mathematical equation in latex math-mode syntax to the display.\nInstead of the traditional backslash escape character, the @ character is\nused instead to prevent backslash conflicts with Python strings. For\nexample, \\delta would be @delta.",
+  "name": "latex",
+  "returns": {
+    "description": "",
+    "type": null
+  }
 }

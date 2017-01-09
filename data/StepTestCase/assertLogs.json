@@ -1,0 +1,26 @@
+{
+  "params": [
+    {
+      "name": "logger",
+      "type": "Any",
+      "description": "",
+      "index": 0,
+      "optional": true,
+      "default": "None"
+    },
+    {
+      "name": "level",
+      "type": "Any",
+      "description": "",
+      "index": 1,
+      "optional": true,
+      "default": "None"
+    }
+  ],
+  "doc": "Fail unless a log message of level *level* or higher is emitted\non *logger_name* or its children.  If omitted, *level* defaults to\nINFO and *logger* defaults to the root logger.\nThis method must be used as a context manager, and will yield\na recording object with two attributes: `output` and `records`.\nAt the end of the context manager, the `output` attribute will\nbe a list of the matching formatted log messages and the\n`records` attribute will be a list of the corresponding LogRecord\nobjects.\nExample::\nwith self.assertLogs('foo', level='INFO') as cm:\nlogging.getLogger('foo').info('first message')\nlogging.getLogger('foo.bar').error('second message')\nself.assertEqual(cm.output, ['INFO:foo:first message',\n'ERROR:foo.bar:second message'])",
+  "name": "assertLogs",
+  "returns": {
+    "description": "",
+    "type": null
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "params": [],
+  "doc": "A modified setup function that handles opening the project for testing.\nIf you override the setUp function in your tests, be sure to call the\nsuper function so that this initialization happens properly",
+  "name": "setUp",
+  "returns": {
+    "description": "",
+    "type": null
+  }
+}

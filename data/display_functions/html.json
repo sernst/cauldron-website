@@ -1,13 +1,17 @@
 {
-  "name": "html",
   "params": [
     {
-      "name": "dom",
+      "description": "\nThe HTML string to add to the display",
       "index": 0,
-      "type": "str",
       "optional": false,
-      "description": " The HTML string to add to the display"
+      "name": "dom",
+      "type": "str"
     }
   ],
-  "doc": "A string containing a valid HTML snippet"
+  "doc": "A string containing a valid HTML snippet",
+  "name": "html",
+  "returns": {
+    "description": "",
+    "type": null
+  }
 }

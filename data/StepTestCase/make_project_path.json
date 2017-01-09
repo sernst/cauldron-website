@@ -1,0 +1,17 @@
+{
+  "params": [
+    {
+      "description": "\nRelative path components within the Cauldron project directory",
+      "index": 0,
+      "optional": false,
+      "name": "args",
+      "type": "Any"
+    }
+  ],
+  "doc": "Returns an absolute path to the specified location within the Cauldron\nproject directory where this test file is located.",
+  "name": "make_project_path",
+  "returns": {
+    "description": "The absolute path to the location within the project. If no path\ncomponents are specified, the location returned will be the\nproject directory itself.",
+    "type": "str"
+  }
+}

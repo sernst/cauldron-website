@@ -1,0 +1,44 @@
+mixin makeDirectoryStructure()
+  .DirectoryStructure
+    .DirectoryStructure__box
+      block
+    .DirectoryStructure__spacer
+
+mixin makeFolder(level, name, kind)
+  div(class=[
+    'DirectoryItem',
+    `DirectoryItem--indent${level}`,
+    {
+      'DirectoryItem--highlighted': attributes.highlight,
+      'DirectoryItem--added': attributes.add,
+      'DirectoryItem--removed': attributes.remove,
+      'DirectoryItem--modified': attributes.modify
+    }
+  ])
+    div(class={
+      'DirectoryItem__toggle': true,
+      'DirectoryItem__toggle--open': attributes.open === true,
+      'DirectoryItem__toggle--closed': attributes.open === false,
+      'DirectoryItem__toggle--blank': attributes.open !== true && attributes.open !== false
+    })
+    img(class='DirectoryItem__icon' src=`/assets/images/folder-${kind}.svg`)
+    .DirectoryItem__name=name
+
+
+mixin makeFile(level, name, kind)
+  div(class=[
+    'DirectoryItem',
+    `DirectoryItem--indent${level}`,
+    {
+      'DirectoryItem--highlighted': attributes.highlight,
+      'DirectoryItem--added': attributes.add,
+      'DirectoryItem--removed': attributes.remove,
+      'DirectoryItem--modified': attributes.modify
+    }
+  ])
+    div(class=[
+      'DirectoryItem__toggle',
+      'DirectoryItem__toggle--blank'
+    ])
+    img(class='DirectoryItem__icon' src=`/assets/images/file-${kind}.svg`)
+    .DirectoryItem__name=name

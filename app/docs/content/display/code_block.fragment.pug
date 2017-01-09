@@ -1,0 +1,40 @@
+include ../../../components/FunctionDocumentation/FunctionDocumentation
+include ../../../components/NotebookLink/NotebookLink
+
+.Display__title
+  .Display__titleFunc def
+  | code_block
+.Display__breadcrumb cauldron.display.code_block()
+
++createFunctionDoc(display_functions.code_block)(hideTitle=true)
+
+.Display__h1 Basic Usage
+
+.Display__p.
+  You need to specify the language_id argument when you pass in code as a
+  string argument or Cauldron will not highlight the code:
+
+:highlight()
+  import cauldron as cd
+
+  cd.display.code_block('print("Hello World!")', language_id='py3')
+
+.Display__p.
+  The language_id argument can often be omitted when specifying a path to a
+  code file as long as the file has a recognizable extension from which the
+  language can be determined automatically:
+
+:highlight()
+  import cauldron as cd
+
+  cd.display.code_block(path=__file__)
+
+.Display__p.
+  The language_id argument takes precedence over the file extension. Cauldron
+  will highlight the file as HTML if you specify an 'html' language identifier
+  even if the file extension is for a Python file:
+
+:highlight()
+  import cauldron as cd
+
+  cd.display.code_block(path='/path/to/some/file.py', language_id='html')

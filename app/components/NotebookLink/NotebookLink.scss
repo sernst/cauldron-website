@@ -15,6 +15,7 @@
   &__thumbnail {
     max-width: 220px;
     border: 1px solid #CCC;
+    overflow: hidden;
 
     img {
       width: 100%;

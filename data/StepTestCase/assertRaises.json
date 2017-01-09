@@ -1,0 +1,31 @@
+{
+  "params": [
+    {
+      "description": "",
+      "index": 0,
+      "optional": false,
+      "name": "expected_exception",
+      "type": "Any"
+    },
+    {
+      "description": "",
+      "index": 1,
+      "optional": false,
+      "name": "args",
+      "type": "Any"
+    },
+    {
+      "description": "",
+      "index": 2,
+      "optional": false,
+      "name": "kwargs",
+      "type": "Any"
+    }
+  ],
+  "doc": "Fail unless an exception of class expected_exception is raised\nby the callable when invoked with specified positional and\nkeyword arguments. If a different type of exception is\nraised, it will not be caught, and the test case will be\ndeemed to have suffered an error, exactly as for an\nunexpected exception.\nIf called with the callable and arguments omitted, will return a\ncontext object used like this::\nwith self.assertRaises(SomeException):\ndo_something()\nAn optional keyword argument 'msg' can be provided when assertRaises\nis used as a context object.\nThe context manager keeps a reference to the exception as\nthe 'exception' attribute. This allows you to inspect the\nexception after the assertion::\nwith self.assertRaises(SomeException) as cm:\ndo_something()\nthe_exception = cm.exception\nself.assertEqual(the_exception.error_code, 3)",
+  "name": "assertRaises",
+  "returns": {
+    "description": "",
+    "type": null
+  }
+}

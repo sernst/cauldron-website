@@ -2,7 +2,48 @@ $optional-color: #7d6799;
 $required-color: black;
 
 .Function {
-  margin-top: 2em;
+  margin-top: 1em;
+
+  @media #{$less-than-m} {
+    margin-left: 1em;
+  }
+
+  &__row {
+    display: flex;
+  }
+
+  &__title {
+    font-size: 1.75em;
+    align-items: center;
+    margin-top: 1em;
+    display: flex;
+  }
+
+  @mixin titleEmphasis {
+    font-size: 0.6em;
+    margin: 0 0.25em 0 0;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-weight: bold;
+  }
+
+  &__titleClass {
+    color: #0a6aa1;
+    background-color: #b3e4ff;
+    @include titleEmphasis;
+  }
+
+  &__titleFunc {
+    color: #5b287d;
+    background-color: #d0ccff;
+    @include titleEmphasis;
+  }
+
+  &__titleProp {
+    color: #467d57;
+    background-color: #c2ffc4;
+    @include titleEmphasis;
+  }
 
   &__description {
     font-size: 1.2em;
@@ -68,6 +109,10 @@ $required-color: black;
     margin: 1em;
     display: flex;
     align-items: center;
+
+    @media #{$less-than-m} {
+      align-items: flex-start;
+    }
   }
 
   &__bullet-text {
@@ -113,6 +158,13 @@ $required-color: black;
     font-style: italic;
     opacity: 0.7;
     font-size: 0.8em;
+
+    p {
+      // Disable block display for markdown rendered values
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+    }
   }
 
   &__description {
@@ -131,5 +183,50 @@ $required-color: black;
     font-size: 1.2em;
     font-weight: bold;
     color: $optional-color;
+
+    p {
+      // Disable block display for markdown rendered values
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.FunctionReturns {
+  margin-top: 1em;
+
+  &__typeRow {
+    display: flex;
+    margin-left: 2em;
+  }
+
+  &__type {
+    font-weight: bold;
+    font-style: italic;
+
+    p {
+      // Disable block display for markdown rendered values
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__propType {
+    font-style: italic;
+    color: #999;
+    margin-bottom: 0.5em;
+
+    p {
+      // Disable block display for markdown rendered values
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__description {
+    margin: 1em 1em 1em 2em;
   }
 }

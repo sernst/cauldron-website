@@ -1,0 +1,31 @@
+{
+  "params": [
+    {
+      "description": "",
+      "index": 0,
+      "optional": false,
+      "name": "function",
+      "type": "Any"
+    },
+    {
+      "description": "",
+      "index": 1,
+      "optional": false,
+      "name": "args",
+      "type": "Any"
+    },
+    {
+      "description": "",
+      "index": 2,
+      "optional": false,
+      "name": "kwargs",
+      "type": "Any"
+    }
+  ],
+  "doc": "Add a function, with arguments, to be called when the test is\ncompleted. Functions added are called on a LIFO basis and are\ncalled after tearDown on test failure or success.\nCleanup items are called even if setUp fails (unlike tearDown).",
+  "name": "addCleanup",
+  "returns": {
+    "description": "",
+    "type": null
+  }
+}

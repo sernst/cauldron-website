@@ -1,0 +1,32 @@
+{
+  "params": [
+    {
+      "description": "",
+      "index": 0,
+      "optional": false,
+      "name": "set1",
+      "type": "Any"
+    },
+    {
+      "description": "",
+      "index": 1,
+      "optional": false,
+      "name": "set2",
+      "type": "Any"
+    },
+    {
+      "name": "msg",
+      "type": "Any",
+      "description": "",
+      "index": 2,
+      "optional": true,
+      "default": "None"
+    }
+  ],
+  "doc": "A set-specific equality assertion.\nArgs:\nset1: The first set to compare.\nset2: The second set to compare.\nmsg: Optional message to use on failure instead of a list of\ndifferences.\nassertSetEqual uses ducktyping to support different types of sets, and\nis optimized for sets specifically (parameters must support a\ndifference method).",
+  "name": "assertSetEqual",
+  "returns": {
+    "description": "",
+    "type": null
+  }
+}

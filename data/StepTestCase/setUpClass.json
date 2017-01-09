@@ -1,0 +1,9 @@
+{
+  "params": [],
+  "doc": "Hook method for setting up class fixture before running tests in the class.",
+  "name": "setUpClass",
+  "returns": {
+    "description": "",
+    "type": null
+  }
+}

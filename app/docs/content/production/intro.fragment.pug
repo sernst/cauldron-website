@@ -1,0 +1,53 @@
+.Display__title Running in Production
+
+.Display__p.
+  Cauldron is designed to make it easy to run a notebook in a production
+  environment from within Python or directly from a command line.
+
+.Display__h1 Python Execution
+
+.Display__p.
+  Production execution would look like this when called within Python:
+
+:highlight
+  project_directory = '/directory/of/my/cauldron/notebook/project'
+  output_directory = '/save/my/results/in/this/directory'
+  logging_path = '/log/data/to/this/filename.log'
+
+  cauldron.run_project(project_directory, output_directory, logging_path)
+
+.Display__p.
+  This will open, run and then close the specified project. The HTML will
+  be exported to the output directory if one is provided. The data normally
+  printed to the console will be saved to the specified logging_path file.
+
+.Display__p.
+  Production execution from within Python can be used to turn Cauldron
+  notebooks into
+  #[a(class='Display__link' href='https://github.com/spotify/luigi') Luigi tasks]
+  or other data pipeline tools that are Python compatible. It can be very
+  beneficial to create multiple Cauldron notebooks as pieces of a data pipeline
+  and then use a Luigi-like tool to run them and manage ordering of
+  dependencies.
+
+.Display__h1 Command Line Execution
+
+.Display__p.
+  The exact same command shown above can also be run from the command line
+  using the #[em cauldron] command and supplying the necessary arguments:
+
+:highlight(language='Bash')
+  $ cauldron --project='/directory/of/my/cauldron/notebook/project' \
+             --output='/save/my/results/in/this/directory' \
+             --log='/log/data/to/this/filename.log'
+
+.Display__p.
+  This does exactly the same thing as the python script shown above, but
+  can be called directly from a terminal or added to a shell script.
+
+.Display__h1 Pure Python
+
+.Display__p.
+  The Cauldron Python library is pure Python, and has no complicated external
+  dependencies. It can be bundled and distributed to cluster nodes with other
+  Python code without requiring root installation support.

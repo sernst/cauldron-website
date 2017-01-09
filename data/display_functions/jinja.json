@@ -1,20 +1,24 @@
 {
-  "name": "jinja",
   "params": [
     {
-      "name": "path",
+      "description": "\nThe fully-qualified path to the template to be rendered.",
       "index": 0,
-      "type": "str",
       "optional": false,
-      "description": " The fully-qualified path to the template to be rendered."
+      "name": "path",
+      "type": "str"
     },
     {
-      "name": "kwargs",
+      "description": "\nAny keyword arguments that will be use as variable replacements within\nthe template",
       "index": 1,
-      "type": "Any",
       "optional": false,
-      "description": " Any keyword arguments that will be use as variable replacements within the template"
+      "name": "kwargs",
+      "type": "Any"
     }
   ],
-  "doc": "Renders the specified Jinja2 template to HTML and adds the output to the display"
+  "doc": "Renders the specified Jinja2 template to HTML and adds the output to the\ndisplay",
+  "name": "jinja",
+  "returns": {
+    "description": "",
+    "type": null
+  }
 }

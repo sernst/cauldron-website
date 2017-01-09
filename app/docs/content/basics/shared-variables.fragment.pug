@@ -1,0 +1,45 @@
+include ../../../components/StepCode/StepCode
+
+.Display__title Shared &amp; Local Variables
+
+.Display__p.
+  In Cauldron, all variables are local within a step unless you explicitly
+  share them. If we have a notebook step named "S01.py" that contains the
+  following code:
+
++stepCode('S01.py', 1)
+  :highlight()
+    import cauldron as cd
+    x = 12
+
+.Display__p.
+  And we want to share the #[em x] variable with the "S02.py" step, we might
+  expect this to work:
+
++stepCode('S02.py', 2)
+  :highlight()
+    import cauldron as cd
+    print(x)
+
+.Display__p.
+  But if you run this notebook, the "S02.py" step will raise an error
+  because the #[em x] variable is not defined in that step. It needs to be
+  explicitly shared between the steps by using Cauldron's shared module
+  like this:
+
++stepCode('S01.py', 1)
+  :highlight
+    import cauldron as cd
+    cd.shared.x = 12
+
+.Display__p.
+  We can then access the variable in "S02.py" by accessing the variable from
+  Cauldrons shared module:
+
++stepCode('S02.py', 2)
+  :highlight
+    import cauldron as cd
+    print(cd.shared.x)
+
+.Display__p.
+  Now "S02.py" correctly prints a value of 12 to the notebook.

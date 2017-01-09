@@ -1,0 +1,4 @@
+{
+  "description": "\nThis class contains information returned from running a step during testing.\n",
+  "name": "StepTestRunResult"
+}

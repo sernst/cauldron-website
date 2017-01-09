@@ -1,20 +1,24 @@
 {
-  "name": "markdown",
   "params": [
     {
-      "name": "source",
+      "description": "\nA markdown formatted string",
       "index": 0,
-      "type": "str",
       "optional": false,
-      "description": " A markdown formatted string"
+      "name": "source",
+      "type": "str"
     },
     {
-      "name": "kwargs",
+      "description": "\nAny variable replacements to make within the string using Jinja2\ntemplating syntax.",
       "index": 1,
-      "type": "Any",
       "optional": false,
-      "description": " Any variable replacements to make within the string using Jinja2 templating syntax."
+      "name": "kwargs",
+      "type": "Any"
     }
   ],
-  "doc": "Renders the source string using markdown and adds the resulting html to the display"
+  "doc": "Renders the source string using markdown and adds the resulting html\nto the display",
+  "name": "markdown",
+  "returns": {
+    "description": "",
+    "type": null
+  }
 }

@@ -1,0 +1,17 @@
+{
+  "params": [
+    {
+      "description": "\nThe full filename of the step to be run including its extension.",
+      "index": 0,
+      "optional": false,
+      "name": "step_name",
+      "type": "str"
+    }
+  ],
+  "doc": "Runs the specified step by name its complete filename including extension",
+  "name": "run_step",
+  "returns": {
+    "description": "A StepTestRunResult instance containing information about the execution of the step.",
+    "type": "StepTestRunResult"
+  }
+}

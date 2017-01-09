@@ -1,0 +1,25 @@
+{
+  "params": [
+    {
+      "description": "",
+      "index": 0,
+      "optional": false,
+      "name": "obj",
+      "type": "Any"
+    },
+    {
+      "name": "msg",
+      "type": "Any",
+      "description": "",
+      "index": 1,
+      "optional": true,
+      "default": "None"
+    }
+  ],
+  "doc": "Included for symmetry with assertIsNone.",
+  "name": "assertIsNotNone",
+  "returns": {
+    "description": "",
+    "type": null
+  }
+}

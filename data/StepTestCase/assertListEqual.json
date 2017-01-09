@@ -1,0 +1,32 @@
+{
+  "params": [
+    {
+      "description": "",
+      "index": 0,
+      "optional": false,
+      "name": "list1",
+      "type": "Any"
+    },
+    {
+      "description": "",
+      "index": 1,
+      "optional": false,
+      "name": "list2",
+      "type": "Any"
+    },
+    {
+      "name": "msg",
+      "type": "Any",
+      "description": "",
+      "index": 2,
+      "optional": true,
+      "default": "None"
+    }
+  ],
+  "doc": "A list-specific equality assertion.\nArgs:\nlist1: The first list to compare.\nlist2: The second list to compare.\nmsg: Optional message to use on failure instead of a list of\ndifferences.",
+  "name": "assertListEqual",
+  "returns": {
+    "description": "",
+    "type": null
+  }
+}

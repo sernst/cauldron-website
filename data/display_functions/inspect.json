@@ -1,13 +1,17 @@
 {
-  "name": "inspect",
   "params": [
     {
-      "name": "source",
+      "description": "\nA dictionary object to be inspected",
       "index": 0,
-      "type": "dict",
       "optional": false,
-      "description": " A dictionary object to be inspected"
+      "name": "source",
+      "type": "dict"
     }
   ],
-  "doc": "Inspects the data and structure of the source dictionary object and adds the results to the display for viewing"
+  "doc": "Inspects the data and structure of the source dictionary object and\nadds the results to the display for viewing",
+  "name": "inspect",
+  "returns": {
+    "description": "",
+    "type": null
+  }
 }

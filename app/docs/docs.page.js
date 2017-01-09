@@ -14,7 +14,7 @@ const missingRequest = {
 };
 
 const defaultRequest = {
-  url: '/docs/content/basic-intro.html',
+  url: '/docs/content/basics/intro.html',
   category: 'Display',
 };
 
@@ -22,45 +22,66 @@ const definitions = [
   {
     label: 'Basics',
     links: [
-      { label: 'Introduction', id: 'basic-intro' },
-      { label: 'Notebook Display', id: 'basic-display' },
-      { label: 'Shared Variables', id: 'basic-shared-variables' }
+      { label: 'Introduction', id: 'basics/intro' },
+      { label: 'Notebook Display', id: 'basics/display' },
+      { label: 'Shared Variables', id: 'basics/shared-variables' }
     ]
   },
   {
-    label: 'Advanced',
+    label: 'cauldron',
     links: [
-      { label: 'In Production', id: 'advanced-production' }
+      { label: 'get_environment_info', id: 'top-level/get_environment_info' },
+      { label: 'refresh', id: 'top-level/refresh' },
+      { label: 'run_project', id: 'top-level/run_project' },
+      { label: 'run_server', id: 'top-level/run_server' },
+      { label: 'run_shell', id: 'top-level/run_shell' },
+      { label: 'shared', id: 'top-level/shared' }
     ]
   },
   {
-    label: 'Step Functions',
+    label: 'cauldron.display',
     links: [
-      { label: 'breathe', id: 'step-breathe' },
-      { label: 'stop', id: 'step-stop' }
+      { label: 'bokeh', id: 'display/bokeh' },
+      { label: 'code_block', id: 'display/code_block' },
+      { label: 'head', id: 'display/head' },
+      { label: 'header', id: 'display/header' },
+      { label: 'html', id: 'display/html' },
+      { label: 'inspect', id: 'display/inspect' },
+      { label: 'jinja', id: 'display/jinja' },
+      { label: 'json', id: 'display/json' },
+      { label: 'latex', id: 'display/latex' },
+      { label: 'listing', id: 'display/listing' },
+      { label: 'markdown', id: 'display/markdown' },
+      { label: 'plotly', id: 'display/plotly' },
+      { label: 'pyplot', id: 'display/pyplot' },
+      { label: 'status', id: 'display/status' },
+      { label: 'svg', id: 'display/svg' },
+      { label: 'table', id: 'display/table' },
+      { label: 'tail', id: 'display/tail' },
+      { label: 'text', id: 'display/text' },
+      { label: 'whitespace', id: 'display/whitespace' }
     ]
   },
   {
-    label: 'Display Functions',
+    label: 'cauldron.step',
     links: [
-      { label: 'bokeh', id: 'display-bokeh' },
-      { label: 'head', id: 'display-head' },
-      { label: 'header', id: 'display-header' },
-      { label: 'html', id: 'display-html' },
-      { label: 'inspect', id: 'display-inspect' },
-      { label: 'jinja', id: 'display-jinja' },
-      { label: 'json', id: 'display-json' },
-      { label: 'latex', id: 'display-latex' },
-      { label: 'listing', id: 'display-listing' },
-      { label: 'markdown', id: 'display-markdown' },
-      { label: 'plotly', id: 'display-plotly' },
-      { label: 'pyplot', id: 'display-pyplot' },
-      { label: 'status', id: 'display-status' },
-      { label: 'svg', id: 'display-svg' },
-      { label: 'table', id: 'display-table' },
-      { label: 'tail', id: 'display-tail' },
-      { label: 'text', id: 'display-text' },
-      { label: 'whitespace', id: 'display-whitespace' }
+      { label: 'breathe', id: 'step/breathe' },
+      { label: 'stop', id: 'step/stop' }
+    ]
+  },
+  {
+    label: 'Step "Unit" Testing',
+    links: [
+      { label: 'Introduction', id: 'testing/intro' },
+      { label: 'StepTestCase', id: 'testing/StepTestCase' },
+      { label: 'StepTestRunResult', id: 'testing/StepTestRunResult' }
+    ]
+  },
+  {
+    label: 'In Production',
+    links: [
+      { label: 'Introduction', id: 'production/intro' },
+      { label: 'Parallelism (SIMD)', id: 'production/simd' }
     ]
   }
 ];

@@ -1,5 +1,9 @@
 {
-  "name": "breathe",
   "params": [],
-  "doc": "Checks the current execution state for the running step and responds to any changes in that state. Particular useful for checking to see if a step has been aborted by the user during long-running executions."
+  "doc": "Checks the current execution state for the running step and responds\nto any changes in that state. Particular useful for checking to see\nif a step has been aborted by the user during long-running executions.",
+  "name": "breathe",
+  "returns": {
+    "description": "",
+    "type": null
+  }
 }

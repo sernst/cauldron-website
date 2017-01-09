@@ -4,7 +4,7 @@ import render from './Navigator.render';
 
 const LINK_INTENT = 'link';
 const TOGGLE_INTENT = 'toggle';
-const DEFAULT_LINK_ID = 'basic-intro';
+const DEFAULT_LINK_ID = 'basics/intro';
 
 /**
  *

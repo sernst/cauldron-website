@@ -1,0 +1,32 @@
+{
+  "params": [
+    {
+      "description": "",
+      "index": 0,
+      "optional": false,
+      "name": "member",
+      "type": "Any"
+    },
+    {
+      "description": "",
+      "index": 1,
+      "optional": false,
+      "name": "container",
+      "type": "Any"
+    },
+    {
+      "name": "msg",
+      "type": "Any",
+      "description": "",
+      "index": 2,
+      "optional": true,
+      "default": "None"
+    }
+  ],
+  "doc": "Just like self.assertTrue(a not in b), but with a nicer default message.",
+  "name": "assertNotIn",
+  "returns": {
+    "description": "",
+    "type": null
+  }
+}

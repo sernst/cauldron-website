@@ -1,0 +1,9 @@
+{
+  "params": [],
+  "doc": "Clears all of the variables currently stored in this cache",
+  "name": "clear",
+  "returns": {
+    "description": "",
+    "type": "SharedCache"
+  }
+}

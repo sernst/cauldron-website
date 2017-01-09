@@ -1,0 +1,32 @@
+{
+  "params": [
+    {
+      "description": "",
+      "index": 0,
+      "optional": false,
+      "name": "d1",
+      "type": "Any"
+    },
+    {
+      "description": "",
+      "index": 1,
+      "optional": false,
+      "name": "d2",
+      "type": "Any"
+    },
+    {
+      "name": "msg",
+      "type": "Any",
+      "description": "",
+      "index": 2,
+      "optional": true,
+      "default": "None"
+    }
+  ],
+  "doc": "",
+  "name": "assertDictEqual",
+  "returns": {
+    "description": "",
+    "type": null
+  }
+}

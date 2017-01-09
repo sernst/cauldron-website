@@ -1,0 +1,90 @@
+.DirectoryStructure {
+  display: flex;
+  margin: 1em;
+
+  &__box {
+    border: 6px solid rgba(0, 0, 0, 0.1);
+  }
+
+  &__spacer {
+    flex: 1;
+  }
+}
+
+.DirectoryItem {
+  display: flex;
+  align-items: center;
+  margin-top: 0.25em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  padding-right: 2em;
+
+  &--indent0 {
+    padding-left: 2em;
+  }
+
+  &--indent1 {
+    padding-left: 4em;
+  }
+
+  &--indent2 {
+    padding-left: 6em;
+  }
+
+  &--indent3 {
+    padding-left: 8em;
+  }
+
+  &--indent4 {
+    padding-left: 10em;
+  }
+
+  &--indent5 {
+    padding-left: 12em;
+  }
+
+  &--highlighted {
+    background-color: #fffcde;
+    color: #514217;
+  }
+
+  &--modified {
+    background-color: #ebf4ff;
+    color: #496278;
+  }
+
+  &--added {
+    background-color: #ceffdc;
+    color: #4e805b;
+  }
+
+  &--removed {
+    background-color: #ffcdd3;
+    color: #93333d;
+  }
+
+  &__children {
+    padding-left: 2em;
+  }
+
+  &__icon {
+    width: 36px;
+    margin-right: 5px;
+  }
+
+  &__toggle {
+    width: 16px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-right: 0.25em;
+  }
+
+  &__toggle--closed {
+    background-image: url('/assets/images/toggle-closed.svg');
+  }
+
+  &__toggle--open {
+    background-image: url('/assets/images/toggle-open.svg');
+  }
+}

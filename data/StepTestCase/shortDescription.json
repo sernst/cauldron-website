@@ -1,0 +1,9 @@
+{
+  "params": [],
+  "doc": "Returns a one-line description of the test, or None if no\ndescription has been provided.\nThe default implementation of this method returns the first line of\nthe specified test method's docstring.",
+  "name": "shortDescription",
+  "returns": {
+    "description": "",
+    "type": null
+  }
+}

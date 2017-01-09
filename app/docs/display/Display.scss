@@ -5,16 +5,71 @@
 
   &__title {
     font-size: 2em;
+    align-items: center;
     margin-top: 1em;
+    display: flex;
+  }
+
+  @mixin titleEmphasis {
+    font-size: 0.6em;
+    margin: 0 0.25em 0 0;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-weight: bold;
+  }
+
+  &__titleClass {
+    color: #0a6aa1;
+    background-color: #b3e4ff;
+    @include titleEmphasis;
+  }
+
+  &__titleFunc {
+    color: #5b287d;
+    background-color: #d0ccff;
+    @include titleEmphasis;
+  }
+
+  &__titleProp {
+    color: #467d57;
+    background-color: #c2ffc4;
+    @include titleEmphasis;
   }
 
   &__subtitle {
-    font-size: 1.4em;
+    font-size: 1.75em;
+    align-items: center;
+    margin-top: 1em;
+    display: flex;
+  }
+
+  &__subtitleClass {
+    color: #0a6aa1;
+    background-color: #b3e4ff;
+    @include titleEmphasis;
+  }
+
+  &__subtitleFunc {
+    color: #5b287d;
+    background-color: #d0ccff;
+    @include titleEmphasis;
+  }
+
+  &__entry1 {
+    border-left: 4px solid #EEE;
+    margin-left: 1em;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    padding-left: 1em;
+
+    @media #{$less-than-m} {
+      margin-left: 0.5em;
+    }
   }
 
   &__breadcrumb {
-    color: rgba(0, 0, 0, 0.6);
-    font-size: 1.1em;
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 1em;
   }
 
   &__link {
@@ -26,10 +81,27 @@
     font-size: 1.8em;
   }
 
+  &__h2 {
+    margin: 2em 0 0.5em 0;
+    font-size: 1.5em;
+  }
+
   &__p {
     line-height: 1.5;
     font-size: 1.1em;
     margin: 0.5em auto 1em auto;
+  }
+
+  &__pre {
+    border: 1px solid #DDD;
+    background-color: #F9F9F9;
+    color: #888;
+    font-size: 0.8em;
+    white-space: pre;
+    padding: 1em;
+    overflow: auto;
+    font-family: "Lucida Console", Monaco, "Courier New", Courier, monospace;
+    margin: 1em;
   }
 
   li {
@@ -48,7 +120,6 @@
 
   em {
     font-style: italic;
-    color: black;
-    color: rgba(49, 62, 26, 0.7);
+    font-weight: bold;
   }
 }

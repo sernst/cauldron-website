@@ -1,7 +1,10 @@
-mixin stepCode(title, color)
+mixin stepCode(title, index)
   div(class='StepCode')
-    div(class=['StepCode__banner', 'StepCode__banner--' + (color || 'black')])
-      div(class='StepCode__prefix') Step:
+    div(class=['StepCode__banner', 'StepCode__banner--' + (index || '1')])
+      if (index)
+        div(class='StepCode__prefix') STEP #{index}:
+      else
+        div(class='StepCode__prefix') STEP:
       div(class='StepCode__title')= title
     div(class='StepCode__box')
       block

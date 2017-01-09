@@ -1,0 +1,24 @@
+{
+  "params": [
+    {
+      "description": "",
+      "index": 0,
+      "optional": false,
+      "name": "args",
+      "type": "Any"
+    },
+    {
+      "description": "",
+      "index": 1,
+      "optional": false,
+      "name": "kwargs",
+      "type": "Any"
+    }
+  ],
+  "doc": "",
+  "name": "deprecated_func",
+  "returns": {
+    "description": "",
+    "type": null
+  }
+}

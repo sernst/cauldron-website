@@ -1,0 +1,24 @@
+{
+  "params": [
+    {
+      "description": "",
+      "index": 0,
+      "optional": false,
+      "name": "typeobj",
+      "type": "Any"
+    },
+    {
+      "description": "",
+      "index": 1,
+      "optional": false,
+      "name": "function",
+      "type": "Any"
+    }
+  ],
+  "doc": "Add a type specific assertEqual style function to compare a type.\nThis method is for use by TestCase subclasses that need to register\ntheir own type equality functions to provide nicer error messages.\nArgs:\ntypeobj: The data type to call this function on when both values\nare of the same type in assertEqual().\nfunction: The callable taking two arguments and an optional\nmsg= argument that raises self.failureException with a\nuseful error message when the two arguments are not equal.",
+  "name": "addTypeEqualityFunc",
+  "returns": {
+    "description": "",
+    "type": null
+  }
+}

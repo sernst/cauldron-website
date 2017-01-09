@@ -1,28 +1,32 @@
 {
-  "name": "plotly",
   "params": [
     {
-      "name": "data",
+      "description": "\nThe Plotly trace data to be plotted",
       "index": 0,
-      "type": "Any",
       "optional": false,
-      "description": " The Plotly trace data to be plotted"
+      "name": "data",
+      "type": "Any"
     },
     {
-      "name": "layout",
+      "description": "\nThe layout data used for the plot",
       "index": 1,
-      "type": "dict",
       "optional": false,
-      "description": " The layout data used for the plot"
+      "name": "layout",
+      "type": "dict"
     },
     {
-      "index": 2,
-      "optional": true,
-      "default": "0.5",
       "name": "scale",
       "type": "float",
-      "description": " The display scale with units of fractional screen height. A value of 0.5 constrains the output to a maximum height equal to half the height of browser window when viewed. Values below 1.0 are usually recommended so the entire output can be viewed without scrolling."
+      "description": "\nThe display scale with units of fractional screen height. A value\nof 0.5 constrains the output to a maximum height equal to half the\nheight of browser window when viewed. Values below 1.0 are usually\nrecommended so the entire output can be viewed without scrolling.",
+      "index": 2,
+      "optional": true,
+      "default": "0.5"
     }
   ],
-  "doc": "Creates a Plotly plot in the display with the specified data and layout"
+  "doc": "Creates a Plotly plot in the display with the specified data and layout",
+  "name": "plotly",
+  "returns": {
+    "description": "",
+    "type": null
+  }
 }

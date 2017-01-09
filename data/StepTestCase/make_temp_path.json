@@ -1,0 +1,24 @@
+{
+  "params": [
+    {
+      "description": "",
+      "index": 0,
+      "optional": false,
+      "name": "identifier",
+      "type": "Any"
+    },
+    {
+      "description": "",
+      "index": 1,
+      "optional": false,
+      "name": "args",
+      "type": "Any"
+    }
+  ],
+  "doc": "",
+  "name": "make_temp_path",
+  "returns": {
+    "description": "",
+    "type": null
+  }
+}

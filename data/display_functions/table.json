@@ -1,21 +1,41 @@
 {
-  "name": "table",
   "params": [
     {
-      "name": "data_frame",
+      "description": "\nThe pandas data frame to be rendered to a table",
       "index": 0,
-      "type": "Any",
       "optional": false,
-      "description": " The pandas data frame to be rendered to a table"
+      "name": "data_frame",
+      "type": "Any"
     },
     {
-      "index": 1,
-      "optional": true,
-      "default": "0.7",
       "name": "scale",
       "type": "float",
-      "description": " The display scale with units of fractional screen height. A value of 0.5 constrains the output to a maximum height equal to half the height of browser window when viewed. Values below 1.0 are usually recommended so the entire output can be viewed without scrolling."
+      "description": "\nThe display scale with units of fractional screen height. A value\nof 0.5 constrains the output to a maximum height equal to half the\nheight of browser window when viewed. Values below 1.0 are usually\nrecommended so the entire output can be viewed without scrolling.",
+      "index": 1,
+      "optional": true,
+      "default": "0.7"
+    },
+    {
+      "name": "include_index",
+      "type": "bool",
+      "description": "\nWhether or not the index column should be included in the displayed\noutput. The index column is not included by default because it is\noften unnecessary extra information in the display of the data.",
+      "index": 2,
+      "optional": true,
+      "default": "False"
+    },
+    {
+      "name": "max_rows",
+      "type": "int",
+      "description": "\nThis argument exists to prevent accidentally writing very large data\nframes to a table, which can cause the notebook display to become\nsluggish or unresponsive. If you want to display large tables, you need\nonly increase the value of this argument.",
+      "index": 3,
+      "optional": true,
+      "default": "500"
     }
   ],
-  "doc": "Adds the specified data frame to the display in a nicely formatted scrolling table"
+  "doc": "Adds the specified data frame to the display in a nicely formatted\nscrolling table",
+  "name": "table",
+  "returns": {
+    "description": "",
+    "type": null
+  }
 }

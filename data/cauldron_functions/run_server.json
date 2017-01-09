@@ -1,0 +1,33 @@
+{
+  "params": [
+    {
+      "description": "\nThe port on which to bind the cauldron server.",
+      "index": 0,
+      "optional": false,
+      "name": "port",
+      "type": "Any"
+    },
+    {
+      "name": "debug",
+      "type": "Any",
+      "description": "\nWhether or not the server should be run in debug mode. If true, the\nserver will echo debugging information during operation.",
+      "index": 1,
+      "optional": true,
+      "default": "5010"
+    },
+    {
+      "name": "kwargs",
+      "type": "Any",
+      "description": "\nCustom properties to alter the way the server runs.",
+      "index": 2,
+      "optional": true,
+      "default": "False"
+    }
+  ],
+  "doc": "Run the cauldron http server used to interact with cauldron from a remote\nhost",
+  "name": "run_server",
+  "returns": {
+    "description": "",
+    "type": null
+  }
+}

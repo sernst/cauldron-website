@@ -1,0 +1,31 @@
+{
+  "params": [
+    {
+      "description": "\nOne or more module objects that should be refreshed if they the\ncurrently loaded versions are out of date. The package name for\nmodules can also be used.",
+      "index": 0,
+      "optional": false,
+      "name": "modules",
+      "type": "str, module"
+    },
+    {
+      "description": "\nWhen true, any imported sub-modules of this module will also be\nrefreshed if they have been updated.",
+      "index": 1,
+      "optional": false,
+      "name": "recursive",
+      "type": "bool"
+    },
+    {
+      "description": "\nWhen true, all modules will be refreshed even if it doesn't appear\nthat they have been updated.",
+      "index": 2,
+      "optional": false,
+      "name": "force",
+      "type": "bool"
+    }
+  ],
+  "doc": "Checks the specified module or modules for changes and reloads them if\nthey have been changed since the module was first imported or last\nrefreshed.",
+  "name": "refresh",
+  "returns": {
+    "description": "True or False depending on whether any modules were refreshed by this\ncall.",
+    "type": "bool"
+  }
+}
