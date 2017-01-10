@@ -81,9 +81,21 @@
     font-size: 1.8em;
   }
 
+  &__h1Subtitle {
+    font-size: 1.2rem;
+    opacity: 0.7;
+  }
+
   &__h2 {
-    margin: 2em 0 0.5em 0;
-    font-size: 1.5em;
+    margin: 1.5em 0 0.5em 0;
+    font-size: 1.6em;
+    font-weight: bold;
+  }
+
+  &__h1Subtitle {
+    font-size: 1rem;
+    opacity: 0.7;
+    font-weight: normal;
   }
 
   &__p {
@@ -104,6 +116,28 @@
     margin: 1em;
   }
 
+  &__columns {
+    display: flex;
+    flex-direction: row;
+
+    @media #{$less-than-m} {
+      display: block;
+    }
+  }
+
+  &__column2 {
+    flex: 50%;
+  }
+
+  &__img {
+    text-align: center;
+
+    img {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
+
   li {
     margin: 0.25em 0;
     color: #666;
@@ -121,5 +155,52 @@
   em {
     font-style: italic;
     font-weight: bold;
+  }
+}
+
+
+.OrderedList {
+  counter-reset: OrderedList;
+
+  &--indent {
+    margin-left: 3em;
+
+    @media #{$less-than-m} {
+      margin-left: 1em;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+
+  &__info {
+    opacity: 0.8;
+  }
+
+
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin: 0.5em 0;
+
+    @media #{$less-than-m} {
+      margin: 1em 0;
+    }
+
+    &:before {
+      content: counter(OrderedList);
+      counter-increment: OrderedList;
+      font-size: 3em;
+      opacity: 0.4;
+      margin-right: 0.25em;
+    }
   }
 }

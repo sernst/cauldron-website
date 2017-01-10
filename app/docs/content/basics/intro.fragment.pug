@@ -1,47 +1,97 @@
-include ../../../components/MessageBox/MessageBox
+include ../../../components/DirectoryStructure/DirectoryStructure
 
 .Display__title Introduction
 
 .Display__p.
   Cauldron is called the #[em unnotebook] because it
-  differs fom traditional notebooks in two key ways:
+  differs from traditional notebooks a few key ways:
 
-+messageBox(
-  'bad',
-  'No Single Notebook File',
-  'Cauldron notebooks are made up of multiple files'
-)
+
+.Display__h2
+  div Multiple Files
+  .Display__h1Subtitle Cauldron notebooks are made up of multiple files
 
 .Display__p.
-  Sharing code used to be cumbersome. Single file notebooks were a way around
-  that problem, but today code-hosting services like
+  Once upon a time sharing code was cumbersome. Single-file notebooks were a
+  solution to that problem. But today code-hosting services like
     #[a(class='Display__link' href='https://github.com') GitHub]
   and
     #[a(class='Display__link' href='https://bitbucket.org/') BitBucket]
-  make code sharing easy. Single notebook files have now become the cumbersome
-  way to share code because they don't play nicely with these code hosting
+  are much better solutions. Single notebook files have now become the
+  cumbersome way to share code. They don't play nicely with these code hosting
   services. Collaboration results in unnecessary merge conflicts. Code can't
   be easily reviewed by peers. And extra display data is stored in every commit
   whether you want it or not.
 .Display__p.
-  Cauldron notebooks are folders containing multiple project files instead of
-  storing everything in one file. Each cell of a notebook is stored in its own
-  code file. A settings file, named #[em cauldron.json], resides within that
-  folder and contains the metadata and information Cauldron uses to run the
-  notebook.
+  Cauldron notebooks are folders that contain multiple project files instead of
+  storing everything in one file. A typical notebook would look something like:
+
++makeDirectoryStructure
+  +makeFolder(0, 'my_notebook', 'cauldron')(open=true)
+  +makeFile(1, 'cauldron.json', 'cauldron')
+  +makeFile(1, 'data.csv', 'csv')
+  +makeFile(1, 'S01-Premable.md', 'markdown')
+  +makeFile(1, 'S02-Load-Data.py', 'python')
+  +makeFile(1, 'S03-Plot-Data.py', 'python')
+
+.Display__p where:
+
+.OrderedList.OrderedList--indent
+  .OrderedList__item
+    .OrderedList__column
+      .OrderedList__title my_notebook
+      .OrderedList__info.
+        is the folder for all of the notebook's files
+  .OrderedList__item
+    .OrderedList__column
+      .OrderedList__title cauldron.json
+      .OrderedList__info stores all of the notebook's settings
+  .OrderedList__item
+    .OrderedList__column
+      .OrderedList__title data.csv
+      .OrderedList__info.
+        locally stored data and other files reside in the notebook folder
+        for easy access
+  .OrderedList__item
+    .OrderedList__column
+      .OrderedList__title.
+        S01-Preamble.md, S02-Load-Data.py & S03-Plot-Data.py
+      .OrderedList__info.
+        Each notebook cell is stored in its own file
+
 .Display__p.
   Display data is also stored in separate files. They can be saved, or
-  not, when you choose to avoid polluting the version control system
+  not, when and where you choose to avoid polluting the version control system
   with meaningless updates caused by re-running unmodified steps.
 
-+messageBox(
-  'bad',
-  'No Editing Code in the Display',
-  'Cauldron separates authoring from display and lets you use the code editor of your choice'
-)
+
+.Display__h2
+  div Editing and Display Separation
+  .Display__h1Subtitle.
+    Cauldron separates authoring from display and lets you use the code editor
+    of your choice
 
 .Display__p.
-  Cauldron has no code editing capabilities of its own. There's absolutely no
-  reason to reinvent the wheel when there are so many fantastic code editors
-  available already. These code editors come with productivity features that
-  are either missing or of lesser quality in notebooks.
+  Cauldron has no code editing capabilities of its own. There is absolutely no
+  reason to reinvent the wheel with so many fantastic code editors with
+  productivity features that far exceed anything available in notebooks. The
+  process of developing an analysis in Cauldron works like this:
+
+.Display__img
+  img(src="/assets/images/edit-and-run.png")
+
+.OrderedList.OrderedList--indent
+  .OrderedList__item
+    .OrderedList__column
+      .OrderedList__title Write Code
+      .OrderedList__info in the code editor of your choice
+  .OrderedList__item
+    .OrderedList__column
+      .OrderedList__title Execute Code
+      .OrderedList__info in Cauldron and see the results in the display
+  .OrderedList__item
+    .OrderedList__column
+      .OrderedList__title Repeat
+      .OrderedList__info.
+        iterating and expanding on on the analysis like all notebooks like
+        any other notebook until you're finished
