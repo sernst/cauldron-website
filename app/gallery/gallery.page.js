@@ -9,7 +9,7 @@ import Banner from '../components/PageBanner/PageBanner';
  *
  */
 function main(sources) {
-  const banner = Banner(sources.banner, xs.of({ downloadUrl: '/#download' }));
+  const banner = Banner(sources.banner, xs.of({ downloadUrl: '/install' }));
 
   return {
     banner: banner.DOM

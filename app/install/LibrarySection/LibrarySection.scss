@@ -1,0 +1,14 @@
+.LibrarySection {
+  margin: 3em 0;
+
+  &__title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
+
+  &__text {
+    margin: 1em 0;
+    line-height: 1.5em;
+  }
+}

@@ -3,6 +3,7 @@
 @import "../components/PageBanner/PageBanner";
 @import "../components/PageFooter/PageFooter";
 @import "../components/NotebookLink/NotebookLink";
+@import "../components/ExternalLink/ExternalLink";
 
 .GalleryPage {
   display: flex;
@@ -15,7 +16,7 @@
   }
 
   &__subtitle {
-    font-size: 0.9em;
+    margin-top: 1em;
   }
 
   &__link {

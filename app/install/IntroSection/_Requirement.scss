@@ -1,0 +1,39 @@
+.Requirement {
+  margin: 1em 2em 0 2em;
+  display: flex;
+  align-items: center;
+
+  @media #{$less-than-m} {
+    margin: 1em 0;
+    flex-direction: column;
+  }
+
+  &__iconBox {
+    margin-right: 1em;
+
+    @media #{$less-than-m} {
+      margin: 1em 0;
+    }
+  }
+
+  &__icon {
+    width: 36px;
+  }
+
+  &__text {
+    display: block;
+    flex: 1;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 1.3em;
+  }
+
+  &__info {
+    line-height: 1.5em;
+    opacity: 0.7;
+    font-size: 0.9em;
+    max-width: 500px;
+  }
+}

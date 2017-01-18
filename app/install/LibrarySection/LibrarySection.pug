@@ -1,0 +1,27 @@
+include ../../components/ExternalLink/ExternalLink
+
+.LibrarySection(id='Python-Package')
+.LibrarySection__title Python Package
+.LibrarySection__text.
+  Cauldron is distributed as a #[em pure-python wheel], meaning that it
+  can be easily installed and used on any system that supports Python 3. It
+  is, therefore, possible to use the Cauldron Python and its built-in command
+  line interface (CLI) on a wide range of operating systems.
+.LibrarySection__text.
+  The package can be installed either using conda for Anaconda users:
+:highlight(language="bash")
+  $ conda install -c sernst cauldron
+.LibrarySection__text.
+  or from Python's official package index (PyPI) using pip:
+:highlight(language="bash")
+  $ pip install cauldron-notebook
+.LibrarySection__text.
+    More detailed installation information for the package along with the
+    source code and command line interface documentation are available at
+    the Cauldron GitHub project page:
+
++createExternalLink(
+  'Cauldron Github',
+  'https://www.github.com/sernst/cauldron',
+  '/assets/images/octocat-logo-black.svg'
+)

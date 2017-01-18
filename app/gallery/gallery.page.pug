@@ -1,4 +1,5 @@
 include ../components/NotebookLink/NotebookLink
+include ../components/ExternalLink/ExternalLink
 
 html
   head
@@ -12,16 +13,17 @@ html
       section(id='bannerSection')
 
       .GalleryPage
-        .GalleryPage__title Gallery of Example Cauldron Notebooks
+        .GalleryPage__title Example Cauldron Notebook Gallery
         .GalleryPage__subtitle
           span.
-            The code for the all the examples shown in this gallery are
-            available in the
-          a(
-            class='GalleryPage__link'
-            href='https://github.com/sernst/cauldron-gallery'
-          ) Cauldron-Gallery GitHub Repository
-          span for reference.
+            Source code for all examples in this gallery is available for
+            reference in the Cauldron Gallery GitHub Repository
+
+          +createExternalLink(
+          'Cauldron Gallery Github',
+          'https://www.github.com/sernst/cauldron-gallery',
+          '/assets/images/octocat-logo-black.svg'
+          )
 
         .GalleryPage__items
 

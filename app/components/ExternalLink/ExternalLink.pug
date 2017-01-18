@@ -1,0 +1,15 @@
+mixin createExternalLink(title, src, imagePath)
+  .ExternalLink__bar
+    a(class='ExternalLink' href=src)
+      if (imagePath)
+        .ExternalLink__iconBox
+          img(class='ExternalLink__icon' src=imagePath)
+      .ExternalLink__textBox
+        .ExternalLink__bar
+          .ExternalLink__title=title
+          .ExternalLink__shrinker
+        .ExternalLink__url=src
+        .ExternalLink__info
+          block
+      .ExternalLink__shrinker
+    .ExternalLink__shrinker

@@ -107,8 +107,7 @@ function readFile(fileData) {
 
   return Rx.Observable
     .fromNodeCallback(fs.readFile)(fileData.sourcePath, 'utf8')
-    .map(contents => Object.assign(renderEntry(parseJson(contents)), fileData))
-    .do(x => console.log(x));
+    .map(contents => Object.assign(renderEntry(parseJson(contents)), fileData));
 }
 
 

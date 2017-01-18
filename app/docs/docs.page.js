@@ -94,7 +94,7 @@ function main(sources) {
   const display = Display(sources.HTTP);
   const banner = PageBanner(
     sources.banner,
-    xs.of({ downloadUrl: '/#download' })
+    xs.of({ downloadUrl: '/install' })
   );
   const navigator = Navigator(
     sources.navigator,
