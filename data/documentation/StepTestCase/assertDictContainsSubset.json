@@ -1,0 +1,32 @@
+{
+  "returns": {
+    "description": "",
+    "type": null
+  },
+  "params": [
+    {
+      "type": "Any",
+      "index": 0,
+      "description": "",
+      "name": "subset",
+      "optional": false
+    },
+    {
+      "type": "Any",
+      "index": 1,
+      "description": "",
+      "name": "dictionary",
+      "optional": false
+    },
+    {
+      "name": "msg",
+      "description": "",
+      "index": 2,
+      "type": "Any",
+      "default": "None",
+      "optional": true
+    }
+  ],
+  "doc": "Checks whether dictionary is a superset of subset.",
+  "name": "assertDictContainsSubset"
+}

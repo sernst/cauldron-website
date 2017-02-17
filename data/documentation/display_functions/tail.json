@@ -1,0 +1,25 @@
+{
+  "returns": {
+    "description": "",
+    "type": null
+  },
+  "params": [
+    {
+      "type": "Any",
+      "index": 0,
+      "description": "\nDataFrames will show the last *count* rows of that DataFrame. A list,\ntuple or other iterable, will show the last *count* rows. Dictionaries\nwill show *count* keys from the dictionary, which will be randomly\nselected unless you are using an OrderedDict. Strings will show the\nlast *count* characters.",
+      "name": "source",
+      "optional": false
+    },
+    {
+      "name": "count",
+      "description": "\nThe number of elements to show from the source.",
+      "index": 1,
+      "type": "int",
+      "default": "5",
+      "optional": true
+    }
+  ],
+  "doc": "The opposite of the head function. Displays the last *count* elements of\nthe *source* object.",
+  "name": "tail"
+}

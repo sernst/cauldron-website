@@ -1,0 +1,31 @@
+.ActionSection {
+  color: black;
+  background-color: #EEE;
+  min-height: 100px;
+  padding: 3em 1em 6em 1em;
+
+  &__display {
+    max-width: $centered-page-width;
+    margin: 0 auto;
+    padding: 0 1em;
+  }
+
+  &__title {
+    font-size: 2em;
+    font-family: Sahitya;
+    font-weight: bold;
+  }
+
+  &__p {
+    line-height: 1.4;
+    margin: 1em 0;
+  }
+
+  &__button {
+    max-width: 240px;
+
+    @media #{$less-than-s} {
+      max-width: 100%;
+    }
+  }
+}

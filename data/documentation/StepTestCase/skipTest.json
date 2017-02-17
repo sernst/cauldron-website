@@ -1,0 +1,17 @@
+{
+  "returns": {
+    "description": "",
+    "type": null
+  },
+  "params": [
+    {
+      "type": "Any",
+      "index": 0,
+      "description": "",
+      "name": "reason",
+      "optional": false
+    }
+  ],
+  "doc": "Skip this test.",
+  "name": "skipTest"
+}

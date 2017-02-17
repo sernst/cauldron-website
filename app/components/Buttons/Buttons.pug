@@ -1,0 +1,42 @@
+mixin _textDom(buttonClass, parentAttributes)
+  - hasIcon = parentAttributes.icon
+  - modifier = hasIcon ? 'left' : 'center'
+  div(class=[
+    `${buttonClass}__textBox`,
+    `${buttonClass}__textBox--${modifier}`
+  ])
+    div(class=`${buttonClass}__label`)=parentAttributes.label
+    div(class=`${buttonClass}__info`)
+      block
+
+mixin _iconDom(buttonClass, iconName, iconSize)
+  if (iconName)
+    .Icon(class=[
+      `${buttonClass}__icon`,
+      `Icon--${iconSize || 'xs'}`
+    ])=iconName
+
+mixin buttonDom(className, parentAttributes)
+  a(
+    class=[className, parentAttributes.class]
+    href=parentAttributes.href
+  )
+    div(class=`${className}__box`)
+      +_iconDom(className, parentAttributes.icon)
+      +_textDom(className, parentAttributes)
+        block
+
+mixin makeGreenButton()
+  +buttonDom('GreenButton', attributes)
+
+mixin makeWhiteButton()
+  +buttonDom('WhiteButton', attributes)
+
+mixin makeBlueButton()
+  +buttonDom('BlueButton', attributes)
+
+mixin makeRedButton()
+  +buttonDom('RedButton', attributes)
+
+mixin makeButton(buttonClass)
+  +buttonDom(buttonClass, attributes)

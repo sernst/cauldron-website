@@ -1,0 +1,25 @@
+{
+  "returns": {
+    "description": "The value of the specified key if it exists in the cache or the\ndefault_Value if it does not",
+    "type": null
+  },
+  "params": [
+    {
+      "type": "str, NoneType",
+      "index": 0,
+      "description": "\nThe name of the variable for which the value should be returned",
+      "name": "key",
+      "optional": false
+    },
+    {
+      "name": "default_value",
+      "description": "\nThe value to return if the variable does not exist in the cache",
+      "index": 1,
+      "type": "Any",
+      "default": "None",
+      "optional": true
+    }
+  ],
+  "doc": "Retrieves the value of the specified variable from the cache",
+  "name": "fetch"
+}

@@ -1,0 +1,17 @@
+{
+  "returns": {
+    "description": "",
+    "type": null
+  },
+  "params": [
+    {
+      "type": "dict",
+      "index": 0,
+      "description": "\nA dictionary object to be inspected",
+      "name": "source",
+      "optional": false
+    }
+  ],
+  "doc": "Inspects the data and structure of the source dictionary object and\nadds the results to the display for viewing",
+  "name": "inspect"
+}

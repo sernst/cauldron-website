@@ -1,0 +1,4 @@
+{
+  "name": "project",
+  "description": "\nA simplified form of the project for exposure to Cauldron users. A\nsingle exposed project is created when the Cauldron library is first\nimported and that exposed project is accessible from the cauldron\nroot module.\n"
+}

@@ -1,0 +1,42 @@
+include ../../components/VerticalDotter/VerticalDotter
+
+.ReaderSection
+  .ReaderSection__display
+    .ReaderSection__row
+      .ReaderSection__textColumn
+        .ReaderSection__title A Dedicated Reader App
+
+        .ReaderSection__p
+          | for easily sharing your results with others while preserving the
+          | formatting and interactivity of your notebook. Like sharing a PDF
+          | but without corrupting the display.
+
+        .ReaderSection--large
+          a.ActionButton.ActionButton--green(href="/reader") Learn More
+
+      .ReaderSection__imageColumn
+        .ReaderSection__dotter
+          .ReaderSection__dotRow
+            +makeDotter(class="ReaderSection__dotColumn")
+              img.ReaderSection__dot(src="/assets/images/create-dot.svg")
+            .ReaderSection__infoColumn
+              .ReaderSection__header Make It
+              .ReaderSection__info Use Cauldron to create your analysis.
+          .ReaderSection__dotRow
+            +makeDotter(class="ReaderSection__dotColumn")
+              img.ReaderSection__dot(src="/assets/images/save-dot.svg")
+            .ReaderSection__infoColumn
+              .ReaderSection__header Export It
+              .ReaderSection__info.
+                Save your results as a CDF #[em (Cauldron Display File)] file.
+          .ReaderSection__dotRow
+            +makeEndDotter(class="ReaderSection__dotColumn")
+              img.ReaderSection__dot--big(src="/assets/images/share-dot-out.svg")
+            .ReaderSection__infoColumn
+              .ReaderSection__header Send It
+              .ReaderSection__info.
+                Send it to others to view your results in the Cauldron
+                Reader application.
+
+    .ReaderSection__textColumn.ReaderSection__textColumn--small
+      a.ActionButton.ActionButton--green(href="/reader") Learn More

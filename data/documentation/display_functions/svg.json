@@ -1,0 +1,25 @@
+{
+  "returns": {
+    "description": "",
+    "type": null
+  },
+  "params": [
+    {
+      "type": "str",
+      "index": 0,
+      "description": "\nThe SVG string data to add to the display",
+      "name": "svg_dom",
+      "optional": false
+    },
+    {
+      "name": "filename",
+      "description": "\nAn optional filename where the SVG data should be saved within\nthe project results folder",
+      "index": 1,
+      "type": "str",
+      "default": "None",
+      "optional": true
+    }
+  ],
+  "doc": "Adds the specified SVG string to the display. If a filename is\nincluded, the SVG data will also be saved to that filename within the\nproject results folder.",
+  "name": "svg"
+}

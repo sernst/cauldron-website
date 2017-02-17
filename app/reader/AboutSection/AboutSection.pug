@@ -1,0 +1,30 @@
+include ../../components/BenefitItem/BenefitItem
+
+.AboutSection
+  .AboutSection__title Simple &amp; Functional
+
+  .AboutSection__aligner
+    +makeBenefitItem('Reliable Display', 'translate-circle-white')
+      div.
+        What you create in Cauldron is exactly what others see in the Reader.
+        Interactivity and format are preserved. Nothing gets lost in
+        translation, no matter what operating system others are using.
+
+    +makeBenefitItem('Dependency Free', 'self-contained-circle-white')
+      div.
+        The Reader is self-contained. No Python installation, no development
+        tools and no need to run any code. Especially helpful for collaboration
+        with non-technical colleagues.
+
+  .AboutSection__aligner
+    +makeBenefitItem('Lightweight Files', 'send-circle-white')
+      div.
+        Reader files are optimized and compressed to reduce file size. They
+        store only display data, omitting unneeded editing data and leaving
+        display overhead to the viewer.
+
+    +makeBenefitItem('Privacy', 'privacy-circle-white')
+      div.
+        You create reader files locally on your machine. Nothing is uploaded
+        to a server or shared on the web that might compromise the privacy of
+        your analysis. And you control how the files are shared.

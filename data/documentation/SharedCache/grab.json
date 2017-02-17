@@ -1,0 +1,24 @@
+{
+  "returns": {
+    "description": "A tuple containing values for each of the keys specified in the\narguments",
+    "type": "Tuple"
+  },
+  "params": [
+    {
+      "type": "List",
+      "index": 0,
+      "description": "\nOne or more variable names stored in the cache that should be\nreturned by the grab function. The order of these arguments are\npreserved by the returned tuple.",
+      "name": "keys",
+      "optional": false
+    },
+    {
+      "type": "Any",
+      "index": 1,
+      "description": "\nIf one or more of the keys is not found within the cache, this\nvalue will be returned as the missing value.",
+      "name": "default_value",
+      "optional": false
+    }
+  ],
+  "doc": "Returns a tuple containing multiple values from the cache specified by\nthe keys arguments",
+  "name": "grab"
+}

@@ -1,0 +1,32 @@
+{
+  "returns": {
+    "description": "",
+    "type": null
+  },
+  "params": [
+    {
+      "type": "Any",
+      "index": 0,
+      "description": "",
+      "name": "first",
+      "optional": false
+    },
+    {
+      "type": "Any",
+      "index": 1,
+      "description": "",
+      "name": "second",
+      "optional": false
+    },
+    {
+      "name": "msg",
+      "description": "",
+      "index": 2,
+      "type": "Any",
+      "default": "None",
+      "optional": true
+    }
+  ],
+  "doc": "An unordered sequence comparison asserting that the same elements,\nregardless of order.  If the same element occurs more than once,\nit verifies that the elements occur the same number of times.\nself.assertEqual(Counter(list(first)),\nCounter(list(second)))\nExample:\n- [0, 1, 1] and [1, 0, 1] compare equal.\n- [0, 0, 1] and [0, 1] compare unequal.",
+  "name": "assertCountEqual"
+}

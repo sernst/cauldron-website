@@ -1,8 +1,14 @@
 import xs from 'xstream';
 import { run } from '@cycle/xstream-run';
 import { makeDOMDriver } from '@cycle/dom';
+import { makeHTTPDriver } from '@cycle/http';
 
 import mainBanner from '../components/PageBanner/PageBanner';
+
+const missingRequest = {
+  url: '/docs/content/missing.html',
+  category: 'Display',
+};
 
 
 /**
@@ -15,5 +21,6 @@ function main({ banner }) {
 }
 
 run(main, {
-  banner: makeDOMDriver('#bannerSection')
+  banner: makeDOMDriver('#bannerSection'),
+  HTTP: makeHTTPDriver()
 });

@@ -1,0 +1,98 @@
+.DownloadSection {
+  margin: 3em 0;
+
+  @import "Version";
+
+  &__icon {
+    height: 28px;
+    padding-right: 1em;
+
+    @media #{$less-than-s} {
+      padding: 1em 0;
+    }
+  }
+
+  &__title {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+
+    @media #{$less-than-s} {
+      flex-direction: column;
+    }
+
+    &--dark {
+      font-family: Sahitya;
+      background-color: #222;
+      color: white;
+      padding: 0.5em 1em;
+      margin-bottom: 1em;
+    }
+  }
+
+  &__spacer {
+    flex: 1;
+  }
+
+  &__textBox {
+    flex: 2;
+  }
+
+  &__text {
+    margin: 1.5em 0 0.5em 0;
+  }
+
+  &__requires {
+    opacity: 0.7;
+    margin: 1em 2em 0;
+    padding-left: 1em;
+    min-height: 2em;
+
+    @media #{$less-than-s} {
+      margin: 1em 0;
+    }
+  }
+
+  &__button {
+    margin-bottom: 0.5em;
+  }
+
+  &__list {
+    line-height: 1.3em;
+
+    li {
+      margin: 0.75em 0;
+    }
+  }
+
+  &__alternatives {
+    margin: 1em 0;
+    padding: 1em;
+  }
+
+  &__installerButton {
+    margin: 1em;
+    flex: 1;
+
+    @media #{$less-than-s} {
+      width: 90%
+    }
+  }
+
+  &__installerInfo {
+    flex: 2;
+    font-size: 0.9em;
+    opacity: 0.7;
+
+    @media #{$less-than-s} {
+      flex: 1;
+      width: 100%;
+      margin-bottom: 1em;
+    }
+  }
+}

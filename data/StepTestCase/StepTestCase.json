@@ -1,4 +1,0 @@
-{
-  "description": "\nThe base class to use for step \"unit\" testing. This class overrides\nthe default setup and tearDown methods from the unittest.TestCase to add\nfunctionality for loading and unloading the Cauldron notebook settings\nneeded to run and test steps. If you override either of these methods\nmake sure that you call their super methods as well or the functionality\nwill be lost.\n",
-  "name": "StepTestCase"
-}

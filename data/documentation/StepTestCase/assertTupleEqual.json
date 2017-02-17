@@ -1,0 +1,32 @@
+{
+  "returns": {
+    "description": "",
+    "type": null
+  },
+  "params": [
+    {
+      "type": "Any",
+      "index": 0,
+      "description": "",
+      "name": "tuple1",
+      "optional": false
+    },
+    {
+      "type": "Any",
+      "index": 1,
+      "description": "",
+      "name": "tuple2",
+      "optional": false
+    },
+    {
+      "name": "msg",
+      "description": "",
+      "index": 2,
+      "type": "Any",
+      "default": "None",
+      "optional": true
+    }
+  ],
+  "doc": "A tuple-specific equality assertion.\nArgs:\ntuple1: The first tuple to compare.\ntuple2: The second tuple to compare.\nmsg: Optional message to use on failure instead of a list of\ndifferences.",
+  "name": "assertTupleEqual"
+}

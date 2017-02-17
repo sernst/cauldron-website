@@ -1,0 +1,54 @@
+.HowSection {
+  &__display {
+    max-width: $centered-page-width - 400;
+    margin: 1em auto 3em auto;
+    padding: 1em;
+  }
+
+  &__title {
+    font-size: 3em;
+    text-align: center;
+    font-family: Sahitya;
+    margin: 1em 0;
+  }
+
+  &__row {
+    display: flex;
+    min-height: 120px;
+  }
+
+  &__dotColumn {
+    width: 132px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 1em;
+  }
+
+  &__dot {
+    margin: 2px auto;
+    padding: 0;
+    width: 64px;
+
+    &--big {
+      width: 128px;
+    }
+  }
+
+  &__text {
+    flex: 1;
+  }
+
+  &__header {
+    font-size: 1.6em;
+    font-weight: bold;
+    opacity: 0.5;
+  }
+
+  &__info {
+    opacity: 0.6;
+    padding-left: 0.5em;
+    margin-bottom: 1em;
+    font-size: 1.1em;
+  }
+}
+

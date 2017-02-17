@@ -1,0 +1,18 @@
+{
+  "returns": {
+    "description": "",
+    "type": null
+  },
+  "params": [
+    {
+      "name": "lines",
+      "description": "\nThe number of lines of whitespace to show.",
+      "index": 0,
+      "type": "float",
+      "default": "1.0",
+      "optional": true
+    }
+  ],
+  "doc": "Adds the specified number of lines of whitespace.",
+  "name": "whitespace"
+}

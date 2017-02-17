@@ -3,6 +3,9 @@ $centered-page-width: 920px;
 $cauldron-green: #8CC63F;
 $cauldron-green-dark: #577f2c;
 
+$reader-red: #f23039;
+$reader-red-dark: #8a1318;
+
 $xs-max: '479px';
 $s-min: '480px';
 $s-max: '767px';
@@ -34,4 +37,15 @@ $greater-than-l: "(min-width: #{$xl-min})";
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+@mixin start-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -1,0 +1,52 @@
+include ../Buttons/Buttons
+
+mixin createDownloadSection(settings, id, title, icon, requirements)
+  - const buttonClass = settings.appMode === 'reader' ? 'RedButton' : 'GreenButton'
+  .DownloadSection(id=id)
+    .DownloadSection__row.DownloadSection__row--dark
+      img.DownloadSection__icon(src=`/assets/images/${icon}`)
+      .DownloadSection__title=`${title} Installation`
+      .DownloadSection__spacer
+      .Version
+        .Version__title version
+        .Version__box
+          != functions.versionFormatter('Version', settings.data.VERSION)
+
+    .DownloadSection__row
+      .DownloadSection__textBox
+        .DownloadSection__requires=requirements
+      .DownloadSection__linkBox
+        +makeButton(buttonClass)(
+          class='DownloadSection__button'
+          href=settings.data.DOWNLOAD_URL
+          icon='file_download'
+          label='Download Installer'
+        )
+    .DownloadSection__info
+      block
+
+    .DownloadSection__alternatives
+      .DownloadSection__title Installation Options:
+
+      .DownloadSection__row
+        +makeButton(buttonClass)(
+          class='DownloadSection__installerButton'
+          href=settings.data.DOWNLOAD_URL
+          icon='file_download'
+          label='Standard Installer'
+        )
+        .DownloadSection__installerInfo.
+          Recommended for most users
+
+      .DownloadSection__row
+        +makeBlueButton()(
+          class='DownloadSection__installerButton'
+          href=settings.data.PORTABLE_URL
+          icon='archive'
+          label='Portable (ZIP)'
+        )
+        .DownloadSection__installerInfo.
+          For those without administrator privileges or are having
+          difficulty with the standard installer. Simply unzip and
+          run the Cauldron application file found inside the unzipped
+          folder.

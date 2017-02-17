@@ -1,0 +1,18 @@
+.GreenButton {
+  text-align: center;
+
+  @include button(
+    black,
+    $cauldron-green,
+    $cauldron-green,
+    black
+  );
+
+  &__label {
+    font-weight: bold;
+  }
+
+  &__info {
+    font-size: 0.7rem;
+  }
+}

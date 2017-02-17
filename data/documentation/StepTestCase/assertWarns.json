@@ -1,0 +1,31 @@
+{
+  "returns": {
+    "description": "",
+    "type": null
+  },
+  "params": [
+    {
+      "type": "Any",
+      "index": 0,
+      "description": "",
+      "name": "expected_warning",
+      "optional": false
+    },
+    {
+      "type": "Any",
+      "index": 1,
+      "description": "",
+      "name": "args",
+      "optional": false
+    },
+    {
+      "type": "Any",
+      "index": 2,
+      "description": "",
+      "name": "kwargs",
+      "optional": false
+    }
+  ],
+  "doc": "Fail unless a warning of class warnClass is triggered\nby the callable when invoked with specified positional and\nkeyword arguments.  If a different type of warning is\ntriggered, it will not be handled: depending on the other\nwarning filtering rules in effect, it might be silenced, printed\nout, or raised as an exception.\nIf called with the callable and arguments omitted, will return a\ncontext object used like this::\nwith self.assertWarns(SomeWarning):\ndo_something()\nAn optional keyword argument 'msg' can be provided when assertWarns\nis used as a context object.\nThe context manager keeps a reference to the first matching\nwarning as the 'warning' attribute; similarly, the 'filename'\nand 'lineno' attributes give you information about the line\nof Python code from which the warning was triggered.\nThis allows you to inspect the warning after the assertion::\nwith self.assertWarns(SomeWarning) as cm:\ndo_something()\nthe_warning = cm.warning\nself.assertEqual(the_warning.some_attribute, 147)",
+  "name": "assertWarns"
+}

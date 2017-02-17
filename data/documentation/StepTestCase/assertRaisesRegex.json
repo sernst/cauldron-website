@@ -1,0 +1,38 @@
+{
+  "returns": {
+    "description": "",
+    "type": null
+  },
+  "params": [
+    {
+      "type": "Any",
+      "index": 0,
+      "description": "",
+      "name": "expected_exception",
+      "optional": false
+    },
+    {
+      "type": "Any",
+      "index": 1,
+      "description": "",
+      "name": "expected_regex",
+      "optional": false
+    },
+    {
+      "type": "Any",
+      "index": 2,
+      "description": "",
+      "name": "args",
+      "optional": false
+    },
+    {
+      "type": "Any",
+      "index": 3,
+      "description": "",
+      "name": "kwargs",
+      "optional": false
+    }
+  ],
+  "doc": "Asserts that the message in a raised exception matches a regex.\nArgs:\nexpected_exception: Exception class expected to be raised.\nexpected_regex: Regex (re pattern object or string) expected\nto be found in error message.\nargs: Function to be called and extra positional args.\nkwargs: Extra kwargs.\nmsg: Optional message used in case of failure. Can only be used\nwhen assertRaisesRegex is used as a context manager.",
+  "name": "assertRaisesRegex"
+}

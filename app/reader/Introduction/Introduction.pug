@@ -1,0 +1,19 @@
+include ../../components/Buttons/Buttons
+
+.Introduction
+  .Introduction__display
+    .Introduction__bar
+      .Introduction__icon
+        img(src="/assets/images/logo-white-naked.svg")
+      .Introduction__column
+        .Introduction__title Cauldron Reader
+        .Introduction__subtitle The Unnotebook Viewer
+
+    .Introduction__tagline.
+      The Easy Way to Share &amp; View Cauldron Notebooks
+
+    +makeWhiteButton()(
+      class='Introduction__button'
+      label='Download'
+      href='/reader-install'
+    )

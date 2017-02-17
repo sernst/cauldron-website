@@ -1,0 +1,18 @@
+.BlueButton {
+  text-align: center;
+
+  @include button(
+    black,
+    #96c4ed,
+    #96c4ed,
+    black
+  );
+
+  &__label {
+    font-weight: bold;
+  }
+
+  &__info {
+    font-size: 0.7rem;
+  }
+}

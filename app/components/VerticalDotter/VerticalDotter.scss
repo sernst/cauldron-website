@@ -1,0 +1,25 @@
+.VerticalDotter {
+  &__dot {
+    display: flex;
+    @include center-center;
+  }
+
+  &__row {
+    display: flex;
+    min-height: 62px;
+  }
+
+  &__left {
+    flex: 1;
+  }
+
+  &__middle {
+    width: 8px;
+    background-image: url("/assets/images/dots/dot.svg");
+    background-repeat: repeat-y;
+  }
+
+  &__right {
+    flex: 1;
+  }
+}

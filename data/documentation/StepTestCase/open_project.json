@@ -1,0 +1,9 @@
+{
+  "returns": {
+    "description": "",
+    "type": "exposed.ExposedProject"
+  },
+  "params": [],
+  "doc": "Returns the Response object populated by the open project command",
+  "name": "open_project"
+}

@@ -1,7 +1,10 @@
-include _mixins
+include ../../components/BenefitItem/BenefitItem
 
 .BenefitsSection
-  .BenefitsSection__header A Different Kind of Data Analysis Environment
+  .BenefitsSection__header
+    div A Different Kind of Data Analysis Environment
+    div That is Free and Open Source
+
   .BenefitsSection__aligner
 
     +makeBenefitItem('Your Choice of Editor', 'ide-choice-circle')

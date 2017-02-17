@@ -1,9 +1,0 @@
-{
-  "params": [],
-  "doc": "Stops the execution of the current step immediately without raising\nan error. Use this to abort the step running process if you want\nto return early.",
-  "name": "stop",
-  "returns": {
-    "description": "",
-    "type": null
-  }
-}

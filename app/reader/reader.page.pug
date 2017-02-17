@@ -1,0 +1,22 @@
+include ../components/NotebookLink/NotebookLink
+include ../components/ExternalLink/ExternalLink
+include ../components/DownloadSection/DownloadSection
+
+html
+  head
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title Cauldron Reader
+    include ../components/common-header
+    link(rel='stylesheet' href='reader.css')
+
+  body
+    div(id='app')
+      section(id='bannerSection')
+      .Reader
+        include Introduction/Introduction
+        include HowSection/HowSection
+        include AboutSection/AboutSection
+        include ActionSection/ActionSection
+
+      include ../components/PageFooter/PageFooter
+      script(src='reader.js')

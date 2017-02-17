@@ -1,0 +1,25 @@
+.AboutSection {
+  @import "AboutItem";
+
+  background-color: #666;
+  color: white;
+  padding: 2em 1em;
+
+  &__title {
+    font-size: 3em;
+    font-family: Sahitya;
+    text-align: center;
+  }
+
+  &__aligner {
+    max-width: $centered-page-width;
+    margin: 2em auto;
+    display: flex;
+    align-items: flex-start;
+
+    @media #{$less-than-m} {
+      display: block;
+      padding: 0 1em;
+    }
+  }
+}

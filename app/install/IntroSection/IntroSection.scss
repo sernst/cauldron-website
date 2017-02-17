@@ -1,6 +1,7 @@
-@import "Requirement";
-
 .IntroSection {
+  @import "Requirement";
+  @import "Release";
+
   margin-top: 2em;
 
   &__title {

@@ -1,0 +1,26 @@
+{
+  "returns": {
+    "description": "",
+    "type": null
+  },
+  "params": [
+    {
+      "name": "show_values",
+      "description": "\nWhen true the values for each variable will be shown in addition to\ntheir name",
+      "index": 0,
+      "type": "bool",
+      "default": "True",
+      "optional": true
+    },
+    {
+      "name": "show_types",
+      "description": "\nWhen true the data types for each shared variable will be shown in\naddition to their name",
+      "index": 1,
+      "type": "bool",
+      "default": "True",
+      "optional": true
+    }
+  ],
+  "doc": "Adds a list of the shared variables currently stored in the project\nworkspace.",
+  "name": "workspace"
+}

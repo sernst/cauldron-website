@@ -9,6 +9,7 @@ const _ = require('lodash');
 const markdown = require('markdown-it')();
 
 const DATA_DIRECTORY = path.normalize(path.join(__dirname, 'data'));
+const DOCS_DIRECTORY = path.join(DATA_DIRECTORY, 'documentation');
 
 
 /**
@@ -62,49 +63,78 @@ function toObject(key, entries) {
 
 
 /**
+ *
+ * @param entry
+ * @returns {*}
+ */
+function renderEntry(entry) {
+  if (_.isString(entry)) {
+    return markdown.render(entry);
+  }
+
+  if (Array.isArray(entry)) {
+    return entry.map(v => renderEntry(v));
+  }
+
+  if (_.isNull(entry) || _.isUndefined(entry)) {
+    return entry;
+  }
+
+  if (!_.isPlainObject(entry)) {
+    return entry;
+  }
+
+  const out = {};
+  Object.keys(entry).forEach((key) => {
+    const value = entry[key];
+    const skipRender = _.isString(value) && (key === 'name');
+    out[key] = skipRender ? value : renderEntry(value);
+  });
+
+  return out;
+}
+
+
+/**
+ * Parses the source string as JSON. If it fails an empty object is quietly
+ * returned instead to prevent error bubbling.
+ *
+ * @param source
+ * @returns {{}}
+ */
+function parseJson(source) {
+  try {
+    return JSON.parse(source);
+  } catch (ignore) {
+    return {};
+  }
+}
+
+
+/**
  * Reads the specified file and returns a stream with a single observable
  * containing the JSON-parsed object for that file, including a path property
- * that contains the filePath used to load the file
+ * that contains the filePath used to load the file.
  *
  * @param fileData
  */
 function readFile(fileData) {
-  function parseJson(source) {
-    try {
-      return JSON.parse(source);
-    } catch (ignore) {
-      return {};
-    }
-  }
-
-  function renderEntry(entry) {
-    if (_.isString(entry)) {
-      return markdown.render(entry);
-    }
-
-    if (Array.isArray(entry)) {
-      return entry.map(v => renderEntry(v));
-    }
-
-    if (_.isNull(entry) || _.isUndefined(entry)) {
-      return entry;
-    }
-
-    if (!_.isPlainObject(entry)) {
-      return entry;
-    }
-
-    const out = {};
-    Object.keys(entry).forEach((key) => {
-      const value = entry[key];
-      const skipRender = _.isString(value) && (key === 'name');
-      out[key] = skipRender ? value : renderEntry(value);
-    });
-
-    return out;
-  }
+  return Rx.Observable
+    .fromNodeCallback(fs.readFile)(fileData.sourcePath, 'utf8')
+    .map(contents => Object.assign(parseJson(contents), fileData));
+}
 
 
+/**
+ * Reads the specified file and returns a stream with a single observable
+ * containing the JSON-parsed object for that file, including a path property
+ * that contains the filePath used to load the file. The file is rendered as
+ * markdown such that all strings a converted from a raw format to a markdown
+ * value.
+ *
+ * @param fileData
+ */
+function renderFile(fileData) {
   return Rx.Observable
     .fromNodeCallback(fs.readFile)(fileData.sourcePath, 'utf8')
     .map(contents => Object.assign(renderEntry(parseJson(contents)), fileData));
@@ -164,13 +194,13 @@ function sortByDate(firstEntry, secondEntry) {
  * @returns {Disposable|IDisposable}
  *  Stream with observables for each file read
  */
-function readAllFiles(parentDirectory, folderName) {
+function readAllFiles(parentDirectory, folderName, doRender) {
   const directoryPath = path.join(parentDirectory, folderName);
 
   return listFiles(directoryPath)
     .flatMap(entry => entry)
     .filter(entry => entry.isFile)
-    .map(p => readFile(p))
+    .map(p => (doRender ? renderFile(p) : readFile(p)))
     .concatAll()
     .toArray()
     .map((array) => {
@@ -187,6 +217,33 @@ function readAllFiles(parentDirectory, folderName) {
 }
 
 
+function versionFormatter(block, version) {
+  const parts = (version || '0.0.0').trim().split('.');
+  const blockName = block || 'VersionItem';
+  const levels = ['major', 'minor', 'revision', 'build'];
+
+  function toClass(index) {
+    return `${blockName}__${levels[index]}`;
+  }
+
+  function toEntry(index, value) {
+    return `<span class="${toClass(index)}">${value}</span>`;
+  }
+
+  function addDot(index) {
+    if (index < 1) {
+      return '';
+    }
+
+    return `<span class="${blockName}__separator--${levels[index]}">.</span>`;
+  }
+
+  return parts
+    .map((value, index) => `${addDot(index)}${toEntry(index, value)}`)
+    .join('');
+}
+
+
 /**
  *
  */
@@ -197,14 +254,21 @@ function fetchLocals() {
     return Object.assign(out, target);
   }
 
-  return listFiles(DATA_DIRECTORY)
+  const configs$ = readAllFiles(DATA_DIRECTORY, 'configs', false);
+
+  const documentation$ = listFiles(DOCS_DIRECTORY)
     .flatMap(entry => entry)
     .filter(entry => entry.isDirectory)
-    .map(entry => readAllFiles(DATA_DIRECTORY, entry.sourceName))
-    .concatAll()
+    .map(entry => readAllFiles(DOCS_DIRECTORY, entry.sourceName, true))
+    .concatAll();
+
+  const functions = { versionFormatter };
+
+  return Rx.Observable.merge(configs$, documentation$)
     .toArray()
     .map(entries => entries.reduce(combineLocals, {}))
-    .toPromise();
+    .toPromise()
+    .then(locals => Object.assign({ functions }, locals));
 }
 exports.fetchLocals = fetchLocals;
 
@@ -229,6 +293,7 @@ function highlightFilter(text, options) {
   return `<div class="CodeBlock"><div class="CodeBlock__lineNumbers">${lineNumbers}</div><div class="CodeBlock__code">${raw}</div></div>`;
 }
 exports.highlightFilter = highlightFilter;
+
 
 exports.filters = {
   highlight: highlightFilter

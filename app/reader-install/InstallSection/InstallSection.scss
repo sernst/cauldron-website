@@ -1,0 +1,11 @@
+.InstallSection {
+  max-width: $centered-page-width;
+  margin: 3em auto;
+  padding: 0 1em;
+
+  &__title {
+    font-size: 2em;
+    font-family: Sahitya;
+    font-weight: bold;
+  }
+}

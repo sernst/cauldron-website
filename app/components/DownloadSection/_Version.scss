@@ -1,0 +1,28 @@
+.Version {
+  font-family: Roboto;
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    opacity: 0.6;
+    font-size: 0.9em;
+  }
+
+  &__box {
+    font-size: 1.1em;
+  }
+
+  @include center-center;
+
+  &__revision {
+    opacity: 0.4;
+  }
+
+  &__separator {
+    opacity: 0.8;
+
+    &--revision {
+      opacity: 0.4;
+    }
+  }
+}

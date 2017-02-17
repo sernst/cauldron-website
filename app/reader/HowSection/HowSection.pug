@@ -1,0 +1,28 @@
+include ../../components/VerticalDotter/VerticalDotter
+
+.HowSection
+  .HowSection__display
+    .HowSection__title Sharing that Works
+
+    .HowSection__dotter
+      .HowSection__row
+        +makeDotter(class="HowSection__dotColumn")
+          img.HowSection__dot(src="/assets/images/create-dot.svg")
+        .HowSection__text
+          .HowSection__header Make It
+          .HowSection__info Use Cauldron to create your analysis.
+      .HowSection__row
+        +makeDotter(class="HowSection__dotColumn")
+          img.HowSection__dot(src="/assets/images/save-dot.svg")
+        .HowSection__text
+          .HowSection__header Export It
+          .HowSection__info.
+            Save your results as a CDF #[em (Cauldron Display File)] file.
+      .HowSection__row
+        +makeEndDotter(class="HowSection__dotColumn")
+          img.HowSection__dot--big(src="/assets/images/share-dot-out.svg")
+        .HowSection__text
+          .HowSection__header Send It
+          .HowSection__info.
+            Send it to others to view your results in the Cauldron
+            Reader application.

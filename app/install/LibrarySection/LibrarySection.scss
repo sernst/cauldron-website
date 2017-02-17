@@ -1,10 +1,17 @@
 .LibrarySection {
-  margin: 3em 0;
+  margin-left: 1em;
+
+  @media #{$less-than-m} {
+    margin-left: 0.5em;
+  }
 
   &__title {
-    font-size: 1.5em;
+    font-size: 1.8em;
     font-weight: bold;
     margin-bottom: 0.5em;
+    display: flex;
+
+    @include start-center;
   }
 
   &__text {

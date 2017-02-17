@@ -1,4 +1,5 @@
-include DownloadSection/DownloadSection
+include ../components/DownloadSection/DownloadSection
+include NumberedStepTitle/NumberedStepTitle
 
 html
   head
@@ -13,15 +14,17 @@ html
         include NavigationColumn/NavigationColumn
         .Install__display
           include IntroSection/IntroSection
+
+          +makeNumberedStepTitle(1, 'Python-Package') Python Package
           include LibrarySection/LibrarySection
 
-
+          +makeNumberedStepTitle(2, 'DesktopApplication') Desktop Application
           +createDownloadSection(
+            configs.release_settings.editor.osx.stable,
             'OSX-Install',
-            'OSX/MacOS Installation',
-            '/assets/images/apple-logo.svg',
-            'Requires macOS 10.11+ El Capitan or later',
-            'http://nexus.cauldron-notebook.com/editor/osx/Cauldron-Setup-2.16.482.dmg'
+            'OSX/MacOS',
+            'apple-logo-white.svg',
+            'Requires macOS 10.11+ El Capitan or later'
           )
             ol.DownloadSection__list
               li Download the DMG installer file
@@ -31,11 +34,11 @@ html
 
 
           +createDownloadSection(
+            configs.release_settings.editor.win.stable,
             'Windows-Install',
-            'Windows Installation',
-            '/assets/images/windows-logo.svg',
-            'Requires Windows 8.1 or later',
-            'http://nexus.cauldron-notebook.com/editor/win/Cauldron-Setup-2.16.466.exe'
+            'Windows',
+            'windows-logo-white.svg',
+            'Requires Windows 8.1 or later'
           )
             ol.DownloadSection__list
               li Download the EXE setup file
@@ -43,11 +46,11 @@ html
               li Cauldron will open automatically once installation is complete
 
           +createDownloadSection(
+            configs.release_settings.editor['linux-deb'].stable,
             'Deb-Linux-Install',
-            'Linux Installation (*.deb)',
-            '/assets/images/linux-logo.svg',
-            'Requires a recent Ubuntu, Mint, Debian or other distribution that uses Debian Package Manager',
-            'http://nexus.cauldron-notebook.com/editor/linux-deb/Cauldron-2.16.487.deb'
+            'Linux (*.deb)',
+            'linux-logo-white.svg',
+            'Requires a recent Ubuntu, Mint, Debian or other distribution that uses the Debian Package Manager'
           )
             ol.DownloadSection__list
               li Download the DEB installer file
@@ -62,18 +65,21 @@ html
 
 
           +createDownloadSection(
+            configs.release_settings.editor['linux-rpm'].stable,
             'Rpm-Linux-Install',
-            'Linux Installation (*.rpm)',
-            '/assets/images/linux-logo.svg',
-            'Requires a recent RedHat, Fedora, CentOS, OpenSUSE or other distribution that uses RedHad Package Manager',
-            'http://nexus.cauldron-notebook.com/editor/linux-rpm/Cauldron-2.16.525.rpm'
+            'Linux (*.rpm)',
+            'linux-logo-white.svg',
+            'Requires a recent RedHat, Fedora, CentOS, OpenSUSE or other distribution that uses the RPM Package Manager'
           )
             ol.DownloadSection__list
               li Download the RPM installer file
-              li Double-click on the RPM installer to open the graphical package management installer
+              li.
+                Double-click on the RPM installer to open the graphical
+                package management installer
               li Install the application
 
-            .DownloadSection__text You can also install the file from a terminal using the command:
+            .DownloadSection__text.
+              You can also install the file from a terminal using the command:
 
             :highlight(language='bash')
               $ sudo rpm -ivh /path/to/cauldron-installer.rpm

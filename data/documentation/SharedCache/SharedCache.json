@@ -1,0 +1,4 @@
+{
+  "name": "SharedCache",
+  "description": "\nA class that serves as a container for storing data by key but is\naccessible using dot notation instead of dictionary notation. Also contains\nadditional functions for handling multiple variables at once.\n"
+}

@@ -1,0 +1,70 @@
+.InstallSection(id="installation")
+  .InstallSection__title Installing the Reader
+  .InstallSection__info.
+    Find your operating system below and follow the system-specific
+    installation instructions.
+
+  +createDownloadSection(
+    configs.release_settings.reader.osx.stable,
+    'OSX-Install',
+    'OSX/MacOS',
+    'apple-logo-white.svg',
+    'Requires macOS 10.11+ El Capitan or later'
+  )
+    ol.DownloadSection__list
+      li Download the DMG installer file
+      li Open the DMG file
+      li Drag the Cauldron Reader application to the Applications folder
+      li Start the Cauldron Reader application to complete the installation process
+
+
+  +createDownloadSection(
+    configs.release_settings.reader.win.stable,
+    'Windows-Install',
+    'Windows',
+    'windows-logo-white.svg',
+    'Requires Windows 8.1 or later'
+  )
+    ol.DownloadSection__list
+      li Download the EXE setup file
+      li Double-click on the EXE setup file to run the automatic installer
+      li Cauldron Reader will open automatically once installation is complete
+
+  +createDownloadSection(
+    configs.release_settings.reader['linux-deb'].stable,
+    'Deb-Linux-Install',
+    'Linux (*.deb)',
+    'linux-logo-white.svg',
+    'Requires a recent Ubuntu, Mint, Debian or other distribution that uses the Debian Package Manager'
+  )
+    ol.DownloadSection__list
+      li Download the DEB installer file
+      li Double-click on the DEB installer to open the graphical package management installer
+      li Install the application
+
+    .DownloadSection__text You can also install the file from a terminal using the commands:
+
+    :highlight(language='bash')
+      $ sudo dpkg -i /path/to/cauldron-installer.deb
+      $ sudo apt-get install -f .
+
+
+  +createDownloadSection(
+    configs.release_settings.reader['linux-rpm'].stable,
+    'Rpm-Linux-Install',
+    'Linux (*.rpm)',
+    'linux-logo-white.svg',
+    'Requires a recent RedHat, Fedora, CentOS, OpenSUSE or other distribution that uses the RPM Package Manager'
+  )
+    ol.DownloadSection__list
+      li Download the RPM installer file
+      li.
+        Double-click on the RPM installer to open the graphical
+        package management installer
+      li Install the application
+
+    .DownloadSection__text.
+      You can also install the file from a terminal using the command:
+
+    :highlight(language='bash')
+      $ sudo rpm -ivh /path/to/cauldron-installer.rpm

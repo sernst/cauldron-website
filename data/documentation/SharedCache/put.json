@@ -1,0 +1,24 @@
+{
+  "returns": {
+    "description": "",
+    "type": "SharedCache"
+  },
+  "params": [
+    {
+      "type": "Any",
+      "index": 0,
+      "description": "\nVariables can be specified by two consecutive arguments where the\nfirst argument is a key and the second one the corresponding value.\nFor example:\n```\nput('a', 1, 'b', False)\n```\nwould add two variables to the cache where the value of _a_ would\nbe 1 and the value of _b_ would be False.",
+      "name": "args",
+      "optional": false
+    },
+    {
+      "type": "Any",
+      "index": 1,
+      "description": "\nKeyword arguments to be added to the cache, which are name value\npairs like standard keyword named arguments in Python. For example:\n```\nput(a=1, b=False)\n```\nwould add two variables to the cache where the value of _a_ would\nbe 1 and the value of _b_ would be False.",
+      "name": "kwargs",
+      "optional": false
+    }
+  ],
+  "doc": "Adds one or more variables to the cache.",
+  "name": "put"
+}

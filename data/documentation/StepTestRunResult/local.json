@@ -1,0 +1,10 @@
+{
+  "read_only": true,
+  "returns": {
+    "description": "",
+    "type": "SharedCache"
+  },
+  "params": [],
+  "doc": "Container object that holds all of the local variables that were\ndefined within the run step",
+  "name": "local"
+}

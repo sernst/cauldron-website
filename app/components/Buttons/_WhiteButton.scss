@@ -1,0 +1,18 @@
+.WhiteButton {
+  text-align: center;
+
+  @include button(
+    $reader-red-dark,
+    white,
+    white,
+    transparent
+  );
+
+  &__label {
+    font-weight: bold;
+  }
+
+  &__info {
+    font-size: 0.7rem;
+  }
+}

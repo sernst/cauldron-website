@@ -1,0 +1,40 @@
+{
+  "returns": {
+    "description": "A response object that contains information about the run process",
+    "type": "Response"
+  },
+  "params": [
+    {
+      "type": "str",
+      "index": 0,
+      "description": "\nThe fully-qualified path to the directory where the Cauldron project is\nlocated",
+      "name": "project_directory",
+      "optional": false
+    },
+    {
+      "type": "str",
+      "index": 1,
+      "description": "\nThe fully-qualified path to the directory where the results will be\nwritten. All of the results files will be written within this\ndirectory. If the directory does not exist, it will be created.",
+      "name": "output_directory",
+      "optional": false
+    },
+    {
+      "name": "logging_path",
+      "description": "\nThe fully-qualified path to a file that will be used for logging. If a\ndirectory is specified instead of a file, a file will be created using\nthe default filename of cauldron_run.log. If a file already exists at\nthat location it will be removed and a new file created in its place.",
+      "index": 2,
+      "type": "str",
+      "default": "None",
+      "optional": true
+    },
+    {
+      "name": "kwargs",
+      "description": "\nAny variables to be available in the cauldron.shared object during\nexecution of the project can be specified here as keyword arguments.",
+      "index": 3,
+      "type": "Any",
+      "default": "None",
+      "optional": true
+    }
+  ],
+  "doc": "Runs a project as a single command directly within the current Python\ninterpreter.",
+  "name": "run_project"
+}

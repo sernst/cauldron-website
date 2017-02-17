@@ -1,0 +1,18 @@
+.RedButton {
+  text-align: center;
+
+  @include button(
+    white,
+    $reader-red,
+    $reader-red,
+    white
+  );
+
+  &__label {
+    font-weight: bold;
+  }
+
+  &__info {
+    font-size: 0.7rem;
+  }
+}

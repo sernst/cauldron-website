@@ -1,5 +1,7 @@
 .ExecutionSection {
   padding: 3em 1em;
+  background-color: #444;
+  color: white;
 
   &--large {
     @media #{$less-than-l} {
@@ -36,7 +38,7 @@
   &__image {
     max-width: 800px;
     width: 100%;
-    border: 1px solid #CCC;
+    border: 1px solid #222;
   }
 
   &__textColumn {
