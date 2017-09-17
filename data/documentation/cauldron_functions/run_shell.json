@@ -1,9 +1,9 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
-  "params": [],
+  "name": "run_shell",
   "doc": "Starts the cauldron shell environment for console based interaction",
-  "name": "run_shell"
+  "params": [],
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

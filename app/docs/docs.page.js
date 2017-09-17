@@ -51,6 +51,7 @@ const definitions = [
       { label: 'json', id: 'display/json' },
       { label: 'latex', id: 'display/latex' },
       { label: 'listing', id: 'display/listing' },
+      { label: 'list_grid', id: 'display/list_grid' },
       { label: 'markdown', id: 'display/markdown' },
       { label: 'plotly', id: 'display/plotly' },
       { label: 'pyplot', id: 'display/pyplot' },

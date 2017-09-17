@@ -1,24 +1,34 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "markdown",
+  "doc": "Renders the specified source string or source file using markdown and\nadds the resulting HTML to the notebook display.",
   "params": [
     {
-      "type": "str",
+      "name": "source",
       "index": 0,
       "description": "\nA markdown formatted string",
-      "name": "source",
-      "optional": false
+      "type": "str",
+      "optional": true,
+      "default": "None"
     },
     {
-      "type": "Any",
+      "name": "source_path",
       "index": 1,
-      "description": "\nAny variable replacements to make within the string using Jinja2\ntemplating syntax.",
+      "description": "\nA file containing markdown text",
+      "type": "str",
+      "optional": true,
+      "default": "None"
+    },
+    {
       "name": "kwargs",
-      "optional": false
+      "index": 2,
+      "description": "\nAny variable replacements to make within the string using Jinja2\ntemplating syntax.",
+      "type": "Any",
+      "optional": true,
+      "default": "dict"
     }
   ],
-  "doc": "Renders the source string using markdown and adds the resulting html\nto the display",
-  "name": "markdown"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

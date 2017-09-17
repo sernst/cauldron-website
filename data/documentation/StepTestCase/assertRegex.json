@@ -1,32 +1,32 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "assertRegex",
+  "doc": "Fail the test unless the text matches the regular expression.",
   "params": [
     {
-      "type": "Any",
+      "name": "text",
       "index": 0,
       "description": "",
-      "name": "text",
+      "type": "Any",
       "optional": false
     },
     {
-      "type": "Any",
+      "name": "expected_regex",
       "index": 1,
       "description": "",
-      "name": "expected_regex",
+      "type": "Any",
       "optional": false
     },
     {
       "name": "msg",
-      "description": "",
       "index": 2,
+      "description": "",
       "type": "Any",
-      "default": "None",
-      "optional": true
+      "optional": true,
+      "default": "None"
     }
   ],
-  "doc": "Fail the test unless the text matches the regular expression.",
-  "name": "assertRegex"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

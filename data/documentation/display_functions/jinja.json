@@ -1,24 +1,25 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "jinja",
+  "doc": "Renders the specified Jinja2 template to HTML and adds the output to the\ndisplay",
   "params": [
     {
-      "type": "str",
+      "name": "path",
       "index": 0,
       "description": "\nThe fully-qualified path to the template to be rendered.",
-      "name": "path",
+      "type": "str",
       "optional": false
     },
     {
-      "type": "Any",
+      "name": "kwargs",
       "index": 1,
       "description": "\nAny keyword arguments that will be use as variable replacements within\nthe template",
-      "name": "kwargs",
-      "optional": false
+      "type": "Any",
+      "optional": true,
+      "default": "dict"
     }
   ],
-  "doc": "Renders the specified Jinja2 template to HTML and adds the output to the\ndisplay",
-  "name": "jinja"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

@@ -1,32 +1,32 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "assertIsInstance",
+  "doc": "Same as self.assertTrue(isinstance(obj, cls)), with a nicer\ndefault message.",
   "params": [
     {
-      "type": "Any",
+      "name": "obj",
       "index": 0,
       "description": "",
-      "name": "obj",
+      "type": "Any",
       "optional": false
     },
     {
-      "type": "Any",
+      "name": "cls",
       "index": 1,
       "description": "",
-      "name": "cls",
+      "type": "Any",
       "optional": false
     },
     {
       "name": "msg",
-      "description": "",
       "index": 2,
+      "description": "",
       "type": "Any",
-      "default": "None",
-      "optional": true
+      "optional": true,
+      "default": "None"
     }
   ],
-  "doc": "Same as self.assertTrue(isinstance(obj, cls)), with a nicer\ndefault message.",
-  "name": "assertIsInstance"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

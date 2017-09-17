@@ -1,32 +1,32 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "assertMultiLineEqual",
+  "doc": "Assert that two multi-line strings are equal.",
   "params": [
     {
-      "type": "Any",
+      "name": "first",
       "index": 0,
       "description": "",
-      "name": "first",
+      "type": "Any",
       "optional": false
     },
     {
-      "type": "Any",
+      "name": "second",
       "index": 1,
       "description": "",
-      "name": "second",
+      "type": "Any",
       "optional": false
     },
     {
       "name": "msg",
-      "description": "",
       "index": 2,
+      "description": "",
       "type": "Any",
-      "default": "None",
-      "optional": true
+      "optional": true,
+      "default": "None"
     }
   ],
-  "doc": "Assert that two multi-line strings are equal.",
-  "name": "assertMultiLineEqual"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

@@ -33,9 +33,15 @@ def write_entry(results_directory, data) -> str:
     name = data['name']
     path = os.path.join(results_directory, '{}.json'.format(name))
 
-    with open(path, 'w+', encoding='utf8') as fp:
-        json.dump(data, fp, indent=2)
-
+    try:
+        with open(path, 'w+', encoding='utf8') as fp:
+            json.dump(data, fp, indent=2)
+    except Exception as err:
+        print('[ERROR]: unable to write entry "{}"'.format(name))
+        print('PATH:', path)
+        print('DATA:', data)
+        raise
+        
     print('[SAVED]:', name)            
     return path
 

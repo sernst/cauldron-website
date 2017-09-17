@@ -1,9 +1,9 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
-  "params": [],
+  "name": "defaultTestResult",
   "doc": "",
-  "name": "defaultTestResult"
+  "params": [],
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

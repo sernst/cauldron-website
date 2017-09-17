@@ -1,18 +1,18 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "fail",
+  "doc": "Fail immediately, with the given message.",
   "params": [
     {
       "name": "msg",
-      "description": "",
       "index": 0,
+      "description": "",
       "type": "Any",
-      "default": "None",
-      "optional": true
+      "optional": true,
+      "default": "None"
     }
   ],
-  "doc": "Fail immediately, with the given message.",
-  "name": "fail"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

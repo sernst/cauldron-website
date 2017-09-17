@@ -1,32 +1,32 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "assertNotRegex",
+  "doc": "Fail the test if the text matches the regular expression.",
   "params": [
     {
-      "type": "Any",
+      "name": "text",
       "index": 0,
       "description": "",
-      "name": "text",
+      "type": "Any",
       "optional": false
     },
     {
-      "type": "Any",
+      "name": "unexpected_regex",
       "index": 1,
       "description": "",
-      "name": "unexpected_regex",
+      "type": "Any",
       "optional": false
     },
     {
       "name": "msg",
-      "description": "",
       "index": 2,
+      "description": "",
       "type": "Any",
-      "default": "None",
-      "optional": true
+      "optional": true,
+      "default": "None"
     }
   ],
-  "doc": "Fail the test if the text matches the regular expression.",
-  "name": "assertNotRegex"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

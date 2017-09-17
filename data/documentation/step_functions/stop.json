@@ -1,9 +1,26 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
-  "params": [],
+  "name": "stop",
   "doc": "Stops the execution of the current step immediately without raising\nan error. Use this to abort the step running process if you want\nto return early.",
-  "name": "stop"
+  "params": [
+    {
+      "name": "message",
+      "index": 0,
+      "description": "\nA custom display message to include in the display for the stop\naction. This message is ignored if silent is set to True.",
+      "type": "str",
+      "optional": true,
+      "default": "None"
+    },
+    {
+      "name": "silent",
+      "index": 1,
+      "description": "\nWhen True nothing will be shown in the notebook display when the\nstep is stopped. When False, the notebook display will include\ninformation relating to the stopped action.",
+      "type": "bool",
+      "optional": true,
+      "default": "False"
+    }
+  ],
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

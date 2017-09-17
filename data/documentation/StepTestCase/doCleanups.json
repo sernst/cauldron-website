@@ -1,9 +1,9 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
-  "params": [],
+  "name": "doCleanups",
   "doc": "Execute all cleanup functions. Normally called for you after\ntearDown.",
-  "name": "doCleanups"
+  "params": [],
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

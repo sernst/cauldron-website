@@ -1,25 +1,33 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "header",
+  "doc": "Adds a text header to the display with the specified level.",
   "params": [
     {
-      "type": "str",
+      "name": "header_text",
       "index": 0,
       "description": "\nThe text to display in the header",
-      "name": "header_text",
+      "type": "str",
       "optional": false
     },
     {
       "name": "level",
-      "description": "\nThe level of the header, which corresponds to the html header\nlevels, such as <h1>, <h2>, ...",
       "index": 1,
+      "description": "\nThe level of the header, which corresponds to the html header\nlevels, such as <h1>, <h2>, ...",
       "type": "int",
-      "default": "1",
-      "optional": true
+      "optional": true,
+      "default": "1"
+    },
+    {
+      "name": "expand_full",
+      "index": 2,
+      "description": "\nWhether or not the header will expand to fill the width of the entire\nnotebook page, or be constrained by automatic maximum page width. The\ndefault value of False lines the header up with text displays.",
+      "type": "bool",
+      "optional": true,
+      "default": "False"
     }
   ],
-  "doc": "Adds a text header to the display with the specified level.",
-  "name": "header"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

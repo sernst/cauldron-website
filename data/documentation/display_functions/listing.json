@@ -1,25 +1,33 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "listing",
+  "doc": "An unordered or ordered list of the specified *source* iterable where\neach element is converted to a string representation for display.",
   "params": [
     {
-      "type": "list",
+      "name": "source",
       "index": 0,
       "description": "\nThe iterable to display as a list",
-      "name": "source",
+      "type": "list",
       "optional": false
     },
     {
       "name": "ordered",
-      "description": "\nWhether or not the list should be ordered. If False, which is the\ndefault, an unordered bulleted list is created.",
       "index": 1,
+      "description": "\nWhether or not the list should be ordered. If False, which is the\ndefault, an unordered bulleted list is created.",
       "type": "bool",
-      "default": "False",
-      "optional": true
+      "optional": true,
+      "default": "False"
+    },
+    {
+      "name": "expand_full",
+      "index": 2,
+      "description": "\nWhether or not the list should expand to fill the screen horizontally.\nWhen defaulted to False, the list is constrained to the center view\narea of the screen along with other text. This can be useful to keep\nlists aligned with the text flow.",
+      "type": "bool",
+      "optional": true,
+      "default": "False"
     }
   ],
-  "doc": "An unordered or ordered list of the specified *source* iterable where\neach element is converted to a string representation for display.",
-  "name": "listing"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

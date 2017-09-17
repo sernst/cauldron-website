@@ -1,48 +1,48 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "assertNotAlmostEqual",
+  "doc": "Fail if the two objects are equal as determined by their\ndifference rounded to the given number of decimal places\n(default 7) and comparing to zero, or by comparing that the\nbetween the two objects is less than the given delta.\nNote that decimal places (from zero) are usually not the same\nas significant digits (measured from the most significant digit).\nObjects that are equal automatically fail.",
   "params": [
     {
-      "type": "Any",
+      "name": "first",
       "index": 0,
       "description": "",
-      "name": "first",
+      "type": "Any",
       "optional": false
     },
     {
-      "type": "Any",
+      "name": "second",
       "index": 1,
       "description": "",
-      "name": "second",
+      "type": "Any",
       "optional": false
     },
     {
       "name": "places",
-      "description": "",
       "index": 2,
+      "description": "",
       "type": "Any",
-      "default": "None",
-      "optional": true
+      "optional": true,
+      "default": "None"
     },
     {
       "name": "msg",
-      "description": "",
       "index": 3,
+      "description": "",
       "type": "Any",
-      "default": "None",
-      "optional": true
+      "optional": true,
+      "default": "None"
     },
     {
       "name": "delta",
-      "description": "",
       "index": 4,
+      "description": "",
       "type": "Any",
-      "default": "None",
-      "optional": true
+      "optional": true,
+      "default": "None"
     }
   ],
-  "doc": "Fail if the two objects are equal as determined by their\ndifference rounded to the given number of decimal places\n(default 7) and comparing to zero, or by comparing that the\nbetween the two objects is less than the given delta.\nNote that decimal places (from zero) are usually not the same\nas significant digits (measured from the most signficant digit).\nObjects that are equal automatically fail.",
-  "name": "assertNotAlmostEqual"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

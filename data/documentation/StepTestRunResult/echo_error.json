@@ -1,9 +1,9 @@
 {
-  "returns": {
-    "description": "The string representation of the exception that caused the running\nstep to fail or a blank string if no exception occurred",
-    "type": "str"
-  },
-  "params": [],
+  "name": "echo_error",
   "doc": "Creates a string representation of the exception that cause the step\nto fail if an exception occurred. Otherwise, an empty string is returned.",
-  "name": "echo_error"
+  "params": [],
+  "returns": {
+    "type": "str",
+    "description": "The string representation of the exception that caused the running\nstep to fail or a blank string if no exception occurred"
+  }
 }
