@@ -1,0 +1,17 @@
+{
+  "name": "path",
+  "doc": "Creates an absolute path in the project source directory from the\nrelative path components.",
+  "params": [
+    {
+      "name": "args",
+      "index": 0,
+      "description": "\nRelative components for creating a path within the project source\ndirectory",
+      "type": "str",
+      "optional": false
+    }
+  ],
+  "returns": {
+    "type": "NoneType, str",
+    "description": "An absolute path to the specified file or directory within the\nproject source directory."
+  }
+}

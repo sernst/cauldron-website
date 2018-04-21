@@ -1,0 +1,25 @@
+include ../../../components/FunctionDocumentation/FunctionDocumentation
+include ../../../components/NotebookLink/NotebookLink
+
+.Display__title
+  .Display__titleFunc def
+  | elapsed
+.Display__breadcrumb cauldron.display.elapsed()
+
++createFunctionDoc(display_functions.elapsed)(hideTitle=true)
+
+.Display__h1 Basic Usage
+
+.Display__p.
+    The example below shows how the elapsed function can be used to get a handle
+    on how long various parts of steps take to run.
+
+:highlight()
+  import cauldron as cd
+  import time
+  
+  cd.display.elapsed()
+    
+  time.sleep(1.37)
+
+  cd.display.elapsed()

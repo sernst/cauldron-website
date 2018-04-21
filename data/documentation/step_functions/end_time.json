@@ -1,0 +1,10 @@
+{
+  "name": "end_time",
+  "doc": "The time at which the step stopped running. If the step has never run\nor is currently running, this value will be `None`.",
+  "params": [],
+  "returns": {
+    "type": "datetime, NoneType",
+    "description": ""
+  },
+  "read_only": true
+}

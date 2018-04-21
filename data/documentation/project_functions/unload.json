@@ -1,0 +1,9 @@
+{
+  "name": "unload",
+  "doc": "Disconnects this object from the specified source project.",
+  "params": [],
+  "returns": {
+    "type": null,
+    "description": ""
+  }
+}

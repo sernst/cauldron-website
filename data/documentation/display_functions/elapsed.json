@@ -1,0 +1,9 @@
+{
+  "name": "elapsed",
+  "doc": "Displays the elapsed time since the step started running.",
+  "params": [],
+  "returns": {
+    "type": null,
+    "description": ""
+  }
+}

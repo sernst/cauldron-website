@@ -1,0 +1,10 @@
+{
+  "name": "internal_project",
+  "doc": "The current Cauldron project that is represented by this object.",
+  "params": [],
+  "returns": {
+    "type": "Project",
+    "description": ""
+  },
+  "read_only": true
+}

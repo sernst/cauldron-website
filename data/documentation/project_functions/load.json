@@ -1,0 +1,17 @@
+{
+  "name": "load",
+  "doc": "Connects this object to the specified source project.",
+  "params": [
+    {
+      "name": "project",
+      "index": 0,
+      "description": "",
+      "type": "Project, NoneType",
+      "optional": false
+    }
+  ],
+  "returns": {
+    "type": null,
+    "description": ""
+  }
+}

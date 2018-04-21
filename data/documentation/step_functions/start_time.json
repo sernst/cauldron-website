@@ -1,0 +1,10 @@
+{
+  "name": "start_time",
+  "doc": "The time at which the step started running. If the step has never run\nthis value will be `None`.",
+  "params": [],
+  "returns": {
+    "type": "datetime, NoneType",
+    "description": ""
+  },
+  "read_only": true
+}

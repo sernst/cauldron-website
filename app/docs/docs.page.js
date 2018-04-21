@@ -43,6 +43,7 @@ const definitions = [
     links: [
       { label: 'bokeh', id: 'display/bokeh' },
       { label: 'code_block', id: 'display/code_block' },
+      { label: 'elapsed', id: 'display/elapsed' },
       { label: 'head', id: 'display/head' },
       { label: 'header', id: 'display/header' },
       { label: 'html', id: 'display/html' },
@@ -61,6 +62,12 @@ const definitions = [
       { label: 'tail', id: 'display/tail' },
       { label: 'text', id: 'display/text' },
       { label: 'whitespace', id: 'display/whitespace' }
+    ]
+  },
+  {
+    label: 'cauldron.project',
+    links: [
+      { label: 'stop', id: 'project/stop' }
     ]
   },
   {

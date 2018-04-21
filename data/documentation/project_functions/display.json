@@ -1,0 +1,10 @@
+{
+  "name": "display",
+  "doc": "The display report for the current project",
+  "params": [],
+  "returns": {
+    "type": "NoneType, Report",
+    "description": ""
+  },
+  "read_only": true
+}

@@ -1,6 +1,6 @@
 {
   "name": "assertAlmostEqual",
-  "doc": "Fail if the two objects are unequal as determined by their\ndifference rounded to the given number of decimal places\n(default 7) and comparing to zero, or by comparing that the\nbetween the two objects is more than the given delta.\nNote that decimal places (from zero) are usually not the same\nas significant digits (measured from the most significant digit).\nIf the two objects compare equal then they will automatically\ncompare almost equal.",
+  "doc": "Fail if the two objects are unequal as determined by their\ndifference rounded to the given number of decimal places\n(default 7) and comparing to zero, or by comparing that the\ndifference between the two objects is more than the given\ndelta.\nNote that decimal places (from zero) are usually not the same\nas significant digits (measured from the most significant digit).\nIf the two objects compare equal then they will automatically\ncompare almost equal.",
   "params": [
     {
       "name": "first",
