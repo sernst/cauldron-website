@@ -1,11 +1,11 @@
 {
   "name": "plotly",
-  "doc": "Creates a Plotly plot in the display with the specified data and layout",
+  "doc": "Creates a Plotly plot in the display with the specified data and\nlayout.",
   "params": [
     {
       "name": "data",
       "index": 0,
-      "description": "\nThe Plotly trace data to be plotted",
+      "description": "\nThe Plotly trace data to be plotted.",
       "type": "dict, list",
       "optional": true,
       "default": "None"
@@ -13,7 +13,7 @@
     {
       "name": "layout",
       "index": 1,
-      "description": "\nThe layout data used for the plot",
+      "description": "\nThe layout data used for the plot.",
       "type": "dict",
       "optional": true,
       "default": "None"

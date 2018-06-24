@@ -1,9 +1,9 @@
 {
   "name": "internal_project",
-  "doc": "The current Cauldron project that is represented by this object.",
+  "doc": "The current Cauldron project that is represented by this object.\nThe value will be None if no project has been loaded.",
   "params": [],
   "returns": {
-    "type": "Project",
+    "type": "Project, NoneType",
     "description": ""
   },
   "read_only": true

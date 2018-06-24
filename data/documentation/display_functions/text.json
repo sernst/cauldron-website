@@ -5,14 +5,14 @@
     {
       "name": "value",
       "index": 0,
-      "description": "\nThe text to display",
+      "description": "\nThe text to display.",
       "type": "str",
       "optional": false
     },
     {
       "name": "preformatted",
       "index": 1,
-      "description": "\nWhether or not to preserve the whitespace display the text",
+      "description": "\nWhether or not to preserve the whitespace display of the text.",
       "type": "bool",
       "optional": true,
       "default": "False"

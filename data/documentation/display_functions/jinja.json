@@ -1,6 +1,6 @@
 {
   "name": "jinja",
-  "doc": "Renders the specified Jinja2 template to HTML and adds the output to the\ndisplay",
+  "doc": "Renders the specified Jinja2 template to HTML and adds the output to the\ndisplay.",
   "params": [
     {
       "name": "path",
@@ -12,7 +12,7 @@
     {
       "name": "kwargs",
       "index": 1,
-      "description": "\nAny keyword arguments that will be use as variable replacements within\nthe template",
+      "description": "\nAny keyword arguments that will be use as variable replacements within\nthe template.",
       "type": "Any",
       "optional": true,
       "default": "dict"

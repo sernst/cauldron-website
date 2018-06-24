@@ -44,6 +44,6 @@
   ],
   "returns": {
     "type": "Response",
-    "description": "A response object that contains information about the run process"
+    "description": "A response object that contains information about the run process."
   }
 }

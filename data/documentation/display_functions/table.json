@@ -1,11 +1,11 @@
 {
   "name": "table",
-  "doc": "Adds the specified data frame to the display in a nicely formatted\nscrolling table",
+  "doc": "Adds the specified data frame to the display in a nicely formatted\nscrolling table.",
   "params": [
     {
       "name": "data_frame",
       "index": 0,
-      "description": "\nThe pandas data frame to be rendered to a table",
+      "description": "\nThe pandas data frame to be rendered to a table.",
       "type": "Any",
       "optional": false
     },

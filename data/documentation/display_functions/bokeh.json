@@ -1,11 +1,11 @@
 {
   "name": "bokeh",
-  "doc": "Adds a Bokeh plot object to the notebook display",
+  "doc": "Adds a Bokeh plot object to the notebook display.",
   "params": [
     {
       "name": "model",
       "index": 0,
-      "description": "\nThe plot object to be added to the notebook display",
+      "description": "\nThe plot object to be added to the notebook display.",
       "type": "Any",
       "optional": false
     },

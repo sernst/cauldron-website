@@ -1,6 +1,6 @@
 {
   "name": "title",
-  "doc": "The title of this project",
+  "doc": "The title of this project.",
   "params": [],
   "returns": {
     "type": "NoneType, str",

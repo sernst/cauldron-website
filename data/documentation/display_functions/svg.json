@@ -5,14 +5,14 @@
     {
       "name": "svg_dom",
       "index": 0,
-      "description": "\nThe SVG string data to add to the display",
+      "description": "\nThe SVG string data to add to the display.",
       "type": "str",
       "optional": false
     },
     {
       "name": "filename",
       "index": 1,
-      "description": "\nAn optional filename where the SVG data should be saved within\nthe project results folder",
+      "description": "\nAn optional filename where the SVG data should be saved within\nthe project results folder.",
       "type": "str",
       "optional": true,
       "default": "None"

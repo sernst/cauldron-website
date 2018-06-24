@@ -1,6 +1,6 @@
 {
   "name": "run_server",
-  "doc": "Run the cauldron http server used to interact with cauldron from a remote\nhost",
+  "doc": "Run the cauldron http server used to interact with cauldron from a remote\nhost.",
   "params": [
     {
       "name": "port",

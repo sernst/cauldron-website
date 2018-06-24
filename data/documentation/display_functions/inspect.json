@@ -1,11 +1,11 @@
 {
   "name": "inspect",
-  "doc": "Inspects the data and structure of the source dictionary object and\nadds the results to the display for viewing",
+  "doc": "Inspects the data and structure of the source dictionary object and\nadds the results to the display for viewing.",
   "params": [
     {
       "name": "source",
       "index": 0,
-      "description": "\nA dictionary object to be inspected",
+      "description": "\nA dictionary object to be inspected.",
       "type": "dict",
       "optional": false
     }

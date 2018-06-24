@@ -5,7 +5,7 @@
     {
       "name": "source",
       "index": 0,
-      "description": "\nThe iterable to display as a list",
+      "description": "\nThe iterable to display as a list.",
       "type": "list",
       "optional": false
     },

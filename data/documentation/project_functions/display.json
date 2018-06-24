@@ -1,6 +1,6 @@
 {
   "name": "display",
-  "doc": "The display report for the current project",
+  "doc": "The display report for the current project.",
   "params": [],
   "returns": {
     "type": "NoneType, Report",

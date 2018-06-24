@@ -5,7 +5,7 @@
     {
       "name": "source",
       "index": 0,
-      "description": "\nA markdown formatted string",
+      "description": "\nA markdown formatted string.",
       "type": "str",
       "optional": true,
       "default": "None"
@@ -13,14 +13,30 @@
     {
       "name": "source_path",
       "index": 1,
-      "description": "\nA file containing markdown text",
+      "description": "\nA file containing markdown text.",
       "type": "str",
       "optional": true,
       "default": "None"
     },
     {
-      "name": "kwargs",
+      "name": "preserve_lines",
       "index": 2,
+      "description": "\nIf True, all line breaks will be treated as hard breaks. Use this\nfor pre-formatted markdown text where newlines should be retained\nduring rendering.",
+      "type": "bool",
+      "optional": true,
+      "default": "False"
+    },
+    {
+      "name": "font_size",
+      "index": 3,
+      "description": "\nSpecifies a relative font size adjustment. The default value is 1.0,\nwhich preserves the inherited font size values. Set it to a value\nbelow 1.0 for smaller font-size rendering and greater than 1.0 for\nlarger font size rendering.",
+      "type": "float",
+      "optional": true,
+      "default": "None"
+    },
+    {
+      "name": "kwargs",
+      "index": 4,
       "description": "\nAny variable replacements to make within the string using Jinja2\ntemplating syntax.",
       "type": "Any",
       "optional": true,
