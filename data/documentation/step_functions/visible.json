@@ -1,0 +1,10 @@
+{
+  "name": "visible",
+  "doc": "Whether or not this step will be visible in the display after it\nhas finished running. Steps are always visible while running or\nif they fail to run due to an error. However, if this is set to\nFalse, once the step completes successfully it will no longer be\nvisible in the display.",
+  "params": [],
+  "returns": {
+    "type": "bool",
+    "description": ""
+  },
+  "read_only": false
+}

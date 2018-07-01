@@ -51,6 +51,10 @@ mixin createPropertyDoc(data)
     .FunctionReturns__typeRow
       | Type:&nbsp;
       .FunctionReturns__propType!=data.returns.type
+    if (attributes.defaultValue)
+      .FunctionReturns__typeRow
+        | Default Value:&nbsp;
+        .FunctionReturns__propType!=attributes.defaultValue
     .Function__description!=data.doc
 
 

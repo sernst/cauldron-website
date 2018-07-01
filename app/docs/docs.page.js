@@ -74,7 +74,8 @@ const definitions = [
     label: 'cauldron.step',
     links: [
       { label: 'breathe', id: 'step/breathe' },
-      { label: 'stop', id: 'step/stop' }
+      { label: 'stop', id: 'step/stop' },
+      { label: 'visible', id: 'step/visible' }
     ]
   },
   {
