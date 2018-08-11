@@ -1,0 +1,12 @@
+extends /app/docs/DocsLayout
+
+block content
+  include /app/components/FunctionDocumentation/FunctionDocumentation
+  include /app/components/NotebookLink/NotebookLink
+
+  .Display__title
+    .Display__titleFunc def
+    | get_environment_info
+  .Display__breadcrumb cauldron.get_environment_info()
+
+  +createFunctionDoc(cauldron_functions.get_environment_info)(hideTitle=true)

@@ -1,0 +1,39 @@
+extends /app/docs/DocsLayout
+
+block content
+  include /app/components/FunctionDocumentation/FunctionDocumentation
+  include /app/components/NotebookLink/NotebookLink
+
+  .Display__title
+    .Display__titleFunc def
+    | plotly
+  .Display__breadcrumb cauldron.display.plotly()
+
+  +createFunctionDoc(display_functions.plotly)(hideTitle=true)
+
+  .Display__h1 Basic Usage
+
+  :highlight()
+    import cauldron as cd
+    import plotly.graph_objs as go
+
+    # Create a scatter plot
+    scatter = go.Scatter(
+      x=[1, 2, 3, 4, 5]
+      y=[1, 4, 9, 16, 25]
+    )
+
+    # Create a layout for the scatter plot
+    layout = go.Layout(
+      title='Quadratic Function y = x ** 2'
+    )
+
+    # Add the plot to the notebook display
+    cd.display.plotly(scatter, layout)
+
+  .Display__h1 Examples
+
+  +createNotebookLink('v1', 'plotly-basics', 'Plotly Basics')
+    div
+      | Basic plotting with Plotly inside Cauldron. Uses the Auto MPG
+      | dataset to create histogram, bar and scatter plots.

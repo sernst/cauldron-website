@@ -1,17 +1,16 @@
-include ../components/NotebookLink/NotebookLink
-include ../components/ExternalLink/ExternalLink
-include ../components/DownloadSection/DownloadSection
+include /app/components/NotebookLink/NotebookLink
+include /app/components/ExternalLink/ExternalLink
+include /app/components/DownloadSection/DownloadSection
 
 html
   head
     meta(name='viewport' content='width=device-width, initial-scale=1')
     title Install Cauldron Reader
-    include ../components/common-header
+    include /app/components/common-header
     link(rel='stylesheet' href='reader-install.css')
 
   body
     div(id='app')
-      section(id='bannerSection')
       .ReaderInstall
         include InstallSection/InstallSection
 

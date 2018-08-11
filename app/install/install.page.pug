@@ -1,15 +1,15 @@
-include ../components/DownloadSection/DownloadSection
+include /app/components/DownloadSection/DownloadSection
 include NumberedStepTitle/NumberedStepTitle
 
 html
   head
     title Cauldron Installation
-    include ../components/common-header
+    include /app/components/common-header
     link(rel='stylesheet' href='install.css')
 
   body
     div(id='app')
-      section(id='bannerSection')
+      include /app/components/PageBanner/PageBanner
       .Install__page
         include NavigationColumn/NavigationColumn
         .Install__display

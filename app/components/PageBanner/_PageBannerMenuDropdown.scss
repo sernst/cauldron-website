@@ -1,12 +1,16 @@
 .PageBannerMenuDropdown {
-  display: flex;
-  justify-content: flex-end;
-  background-color: black;
-  color: white;
-  padding: 0 1.0em;
+  display: none;
 
   @media #{$greater-than-s} {
     display: none;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: flex-end;
+    background-color: black;
+    color: white;
+    padding: 0 1.0em;
   }
 
   &__aligner {

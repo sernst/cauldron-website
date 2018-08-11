@@ -1,0 +1,12 @@
+extends /app/docs/DocsLayout
+
+block content
+  include /app/components/FunctionDocumentation/FunctionDocumentation
+
+  .Display__title
+    .Display__titleFunc def
+    | jinja
+  .Display__breadcrumb cauldron.display.jinja()
+
+  +createFunctionDoc(display_functions.jinja)(hideTitle=true)
+

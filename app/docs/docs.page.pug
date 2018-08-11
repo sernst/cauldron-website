@@ -1,17 +1,9 @@
-html
-  head
-    meta(name='viewport' content='width=device-width, initial-scale=1')
-    title Cauldron Documentation
-    include ../components/common-header
-    link(rel='stylesheet' href='docs.css')
+extends DocsLayout
 
-  body
-    div(id='app')
-      section(id='bannerSection')
-      .Page
-        .Navigator
-        .Display
-      div(style='flex: 1; min-height: 200px;')
-      include ../components/PageFooter/PageFooter
+block content
+  .Display__h1 Cauldron Documentation
 
-    script(src='docs.js')
+  .Display__p
+  | Before you dig into the documentation make sure to visit the
+  | #[a.Display__link(href="/install/") installation] page to get
+  | Cauldron setup.

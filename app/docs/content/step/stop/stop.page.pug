@@ -1,0 +1,43 @@
+extends /app/docs/DocsLayout
+
+block content
+  include /app/components/FunctionDocumentation/FunctionDocumentation
+
+  .Display__title stop
+  .Display__breadcrumb cauldron.step.stop()
+
+  +createFunctionDoc(step_functions.stop)(hideTitle=true)
+
+  .Display__h1 Background
+
+  .Display__p.
+    It can sometimes be useful to stop the running of a step early before all of
+    the code has been executed. The reason may be conditional, or it may be that
+    you want to debug a portion of the step without running the rest of it.
+    Whatever the reason, this is the function to use for such a process.
+
+  .Display__h1 Basic Usage
+
+  :highlight()
+    import cauldron as cd
+
+    print('This will appear in the notebook')
+
+    # Stops the execution of the step immediately.
+    cd.step.stop()
+
+    print('This will not appear because it will never run')
+
+  .Display__p The stop function can be useful when used conditionally:
+
+  :highlight()
+    import cauldron as cd
+    import pandas as pd
+
+    df = pd.read_csv('example_data.csv')
+
+    # Abort the running of this step if the loaded data has less than 10 rows
+    if len(df) < 10:
+      cd.step.stop()
+
+    cd.display.table(df)

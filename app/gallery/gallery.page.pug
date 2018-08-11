@@ -3,14 +3,13 @@ include ../components/ExternalLink/ExternalLink
 
 html
   head
-    meta(name='viewport' content='width=device-width, initial-scale=1')
     title Cauldron Gallery
     include ../components/common-header
     link(rel='stylesheet' href='gallery.css')
 
   body
     div(id='app')
-      section(id='bannerSection')
+      include ../components/PageBanner/PageBanner
 
       .GalleryPage
         .GalleryPage__title Example Cauldron Notebook Gallery
@@ -21,7 +20,7 @@ html
 
           +createExternalLink(
           'Cauldron Gallery Github',
-          'https://www.github.com/sernst/cauldron-gallery',
+          'https://github.com/Cauldron-Notebook/cauldron-gallery',
           '/assets/images/octocat-logo-black.svg'
           )
 

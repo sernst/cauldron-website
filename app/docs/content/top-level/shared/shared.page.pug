@@ -1,0 +1,25 @@
+extends /app/docs/DocsLayout
+
+block content
+  include /app/components/FunctionDocumentation/FunctionDocumentation
+  include /app/components/NotebookLink/NotebookLink
+
+  .Display__title shared
+  .Display__breadcrumb cauldron.shared
+
+  +createPropertyDoc({
+    returns: { type: 'SharedCache' },
+    doc: 'A container that holds all of the variables shared between notebooks'
+  })(hideTitle=true)
+
+  .Display__entry1
+    +createFunctionDoc(SharedCache.clear)
+
+  .Display__entry1
+    +createFunctionDoc(SharedCache.fetch)
+
+  .Display__entry1
+    +createFunctionDoc(SharedCache.grab)
+
+  .Display__entry1
+    +createFunctionDoc(SharedCache.put)
