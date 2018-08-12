@@ -1,6 +1,7 @@
 mixin makeBenefitItem(title, icon)
   .BenefitItem
-    img(class='BenefitItem__icon' src=`/assets/images/${icon}.svg`)
-    .BenefitItem__label=title
-    .BenefitItem__text
-      block
+    img.BenefitItem__icon(src=`/assets/images/${icon}.svg`)
+    .BenefitItem__box
+      .BenefitItem__label=title
+      .BenefitItem__text
+        block

@@ -2,10 +2,23 @@ include ../../components/BenefitItem/BenefitItem
 
 .BenefitsSection
   .BenefitsSection__header
-    div A Different Kind of Data Analysis Environment
-    div That is Free and Open Source
+    div Combining the Functionality of Agile Software Development
 
   .BenefitsSection__aligner
+    +makeBenefitItem('Production Ready', 'production-circle')
+      div.
+        Run Cauldron in non-interactive mode via Command Line Interface (CLI)
+        or calling from other Python code. Either way makes it easy to run or
+        integrate Cauldron into a production environment.
+
+    +makeBenefitItem('Collaboration Friendly', 'vcs-circle')
+      div.
+        Cauldron doesn't mangle your code into a special notebook file format.
+        Instead, your code exists as standard code files that are compatible
+        with the excellent tooling used by software development teams.
+        Things like pull requests, code reviews, continuous
+        integration/deployment and much more work easily and naturally with
+        Cauldron.
 
     +makeBenefitItem('Your Choice of Editor', 'ide-choice-circle')
       div.
@@ -14,14 +27,9 @@ include ../../components/BenefitItem/BenefitItem
         Unlock the features and sophistication of modern code editors to
         author your notebooks.
 
-    +makeBenefitItem('Uncompromised Python', 'python-circle')
-      div.
-        Designed, built and optimized specifically for Python. Cauldron
-        utilizes features unique to Python to deliver high productivity,
-        high performance and streamlined library integration.
+  .BenefitsSection__header
+    div With the Advantages of Notebooks
 
-
-  .BenefitsSection__header The Dexterity of a Notebook
   .BenefitsSection__aligner
 
     +makeBenefitItem('Interactive Workflow', 'data-persistence-circle')
@@ -36,20 +44,8 @@ include ../../components/BenefitItem/BenefitItem
         packed full of easy-to-use display functions, including integrated
         support for a wide range of Python visualization libraries.
 
-
-  .BenefitsSection__header The Wisdom of Software Engineering
-  .BenefitsSection__aligner
-
-    +makeBenefitItem('Version-Control Friendly', 'vcs-circle')
+    +makeBenefitItem('Uncompromised Python 3', 'python-circle')
       div.
-        Your code exists in standard code files. Nothing is mangled by a
-        special notebook file format. This makes Cauldron notebooks compatible
-        with common version control systems and the excellent tooling around
-        them. Code reviews are beneficial for data analysis as well.
-
-    +makeBenefitItem('Production Focused', 'production-circle')
-      div.
-        Run notebooks in non-interactive mode with Cauldron’s Command Line
-        Interface (CLI) or by importing the library into other Python
-        programs. Both ways make it easy to run or integrate a Cauldron
-        notebook into a production environment.
+        Designed, built and optimized specifically for Python 3.5+. Cauldron
+        utilizes features unique to modern Python to deliver high productivity,
+        high performance and streamlined library integration.
