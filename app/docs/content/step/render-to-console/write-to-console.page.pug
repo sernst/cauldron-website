@@ -1,0 +1,49 @@
+extends /app/docs/DocsLayout
+
+block content
+  include /app/components/FunctionDocumentation/FunctionDocumentation
+
+  .Display__title render_to_console
+  .Display__breadcrumb cauldron.step.render_to_console()
+
+  +createFunctionDoc(step_functions.render_to_console)(hideTitle=true)
+
+  .Display__h1 Background
+
+  .Display__p
+    | This function is similar to the
+    |
+    a.Display__link(
+      href="/docs/content/step/write-to-console/"
+    ) cd.step.write_to_console()
+    |
+    | but adds Jinja2 template rendering support for handling more
+    | complicated string display manipulation.
+
+  .Display__h1 Basic Usage
+
+  .Display__p
+    | For example, we may want to track memory used by a DataFrame in the
+    | console for reference, but not display that information within the
+    | notebook. The same example is shown in the
+    |
+    a.Display__link(
+      href="/docs/content/step/write-to-console/"
+    ) cd.step.write_to_console()
+    |
+    | documentation, but in this case we're going to take advantage of
+    | Jinja's filesizeformat filter to display the results in a more
+    | display friendly format, e.g. 1.0 MB instead of 1000000 bytes.
+
+  :highlight()
+    import cauldron as cd
+    import pandas as pd
+    import some_library
+
+    data_frame: pd.DataFrame = some_libray.load_data()
+
+    bytes_used = data_frame.memory_usage.sum()
+    cd.step.write_to_console(
+        'Loaded DataFrame using {{ bytes_used | filesizeformat(true) }}.',
+        bytes_used=bytes_used
+    )

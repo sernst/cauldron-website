@@ -66,12 +66,13 @@ html
               li Double-click on the DEB installer to open the graphical package management installer
               li Install the application
 
-            .DownloadSection__text You can also install the file from a terminal using the commands:
+            .DownloadSection__text
+              | You can also install the file from a terminal using the
+              | commands:
 
             :highlight(language='bash')
               $ sudo dpkg -i /path/to/cauldron-installer.deb
               $ sudo apt-get install -f .
-
 
           +createDownloadSection(
             configs.release_settings.editor['linux-rpm'].stable,

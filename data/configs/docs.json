@@ -61,8 +61,10 @@
       "folder": "step",
       "items": [
         { "label": "breathe", "id": "breathe" },
+        { "label": "render_to_console", "id": "render-to-console" },
         { "label": "stop", "id": "stop" },
-        { "label": "visible", "id": "visible" }
+        { "label": "visible", "id": "visible" },
+        { "label": "write_to_console", "id": "write-to-console" }
       ]
     },
     {
