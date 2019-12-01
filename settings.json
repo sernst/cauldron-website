@@ -1,11 +1,6 @@
 {
   "npm": {
-    "js": [
-      "systemjs/dist/system.js",
-      "@cycle/dom/dist/cycle-dom:",
-      "@cycle/xstream-adapter/dist/xstream:",
-      "@cycle/xstream-run/dist/cycle:"
-    ],
+    "js": [],
     "css": [
       "normalize-css/normalize.css",
       "highlightjs/styles/github-gist.css"

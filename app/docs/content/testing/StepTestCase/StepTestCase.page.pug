@@ -1,0 +1,59 @@
+extends /app/docs/DocsLayout
+
+block content
+  include /app/components/FunctionDocumentation/FunctionDocumentation
+  include /app/components/NotebookLink/NotebookLink
+
+  .Display__title
+    .Display__titleClass class
+    | StepTestCase
+  .Display__breadcrumb cauldron.steptest.StepTestCase
+
+  .Display__p!=StepTestCase.StepTestCase.description
+
+  +createBullet()
+    div.
+      The StepTestCase class inherits from
+      #[a(class="Display__link" href="https://docs.python.org/3/library/unittest.html?highlight=unittest#test-cases") Python's TestCase class].
+      All standard testing functionality available within this class is
+      available for step testing.
+
+  +createBullet('warning')
+    div.
+      Test files that use the StepTestCase class must be located somewhere within
+      the root directory of the Cauldron notebook for which the tests are written.
+
+  .Display__h2 Methods
+
+  .Display__entry1
+    +createFunctionDoc(StepTestCase.run_step)
+
+
+  .Display__h1 Basic Usage
+
+  :highlight()
+    import cauldron as cd
+    import pandas as pd
+    from cauldron.steptest import StepTestCase
+
+    class TestSecondStep(StepTestCase):
+        """ Class for testing the second step in the notebook """
+
+        def test_missing_column(self):
+            """ should not fail if the data frame is missing the "b" column """
+
+            # Create a test data frame that has an "a" column but no "b" column
+            cd.shared.df = pd.DataFrame(dict(a=[12, 24, 36]))
+
+            # Run the step
+            result = self.run_step("S02-Merge-Columns.py")
+
+            # Validate that the step ran successfully
+            self.assertTrue(result.success)
+
+  .Display__h1 Examples
+
+  +createNotebookLink('v1', 'step-testing-example', 'Step Testing Example')
+    div
+      | A basic example of a notebook that includes step unit testing
+      | to validate some functionality of the notebook.

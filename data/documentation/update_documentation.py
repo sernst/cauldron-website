@@ -6,6 +6,7 @@ import shutil
 from cauldron.docgen import parsing
 from cauldron.session import display
 from cauldron.session.exposed import ExposedStep
+from cauldron.session.exposed import ExposedProject
 from cauldron.steptest import StepTestCase
 from cauldron.steptest import StepTestRunResult
 from cauldron.session.caching import SharedCache
@@ -23,20 +24,26 @@ def clean(results_directory):
     if not os.path.exists(results_directory):
         os.makedirs(results_directory)
         return
-    
+
     for file_path in glob.iglob(results_directory, recursive=True):
         if os.path.isfile(file_path):
             os.remove(file_path)
 
-        
-def write_entry(results_directory, data) -> str:            
+
+def write_entry(results_directory, data) -> str:
     name = data['name']
     path = os.path.join(results_directory, '{}.json'.format(name))
 
-    with open(path, 'w+', encoding='utf8') as fp:
-        json.dump(data, fp, indent=2)
+    try:
+        with open(path, 'w+', encoding='utf8') as fp:
+            json.dump(data, fp, indent=2)
+    except Exception as err:
+        print('[ERROR]: unable to write entry "{}"'.format(name))
+        print('PATH:', path)
+        print('DATA:', data)
+        raise
 
-    print('[SAVED]:', name)            
+    print('[SAVED]:', name)
     return path
 
 
@@ -45,9 +52,9 @@ def parse(target, output_folder):
     Parses the target and places the results in the specified output
     folder within the data directory
     """
-    
+
     results = parsing.container(target)
-    results_directory = os.path.join(DATA_DIRECTORY, output_folder)    
+    results_directory = os.path.join(DATA_DIRECTORY, output_folder)
     clean(results_directory)
 
     for entry in results.get('functions', []):
@@ -58,7 +65,7 @@ def parse(target, output_folder):
 
     for entry in results.get('classes', []):
         write_entry(results_directory, entry)
-        
+
     write_entry(results_directory, dict(
         name=results.get('name', 'Unknown'),
         description=results.get('description', '')
@@ -68,14 +75,15 @@ def parse(target, output_folder):
 def run():
     """
     """
-    
+
     parse(display, 'display_functions')
     parse(ExposedStep, 'step_functions')
+    parse(ExposedProject, 'project_functions')
     parse(StepTestCase, 'StepTestCase')
     parse(StepTestRunResult, 'StepTestRunResult')
     parse(cauldron, 'cauldron_functions')
     parse(SharedCache, 'SharedCache')
-  
-  
+
+
 if __name__ == '__main__':
     run()

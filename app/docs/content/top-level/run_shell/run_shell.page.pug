@@ -1,0 +1,12 @@
+extends /app/docs/DocsLayout
+
+block content
+  include /app/components/FunctionDocumentation/FunctionDocumentation
+  include /app/components/NotebookLink/NotebookLink
+
+  .Display__title
+    .Display__titleFunc def
+    | run_shell
+  .Display__breadcrumb cauldron.run_shell()
+
+  +createFunctionDoc(cauldron_functions.run_shell)(hideTitle=true)

@@ -1,0 +1,41 @@
+{
+  "name": "list_grid",
+  "doc": "An multi-column list of the specified *source* iterable where\neach element is converted to a string representation for display.",
+  "params": [
+    {
+      "name": "source",
+      "index": 0,
+      "description": "\nThe iterable to display as a list.",
+      "type": "list",
+      "optional": false
+    },
+    {
+      "name": "expand_full",
+      "index": 1,
+      "description": "\nWhether or not the list should expand to fill the screen horizontally.\nWhen defaulted to False, the list is constrained to the center view\narea of the screen along with other text. This can be useful to keep\nlists aligned with the text flow.",
+      "type": "bool",
+      "optional": true,
+      "default": "False"
+    },
+    {
+      "name": "column_count",
+      "index": 2,
+      "description": "\nThe number of columns to display. The specified count is applicable to\nhigh-definition screens. For Lower definition screens the actual count\ndisplayed may be fewer as the layout responds to less available\nhorizontal screen space.",
+      "type": "int",
+      "optional": true,
+      "default": "2"
+    },
+    {
+      "name": "row_spacing",
+      "index": 3,
+      "description": "\nThe number of lines of whitespace to include between each row in the\ngrid. Set this to 0 for tightly displayed lists.",
+      "type": "float",
+      "optional": true,
+      "default": "1.0"
+    }
+  ],
+  "returns": {
+    "type": null,
+    "description": ""
+  }
+}

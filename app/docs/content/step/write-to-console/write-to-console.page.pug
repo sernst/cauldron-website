@@ -1,0 +1,33 @@
+extends /app/docs/DocsLayout
+
+block content
+  include /app/components/FunctionDocumentation/FunctionDocumentation
+
+  .Display__title write_to_console
+  .Display__breadcrumb cauldron.step.write_to_console()
+
+  +createFunctionDoc(step_functions.write_to_console)(hideTitle=true)
+
+  .Display__h1 Background
+
+  .Display__p.
+    This function will write strings to the console without them appearing
+    in the display. This is useful for logging information to the console
+    that would clutter the display.
+
+  .Display__h1 Basic Usage
+
+  .Display__p.
+    For example, we may want to track memory used by a DataFrame in the
+    console for reference, but not display that information within the
+    notebook:
+
+  :highlight()
+    import cauldron as cd
+    import pandas as pd
+    import some_library
+
+    data_frame: pd.DataFrame = some_libray.load_data()
+
+    bytes_used = data_frame.memory_usage.sum()
+    cd.step.write_to_console(f'Loaded DataFrame using {bytes_used} bytes.')

@@ -1,32 +1,50 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "plotly",
+  "doc": "Creates a Plotly plot in the display with the specified data and\nlayout.",
   "params": [
     {
-      "type": "Any",
-      "index": 0,
-      "description": "\nThe Plotly trace data to be plotted",
       "name": "data",
-      "optional": false
+      "index": 0,
+      "description": "\nThe Plotly trace data to be plotted.",
+      "type": "dict, list",
+      "optional": true,
+      "default": "None"
     },
     {
-      "type": "dict",
-      "index": 1,
-      "description": "\nThe layout data used for the plot",
       "name": "layout",
-      "optional": false
+      "index": 1,
+      "description": "\nThe layout data used for the plot.",
+      "type": "dict",
+      "optional": true,
+      "default": "None"
     },
     {
       "name": "scale",
-      "description": "\nThe display scale with units of fractional screen height. A value\nof 0.5 constrains the output to a maximum height equal to half the\nheight of browser window when viewed. Values below 1.0 are usually\nrecommended so the entire output can be viewed without scrolling.",
       "index": 2,
+      "description": "\nThe display scale with units of fractional screen height. A value\nof 0.5 constrains the output to a maximum height equal to half the\nheight of browser window when viewed. Values below 1.0 are usually\nrecommended so the entire output can be viewed without scrolling.",
       "type": "float",
-      "default": "0.5",
-      "optional": true
+      "optional": true,
+      "default": "0.5"
+    },
+    {
+      "name": "figure",
+      "index": 3,
+      "description": "\nIn cases where you need to create a figure instead of separate data\nand layout information, you can pass the figure here and leave the\ndata and layout values as None.",
+      "type": "dict",
+      "optional": true,
+      "default": "None"
+    },
+    {
+      "name": "static",
+      "index": 4,
+      "description": "\nIf true, the plot will be created without interactivity.\nThis is useful if you have a lot of plots in your notebook.",
+      "type": "bool",
+      "optional": true,
+      "default": "False"
     }
   ],
-  "doc": "Creates a Plotly plot in the display with the specified data and layout",
-  "name": "plotly"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

@@ -1,0 +1,24 @@
+extends /app/docs/DocsLayout
+
+block content
+  include /app/components/FunctionDocumentation/FunctionDocumentation
+
+  .Display__title
+    .Display__titleFunc def
+    | html
+  .Display__breadcrumb cauldron.display.html()
+
+  +createFunctionDoc(display_functions.html)(hideTitle=true)
+
+  .Display__h1 Basic Usage
+
+  +createBullet('warning')
+    div.
+      Page-level tags such as head or body are not allowed
+
+  :highlight()
+    import cauldron as cd
+
+    # Adds a div tag containing the text: Hello World!
+    cd.display.html('<div>Hello World!</div>')
+

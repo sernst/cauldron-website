@@ -10,7 +10,6 @@
   &__aligner {
     max-width: $centered-page-width;
     margin: 2em auto;
-    display: flex;
     align-items: flex-start;
 
     @media #{$less-than-m} {

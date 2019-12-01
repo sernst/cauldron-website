@@ -1,9 +1,9 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "tearDown",
+  "doc": "After a test is run this function is used to undo any side effects that\nwere created by setting up and running the test. This includes removing\nthe temporary directories that were created to store test information\nduring test execution.",
   "params": [],
-  "doc": "",
-  "name": "tearDown"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

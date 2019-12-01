@@ -1,9 +1,9 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
-  "params": [],
+  "name": "debug",
   "doc": "Run the test without collecting errors in a TestResult",
-  "name": "debug"
+  "params": [],
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

@@ -1,0 +1,10 @@
+{
+  "name": "settings",
+  "doc": "The settings associated with this project.",
+  "params": [],
+  "returns": {
+    "type": "NoneType, SharedCache",
+    "description": ""
+  },
+  "read_only": true
+}

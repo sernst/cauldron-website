@@ -1,9 +1,9 @@
 {
-  "returns": {
-    "description": "A dictionary containing information about the Cauldron and its\nPython environment. This information is useful when providing feedback\nand bug reports",
-    "type": "dict"
-  },
+  "name": "get_environment_info",
+  "doc": "Information about Cauldron and its Python interpreter.",
   "params": [],
-  "doc": "Information about Cauldron and its Python interpreter",
-  "name": "get_environment_info"
+  "returns": {
+    "type": "dict",
+    "description": "A dictionary containing information about the Cauldron and its\nPython environment. This information is useful when providing feedback\nand bug reports."
+  }
 }

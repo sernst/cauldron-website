@@ -1,24 +1,25 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "deprecated_func",
+  "doc": "",
   "params": [
     {
-      "type": "Any",
+      "name": "args",
       "index": 0,
       "description": "",
-      "name": "args",
+      "type": "Any",
       "optional": false
     },
     {
-      "type": "Any",
+      "name": "kwargs",
       "index": 1,
       "description": "",
-      "name": "kwargs",
-      "optional": false
+      "type": "Any",
+      "optional": true,
+      "default": "dict"
     }
   ],
-  "doc": "",
-  "name": "deprecated_func"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

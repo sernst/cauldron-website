@@ -1,32 +1,32 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "assertIs",
+  "doc": "Just like self.assertTrue(a is b), but with a nicer default message.",
   "params": [
     {
-      "type": "Any",
+      "name": "expr1",
       "index": 0,
       "description": "",
-      "name": "expr1",
+      "type": "Any",
       "optional": false
     },
     {
-      "type": "Any",
+      "name": "expr2",
       "index": 1,
       "description": "",
-      "name": "expr2",
+      "type": "Any",
       "optional": false
     },
     {
       "name": "msg",
-      "description": "",
       "index": 2,
+      "description": "",
       "type": "Any",
-      "default": "None",
-      "optional": true
+      "optional": true,
+      "default": "None"
     }
   ],
-  "doc": "Just like self.assertTrue(a is b), but with a nicer default message.",
-  "name": "assertIs"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

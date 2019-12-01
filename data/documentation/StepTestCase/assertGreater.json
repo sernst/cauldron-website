@@ -1,32 +1,32 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "assertGreater",
+  "doc": "Just like self.assertTrue(a > b), but with a nicer default message.",
   "params": [
     {
-      "type": "Any",
+      "name": "a",
       "index": 0,
       "description": "",
-      "name": "a",
+      "type": "Any",
       "optional": false
     },
     {
-      "type": "Any",
+      "name": "b",
       "index": 1,
       "description": "",
-      "name": "b",
+      "type": "Any",
       "optional": false
     },
     {
       "name": "msg",
-      "description": "",
       "index": 2,
+      "description": "",
       "type": "Any",
-      "default": "None",
-      "optional": true
+      "optional": true,
+      "default": "None"
     }
   ],
-  "doc": "Just like self.assertTrue(a > b), but with a nicer default message.",
-  "name": "assertGreater"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

@@ -1,4 +1,4 @@
 {
   "name": "ExposedStep",
-  "description": "\n\n"
+  "description": "\nA simplified form of a ProjectStep that is exposed to the for Cauldron\nusers.\n"
 }

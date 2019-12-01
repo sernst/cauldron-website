@@ -9,17 +9,22 @@
 }
 
 .NavigatorToggle {
-  background-color: $cauldron-green;
-  padding: 0.5em;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
+  &__button {
+    @media #{$greater-than-s} {
+      display: none;
+    }
 
-  @media #{$greater-than-s} {
-    display: none;
+    background-color: $cauldron-green;
+    padding: 0.5em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
   }
 }
 
+.NavigatorHideBtn {
+  display: none;
+}
 
 .NavigatorSection {
   padding: 0.25em 1em;
@@ -36,11 +41,16 @@
   }
 
   &__link {
+    display: block;
     cursor: pointer;
     margin: 0.5em 1em;
     color: $cauldron-green-dark;
 
     @include no-select;
+
+    &:visited {
+      color: $cauldron-green-dark;
+    }
 
     &:hover {
       color: $cauldron-green;
@@ -62,6 +72,8 @@
 
 
 .NavigatorMobileSection {
+  display: none;
+
   @media #{$greater-than-s} {
     display: none;
   }
@@ -75,6 +87,7 @@
   }
 
   &__link {
+    display: block;
     cursor: pointer;
     background-color: $cauldron-green;
     padding: 1em 0.5em;
@@ -82,6 +95,10 @@
     transition:
       color 0.5s ease,
       background-color 0.5s ease;
+
+    &:visited {
+      color: $cauldron-green-dark;
+    }
 
     &:hover {
       color: white;
@@ -91,6 +108,10 @@
       font-weight: bold;
       background-color: $cauldron-green-dark;
       color: white;
+    }
+
+    @media #{$greater-than-s} {
+      display: none;
     }
   }
 

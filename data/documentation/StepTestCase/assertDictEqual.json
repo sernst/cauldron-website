@@ -1,32 +1,32 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "assertDictEqual",
+  "doc": "",
   "params": [
     {
-      "type": "Any",
+      "name": "d1",
       "index": 0,
       "description": "",
-      "name": "d1",
+      "type": "Any",
       "optional": false
     },
     {
-      "type": "Any",
+      "name": "d2",
       "index": 1,
       "description": "",
-      "name": "d2",
+      "type": "Any",
       "optional": false
     },
     {
       "name": "msg",
-      "description": "",
       "index": 2,
+      "description": "",
       "type": "Any",
-      "default": "None",
-      "optional": true
+      "optional": true,
+      "default": "None"
     }
   ],
-  "doc": "",
-  "name": "assertDictEqual"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

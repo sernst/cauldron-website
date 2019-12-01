@@ -1,0 +1,10 @@
+{
+  "name": "shared",
+  "doc": "The shared display object associated with this project.",
+  "params": [],
+  "returns": {
+    "type": "NoneType, SharedCache",
+    "description": ""
+  },
+  "read_only": true
+}

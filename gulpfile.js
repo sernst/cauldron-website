@@ -12,7 +12,8 @@ const path = require('path');
 const plumber = require('gulp-plumber');
 const browserSync = require('browser-sync');
 const uglify = require('gulp-uglify');
-const webpack = require('webpack-stream');
+const webpackStream = require('webpack-stream');
+const webpack = require('webpack');
 const gulpIf = require('gulp-if');
 const rename = require('gulp-rename');
 const awsPublish = require('gulp-awspublish');
@@ -48,7 +49,11 @@ function html() {
   function renderHtml(locals, resolve, reject) {
     return gulp.src('app/**/*.page.pug')
       .pipe(plumber())
-      .pipe(pug({ locals, filters: pugger.filters }))
+      .pipe(pug({
+        locals,
+        filters: pugger.filters,
+        basedir: __dirname
+      }))
       .pipe(rename((file) => {
         Object.assign(file, { basename: 'index' });
       }))
@@ -102,10 +107,11 @@ function js() {
   return gulp.src('app/**/*.page.js')
     .pipe(plumber())
     .pipe(named(file => file.basename.split('.')[0]))
-    .pipe(webpack({
+    .pipe(webpackStream({
+      mode: argv.production ? 'production' : 'development',
       output: { filename: '[name]/[name].js' },
       module: {
-        loaders: [
+        rules: [
           {
             test: /\.js$/,
             exclude: /(node_modules|bower_components)/,
@@ -113,7 +119,13 @@ function js() {
             query: { presets: babelPreset }
           }
         ]
-      }
+      },
+      plugins: [
+        new webpack.ProvidePlugin({
+          $: 'jquery',
+          jQuery: 'jquery'
+        })
+      ]
     }))
     .pipe(gulpIf(argv.production, uglify()))
     .pipe(gulp.dest(makeOutputPath()));

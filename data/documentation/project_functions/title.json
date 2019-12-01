@@ -1,0 +1,10 @@
+{
+  "name": "title",
+  "doc": "The title of this project.",
+  "params": [],
+  "returns": {
+    "type": "NoneType, str",
+    "description": ""
+  },
+  "read_only": false
+}

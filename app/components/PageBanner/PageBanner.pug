@@ -1,0 +1,31 @@
+.PageBanner
+  .PageBanner__container
+    a.PageBannerLogo(href="/")
+      img.PageBannerLogo__image(src="/assets/images/logo-white.svg")
+      .PageBannerLogo__title Cauldron
+    .PageBanner__spacer
+    .PageBanner__toggleMenuBtn
+      i.material-icons.PageBanner__toggleMenuIcon menu
+    .PageBannerMenu__box
+      a.PageBannerMenu__btn(href="/install") Install
+      a.PageBannerMenu__btn(href="/gallery") Gallery
+      a.PageBannerMenu__btn(href="/docs") Documentation
+      a.PageBannerMenu__btn(href="/reader") Reader
+      a(href="https://github.com/sernst/cauldron" target="_blank")
+        img.PageBannerMenu__iconBtn(src="/assets/images/octocat-logo.svg")
+
+.PageBannerMenuDropdown
+  .PageBannerMenuDropdown__wrapper
+    .PageBannerMenuDropdown__aligner
+      a.PageBannerMenuDropdown__btn(href="/install") Install
+      a.PageBannerMenuDropdown__btn(href="/gallery") Gallery
+      a.PageBannerMenuDropdown__btn(href="/docs") Documentation
+      a.PageBannerMenuDropdown__btn(href="/reader") Reader
+      a.PageBannerMenuDropdown__btn(
+        href="https://github.com/sernst/cauldron"
+        target="_blank"
+      )
+        img.PageBannerMenuDropdown__btnIcon(
+          src="/assets/images/octocat-logo.svg"
+        )
+        div GitHub

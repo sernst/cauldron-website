@@ -1,38 +1,38 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "assertRaisesRegex",
+  "doc": "Asserts that the message in a raised exception matches a regex.\nArgs:\nexpected_exception: Exception class expected to be raised.\nexpected_regex: Regex (re pattern object or string) expected\nto be found in error message.\nargs: Function to be called and extra positional args.\nkwargs: Extra kwargs.\nmsg: Optional message used in case of failure. Can only be used\nwhen assertRaisesRegex is used as a context manager.",
   "params": [
     {
-      "type": "Any",
+      "name": "expected_exception",
       "index": 0,
       "description": "",
-      "name": "expected_exception",
+      "type": "Any",
       "optional": false
     },
     {
-      "type": "Any",
+      "name": "expected_regex",
       "index": 1,
       "description": "",
-      "name": "expected_regex",
+      "type": "Any",
       "optional": false
     },
     {
-      "type": "Any",
+      "name": "args",
       "index": 2,
       "description": "",
-      "name": "args",
+      "type": "Any",
       "optional": false
     },
     {
-      "type": "Any",
+      "name": "kwargs",
       "index": 3,
       "description": "",
-      "name": "kwargs",
+      "type": "Any",
       "optional": false
     }
   ],
-  "doc": "Asserts that the message in a raised exception matches a regex.\nArgs:\nexpected_exception: Exception class expected to be raised.\nexpected_regex: Regex (re pattern object or string) expected\nto be found in error message.\nargs: Function to be called and extra positional args.\nkwargs: Extra kwargs.\nmsg: Optional message used in case of failure. Can only be used\nwhen assertRaisesRegex is used as a context manager.",
-  "name": "assertRaisesRegex"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

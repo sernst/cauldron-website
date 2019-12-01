@@ -1,11 +1,11 @@
 .BenefitItem {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   flex: 1;
+  padding-bottom: 2em;
 
   @media #{$less-than-m} {
-    padding-bottom: 2em;
+    flex-direction: column;
+    justify-content: center;
   }
 
   &__icon {
@@ -15,11 +15,14 @@
 
   &__label {
     font-size: 1.8em;
-    text-align: center;
     flex-shrink: 1;
     margin: auto;
     padding: 0 0.5em;
     line-height: 1.5;
+
+    @media #{$less-than-m} {
+      text-align: center;
+    }
   }
 
   &__text {

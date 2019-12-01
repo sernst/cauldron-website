@@ -1,50 +1,50 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "code_block",
+  "doc": "Adds a block of syntax highlighted code to the display from either\nthe supplied code argument, or from the code file specified\nby the path argument.",
   "params": [
     {
       "name": "code",
-      "description": "\nA string containing the code to be added to the display",
       "index": 0,
+      "description": "\nA string containing the code to be added to the display",
       "type": "str",
-      "default": "None",
-      "optional": true
+      "optional": true,
+      "default": "None"
     },
     {
       "name": "path",
-      "description": "\nA path to a file containing code to be added to the display",
       "index": 1,
+      "description": "\nA path to a file containing code to be added to the display",
       "type": "str",
-      "default": "None",
-      "optional": true
+      "optional": true,
+      "default": "None"
     },
     {
       "name": "language_id",
-      "description": "\nThe language identifier that indicates what language should\nbe used by the syntax highlighter. Valid values are any of the\nlanguages supported by the Pygments highlighter.",
       "index": 2,
+      "description": "\nThe language identifier that indicates what language should\nbe used by the syntax highlighter. Valid values are any of the\nlanguages supported by the Pygments highlighter.",
       "type": "str",
-      "default": "None",
-      "optional": true
+      "optional": true,
+      "default": "None"
     },
     {
       "name": "title",
-      "description": "\nIf specified, the code block will include a title bar with the\nvalue of this argument",
       "index": 3,
+      "description": "\nIf specified, the code block will include a title bar with the\nvalue of this argument",
       "type": "str",
-      "default": "None",
-      "optional": true
+      "optional": true,
+      "default": "None"
     },
     {
       "name": "caption",
-      "description": "\nIf specified, the code block will include a caption box below the code\nthat contains the value of this argument",
       "index": 4,
+      "description": "\nIf specified, the code block will include a caption box below the code\nthat contains the value of this argument",
       "type": "str",
-      "default": "None",
-      "optional": true
+      "optional": true,
+      "default": "None"
     }
   ],
-  "doc": "Adds a block of syntax highlighted code to the display from either\nthe supplied code argument, or from the code file specified\nby the path argument.",
-  "name": "code_block"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

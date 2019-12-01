@@ -1,0 +1,12 @@
+extends /app/docs/DocsLayout
+
+block content
+  include /app/components/FunctionDocumentation/FunctionDocumentation
+  include /app/components/NotebookLink/NotebookLink
+
+  .Display__title
+    .Display__titleFunc def
+    | refresh
+  .Display__breadcrumb cauldron.refresh()
+
+  +createFunctionDoc(cauldron_functions.refresh)(hideTitle=true)

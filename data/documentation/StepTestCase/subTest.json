@@ -1,24 +1,25 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "subTest",
+  "doc": "Return a context manager that will return the enclosed block\nof code in a subtest identified by the optional message and\nkeyword parameters.  A failure in the subtest marks the test\ncase as failed but resumes execution at the end of the enclosed\nblock, allowing further test code to be executed.",
   "params": [
     {
-      "type": "Any",
+      "name": "args",
       "index": 0,
       "description": "",
-      "name": "args",
+      "type": "Any",
       "optional": false
     },
     {
-      "type": "Any",
+      "name": "kwds",
       "index": 1,
       "description": "",
-      "name": "kwds",
-      "optional": false
+      "type": "Any",
+      "optional": true,
+      "default": "dict"
     }
   ],
-  "doc": "Return a context manager that will return the enclosed block\nof code in a subtest identified by the optional message and\nkeyword parameters.  A failure in the subtest marks the test\ncase as failed but resumes execution at the end of the enclosed\nblock, allowing further test code to be executed.",
-  "name": "subTest"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

@@ -1,32 +1,32 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "assertNotIn",
+  "doc": "Just like self.assertTrue(a not in b), but with a nicer default message.",
   "params": [
     {
-      "type": "Any",
+      "name": "member",
       "index": 0,
       "description": "",
-      "name": "member",
+      "type": "Any",
       "optional": false
     },
     {
-      "type": "Any",
+      "name": "container",
       "index": 1,
       "description": "",
-      "name": "container",
+      "type": "Any",
       "optional": false
     },
     {
       "name": "msg",
-      "description": "",
       "index": 2,
+      "description": "",
       "type": "Any",
-      "default": "None",
-      "optional": true
+      "optional": true,
+      "default": "None"
     }
   ],
-  "doc": "Just like self.assertTrue(a not in b), but with a nicer default message.",
-  "name": "assertNotIn"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

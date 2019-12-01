@@ -1,0 +1,11 @@
+extends /app/docs/DocsLayout
+
+block content
+  include /app/components/FunctionDocumentation/FunctionDocumentation
+
+  .Display__title
+    .Display__titleFunc def
+    | pyplot
+  .Display__breadcrumb cauldron.display.pyplot()
+
+  +createFunctionDoc(display_functions.pyplot)(hideTitle=true)

@@ -1,33 +1,34 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "run_server",
+  "doc": "Run the cauldron http server used to interact with cauldron from a remote\nhost.",
   "params": [
     {
-      "type": "Any",
+      "name": "port",
       "index": 0,
       "description": "\nThe port on which to bind the cauldron server.",
-      "name": "port",
-      "optional": false
+      "type": "Any",
+      "optional": true,
+      "default": "5010"
     },
     {
       "name": "debug",
-      "description": "\nWhether or not the server should be run in debug mode. If true, the\nserver will echo debugging information during operation.",
       "index": 1,
+      "description": "\nWhether or not the server should be run in debug mode. If true, the\nserver will echo debugging information during operation.",
       "type": "Any",
-      "default": "5010",
-      "optional": true
+      "optional": true,
+      "default": "False"
     },
     {
       "name": "kwargs",
-      "description": "\nCustom properties to alter the way the server runs.",
       "index": 2,
+      "description": "\nCustom properties to alter the way the server runs.",
       "type": "Any",
-      "default": "False",
-      "optional": true
+      "optional": true,
+      "default": "dict"
     }
   ],
-  "doc": "Run the cauldron http server used to interact with cauldron from a remote\nhost",
-  "name": "run_server"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

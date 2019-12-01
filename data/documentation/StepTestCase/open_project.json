@@ -1,9 +1,9 @@
 {
-  "returns": {
-    "description": "",
-    "type": "exposed.ExposedProject"
-  },
+  "name": "open_project",
+  "doc": "Opens the project associated with this test and returns the public\n(exposed) project after it has been loaded. If the project cannot be\nopened the test will fail.",
   "params": [],
-  "doc": "Returns the Response object populated by the open project command",
-  "name": "open_project"
+  "returns": {
+    "type": "exposed.ExposedProject",
+    "description": ""
+  }
 }

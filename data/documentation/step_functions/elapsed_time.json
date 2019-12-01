@@ -1,0 +1,10 @@
+{
+  "name": "elapsed_time",
+  "doc": "The number of seconds that has elapsed since the step started running\nif the step is still running. Or, if the step has already finished\nrunning, the amount of time that elapsed during the last execution of\nthe step.",
+  "params": [],
+  "returns": {
+    "type": "float",
+    "description": ""
+  },
+  "read_only": true
+}

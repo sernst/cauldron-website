@@ -1,25 +1,25 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "assertIsNone",
+  "doc": "Same as self.assertTrue(obj is None), with a nicer default message.",
   "params": [
     {
-      "type": "Any",
+      "name": "obj",
       "index": 0,
       "description": "",
-      "name": "obj",
+      "type": "Any",
       "optional": false
     },
     {
       "name": "msg",
-      "description": "",
       "index": 1,
+      "description": "",
       "type": "Any",
-      "default": "None",
-      "optional": true
+      "optional": true,
+      "default": "None"
     }
   ],
-  "doc": "Same as self.assertTrue(obj is None), with a nicer default message.",
-  "name": "assertIsNone"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

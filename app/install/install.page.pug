@@ -1,15 +1,15 @@
-include ../components/DownloadSection/DownloadSection
+include /app/components/DownloadSection/DownloadSection
 include NumberedStepTitle/NumberedStepTitle
 
 html
   head
     title Cauldron Installation
-    include ../components/common-header
+    include /app/components/common-header
     link(rel='stylesheet' href='install.css')
 
   body
     div(id='app')
-      section(id='bannerSection')
+      include /app/components/PageBanner/PageBanner
       .Install__page
         include NavigationColumn/NavigationColumn
         .Install__display
@@ -42,7 +42,16 @@ html
           )
             ol.DownloadSection__list
               li Download the EXE setup file
-              li Double-click on the EXE setup file to run the automatic installer
+              li
+                | Allow the EXE setup file to run by right clicking on it and
+                | clicking on "properties" at the bottom of the context menu.
+                | In the properties dialog, there may be a check box near the
+                | bottom of the dialog for unblocking the application. You need
+                | to check this box and then click OK in the dialog or Windows
+                | will prevent the Cauldron installer from running.
+              li
+                | Double-click on the EXE setup file to run the automatic
+                | installer.
               li Cauldron will open automatically once installation is complete
 
           +createDownloadSection(
@@ -57,12 +66,13 @@ html
               li Double-click on the DEB installer to open the graphical package management installer
               li Install the application
 
-            .DownloadSection__text You can also install the file from a terminal using the commands:
+            .DownloadSection__text
+              | You can also install the file from a terminal using the
+              | commands:
 
             :highlight(language='bash')
               $ sudo dpkg -i /path/to/cauldron-installer.deb
               $ sudo apt-get install -f .
-
 
           +createDownloadSection(
             configs.release_settings.editor['linux-rpm'].stable,

@@ -1,0 +1,17 @@
+{
+  "name": "write_to_console",
+  "doc": "Writes the specified message to the console stdout without including\nit in the notebook display.",
+  "params": [
+    {
+      "name": "message",
+      "index": 0,
+      "description": "",
+      "type": "str",
+      "optional": false
+    }
+  ],
+  "returns": {
+    "type": null,
+    "description": ""
+  }
+}

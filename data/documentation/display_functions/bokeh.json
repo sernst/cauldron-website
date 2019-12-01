@@ -1,33 +1,33 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "bokeh",
+  "doc": "Adds a Bokeh plot object to the notebook display.",
   "params": [
     {
-      "type": "Any",
-      "index": 0,
-      "description": "\nThe plot object to be added to the notebook display",
       "name": "model",
+      "index": 0,
+      "description": "\nThe plot object to be added to the notebook display.",
+      "type": "Any",
       "optional": false
     },
     {
       "name": "scale",
-      "description": "\nHow tall the plot should be in the notebook as a fraction of screen\nheight. A number between 0.1 and 1.0. The default value is 0.7.",
       "index": 1,
+      "description": "\nHow tall the plot should be in the notebook as a fraction of screen\nheight. A number between 0.1 and 1.0. The default value is 0.7.",
       "type": "float",
-      "default": "0.7",
-      "optional": true
+      "optional": true,
+      "default": "0.7"
     },
     {
       "name": "responsive",
-      "description": "\nWhether or not the plot should responsively scale to fill the width\nof the notebook. The default is True.",
       "index": 2,
+      "description": "\nWhether or not the plot should responsively scale to fill the width\nof the notebook. The default is True.",
       "type": "bool",
-      "default": "True",
-      "optional": true
+      "optional": true,
+      "default": "True"
     }
   ],
-  "doc": "Adds a Bokeh plot object to the notebook display",
-  "name": "bokeh"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

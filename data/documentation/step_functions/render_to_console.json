@@ -1,0 +1,24 @@
+{
+  "name": "render_to_console",
+  "doc": "Renders the specified message to the console using Jinja2 template\nrendering with the kwargs as render variables. The message will also\nbe dedented prior to rendering in the same fashion as other Cauldron\ntemplate rendering actions.",
+  "params": [
+    {
+      "name": "message",
+      "index": 0,
+      "description": "\nTemplate string to be rendered.",
+      "type": "str",
+      "optional": false
+    },
+    {
+      "name": "kwargs",
+      "index": 1,
+      "description": "\nVariables to be used in rendering the template.",
+      "type": "Any",
+      "optional": false
+    }
+  ],
+  "returns": {
+    "type": null,
+    "description": ""
+  }
+}

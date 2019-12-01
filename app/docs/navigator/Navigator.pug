@@ -1,0 +1,25 @@
+.Navigator
+  .Navigator__wrapper
+    .NavigatorToggle.NavigatorBrowseBtn
+      .NavigatorToggle__button
+        i.material-icons arrow_drop_down
+        .NavigatorToggle__text Browse Topics
+    .NavigatorToggle.NavigatorHideBtn
+      .NavigatorToggle__button
+        i.material-icons arrow_drop_up
+        .NavigatorToggle__text Hide Topics
+
+    each section in configs.docs.sections
+      .NavigatorSection
+        .NavigatorSection__header #{section.title}
+        each item in section.items
+          a.NavigatorSection__link(
+            href=`/docs/content/${section.folder}/${item.id}/`
+          ) #{item.label}
+
+      .NavigatorMobileSection
+        .NavigatorMobileSection__header #{section.title}
+        each item in section.items
+          a.NavigatorMobileSection__link(
+            href=`/docs/content/${section.folder}/${item.id}/`
+          ) #{item.label}

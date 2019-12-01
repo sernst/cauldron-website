@@ -1,31 +1,31 @@
 {
-  "returns": {
-    "description": "",
-    "type": null
-  },
+  "name": "addCleanup",
+  "doc": "Add a function, with arguments, to be called when the test is\ncompleted. Functions added are called on a LIFO basis and are\ncalled after tearDown on test failure or success.\nCleanup items are called even if setUp fails (unlike tearDown).",
   "params": [
     {
-      "type": "Any",
+      "name": "function",
       "index": 0,
       "description": "",
-      "name": "function",
+      "type": "Any",
       "optional": false
     },
     {
-      "type": "Any",
+      "name": "args",
       "index": 1,
       "description": "",
-      "name": "args",
+      "type": "Any",
       "optional": false
     },
     {
-      "type": "Any",
+      "name": "kwargs",
       "index": 2,
       "description": "",
-      "name": "kwargs",
+      "type": "Any",
       "optional": false
     }
   ],
-  "doc": "Add a function, with arguments, to be called when the test is\ncompleted. Functions added are called on a LIFO basis and are\ncalled after tearDown on test failure or success.\nCleanup items are called even if setUp fails (unlike tearDown).",
-  "name": "addCleanup"
+  "returns": {
+    "type": null,
+    "description": ""
+  }
 }

@@ -1,0 +1,12 @@
+extends /app/docs/DocsLayout
+
+block content
+  include /app/components/FunctionDocumentation/FunctionDocumentation
+
+  .Display__title
+    .Display__titleFunc def
+    | tail
+  .Display__breadcrumb cauldron.display.tail()
+
+  +createFunctionDoc(display_functions.tail)(hideTitle=true)
+
