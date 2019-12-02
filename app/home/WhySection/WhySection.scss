@@ -1,0 +1,40 @@
+.WhySection {
+  background-color: #f2f2f2;
+
+  &__container {
+    max-width: $centered-page-width;
+    margin: 0 auto;
+    padding: 3em 1em;
+  }
+
+  &__title {
+    font-size: 1.3em;
+    font-weight: bolder;
+  }
+
+  &__p {
+    font-size: 1.1em;
+    line-height: 1.6em;
+    margin: 1em 0 0.5em 0;
+    color: #333;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    margin: 1em 0 0 0.5em;
+    font-weight: bolder;
+  }
+
+  &__li {
+    margin-left: 2em;
+    padding: 0.5em 0;
+    display: flex;
+    align-items: center;
+  }
+
+  &__bullet {
+    margin-right: 5px;
+  }
+}

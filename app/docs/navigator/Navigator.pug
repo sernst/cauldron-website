@@ -9,17 +9,22 @@
         i.material-icons arrow_drop_up
         .NavigatorToggle__text Hide Topics
 
-    each section in configs.docs.sections
-      .NavigatorSection
-        .NavigatorSection__header #{section.title}
-        each item in section.items
-          a.NavigatorSection__link(
-            href=`/docs/content/${section.folder}/${item.id}/`
-          ) #{item.label}
+    each area in configs.docs.areas
+      .NavigatorArea
+        .NavigatorArea__title #{area.title}
+        .NavigatorArea__mobileTitle #{area.title}
 
-      .NavigatorMobileSection
-        .NavigatorMobileSection__header #{section.title}
-        each item in section.items
-          a.NavigatorMobileSection__link(
-            href=`/docs/content/${section.folder}/${item.id}/`
-          ) #{item.label}
+        each section in area.sections
+          .NavigatorSection
+            .NavigatorSection__header #{section.title}
+            each item in section.items
+              a.NavigatorSection__link(
+                href=`/docs/content/${section.folder}/${item.id}/`
+              ) #{item.label}
+
+          .NavigatorMobileSection
+            .NavigatorMobileSection__header #{section.title}
+            each item in section.items
+              a.NavigatorMobileSection__link(
+                href=`/docs/content/${section.folder}/${item.id}/`
+              ) #{item.label}

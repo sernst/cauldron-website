@@ -1,3 +1,5 @@
+@import "variables";
+
 html, body, #app {
   font-family: Roboto;
   margin: 0;
@@ -17,9 +19,26 @@ a {
   text-decoration: none;
 }
 
+a.link {
+  font-weight: bolder;
+  font-size: 0.95em;
+  color: darken($cauldron-green, 15);
+  margin: 0 0.2em;
+
+  &--gray {
+    color: darken($cauldron-green-dark, 15);
+  }
+}
+
 .common {
   &__spacer {
     display: flex;
     flex-grow: 1;
   }
+}
+
+.bolder-text {
+  font-weight: bolder;
+  font-size: 0.95em;
+  margin: 0 0.2em;
 }

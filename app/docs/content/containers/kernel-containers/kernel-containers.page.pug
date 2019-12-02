@@ -1,0 +1,114 @@
+extends /app/docs/DocsLayout
+
+block content
+  include /app/components/DirectoryStructure/DirectoryStructure
+  include /app/components/FunctionDocumentation/FunctionDocumentation
+
+  .Display__title Kernel Containers
+
+  .Display__p.
+    Kernel containers are used for containerization of remote execution environment, which
+    is where the UI and notebook files are on a different computer than the Cauldron
+    execution environment. The most common case for this would be running Cauldron on a
+    cloud server. In this case Cauldron does all of its execution on the cloud server
+    using a remote kernel and the UI is run another computer that is connected to the cloud
+    server. The three possible kernel images that will always have the latest
+    version of Cauldron are:
+
+  ul
+    li
+      code swernst/cauldron:current-standard
+    li
+      code swernst/cauldron:current-conda
+    li
+      code swernst/cauldron:current-miniconda
+
+  .Display__p.
+    Or for cases where you want to pin to a specific Cauldron version the
+    <code>current</code> can be replaced with a version,
+    e.g. <code>swernst/cauldron:1.0.0-standard</code>.
+
+  .Display__p.
+    Starting a kernel container would look something like:
+
+  :highlight(language="cli" lineNumbers=false)
+    $ docker run --rm -it \
+      -p 5010:5010 \
+      swernst/cauldron:current-standard
+
+  .Display__p
+    code --rm
+    | to cleanup the container once it is finished running,
+
+  .Display__p
+    code -it
+    | to show the interactive output of the container while it is running,
+
+  .Display__p
+    code -p 5010:5010
+    | to connect the container port 5010 to the remote host port 5010 so that the
+    | kernel inside the container is accessible to the remote host system.  A different
+    | host port can be used by changing the first port argument in the above command
+    | if needed (for example running multiple kernels on the same remote host).
+
+  .Display__p.
+    The recommended way of making the remote kernel accessible to the local development
+    computer is through an SSH tunnel. This ensures the security of the communication
+    between the systems and prevents exposing ports in a less restricted fashion. While
+    a much deeper discussion around SSH tunnels would be beneficial for those not familiar
+    with them, for brevity here the following command boils it down:
+
+  :highlight(language='cli' lineNumbers=false)
+    $ ssh \
+      -i ~/.ssh/cloud_key \
+      -L 127.0.0.1:5010:127.0.0.1:5010 \
+      remote-user@remote-host-name.com
+
+  .Display__p
+    code -i ~/.ssh/cloud_key
+    | specifies the SSH access key to grant secure acces to the remote system,
+
+  .Display__p
+    code -L 127.0.0.1:5010:127.0.0.1:5010
+    | directs the SSH connection to create a tunnel between port 5010 on the local
+    | machine and port 5010 on the remote machine. Once this is established communication
+    | on the local port 5010 will be forwarded to the remote host,
+
+  .Display__p
+    code remote-user@remote-host-name.com
+    | specifies the user name and host name of the remote computer where the kernel is
+    | running.
+
+  +createBullet()
+    div.
+      Many of the clouds have alternative ways of setting up SSH tunnels other than
+      the method shown here. Please refer to the documentation for your particular
+      cloud provider on the best way to create remote tunnel connections to their
+      hosts.
+
+  .Display__p.
+    The port forwarding will remain active for as long as you remained logged ino the
+    remote host in the terminal in which you executed this command. When that terminal
+    is stopped, the remote connection will be as well. Usually, this connection is
+    established first and then the remote kernel command from above is executed on the
+    remote computer to start the remote kernel.
+
+  .Display__p
+    | Now that the remote kernel is running and you have an SSH tunnel to the remote host,
+    | it is time to start the UI locally. This can be done with either a UI container running
+    | on the local host or by using a local Python environment in which Cauldron is installed.
+    | For the local UI container option, see information in the
+    a.link(href='/docs/content/containers/ui-containers') UI Containers
+    | documentation page. In this case we'll use a local Python environment and start the
+    | UI with the command:
+
+    :highlight(language='cli' lineNumbers=false)
+      $ cauldron ui --connect=127.0.0.1:5010
+
+    .Display__p
+      | here the
+      code --connect=127.0.0.1:5010
+      | directs the UI to communicate with the remote kernel available at the local host
+      | port 5010, which will be proxied to the remotely running container via the SSH
+      | tunnel started earlier. The result will be a local UI environment that directs
+      | the execution of the kernel running on the remote system.

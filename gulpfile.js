@@ -7,7 +7,6 @@ const del = require('del');
 const gulp = require('gulp');
 const pug = require('gulp-pug');
 const sass = require('gulp-sass');
-const settings = require('./settings.json');
 const path = require('path');
 const plumber = require('gulp-plumber');
 const browserSync = require('browser-sync');
@@ -18,10 +17,10 @@ const gulpIf = require('gulp-if');
 const rename = require('gulp-rename');
 const awsPublish = require('gulp-awspublish');
 const mergeStream = require('merge-stream');
-const argv = require('yargs').argv;
+const { argv } = require('yargs');
 const pugger = require('./pugger');
+const settings = require('./settings.json');
 
-const babelPreset = 'es2015';
 const watchDefinitions = [];
 
 /**
@@ -63,7 +62,7 @@ function html() {
   }
 
   return pugger.fetchLocals()
-    .then(locals => new Promise(renderHtml.bind(null, locals)));
+    .then((locals) => new Promise(renderHtml.bind(null, locals)));
 }
 watchDefinitions.push({
   task: html,
@@ -91,7 +90,7 @@ function htmlFragments() {
   }
 
   return pugger.fetchLocals()
-    .then(locals => new Promise(renderHtml.bind(null, locals)));
+    .then((locals) => new Promise(renderHtml.bind(null, locals)));
 }
 watchDefinitions.push({
   task: htmlFragments,
@@ -106,27 +105,35 @@ exports.htmlFragments = htmlFragments;
 function js() {
   return gulp.src('app/**/*.page.js')
     .pipe(plumber())
-    .pipe(named(file => file.basename.split('.')[0]))
-    .pipe(webpackStream({
-      mode: argv.production ? 'production' : 'development',
-      output: { filename: '[name]/[name].js' },
-      module: {
-        rules: [
-          {
-            test: /\.js$/,
-            exclude: /(node_modules|bower_components)/,
-            loader: 'babel-loader',
-            query: { presets: babelPreset }
-          }
-        ]
-      },
-      plugins: [
-        new webpack.ProvidePlugin({
-          $: 'jquery',
-          jQuery: 'jquery'
-        })
-      ]
+    .pipe(named((file) => {
+      return file.path
+        .split('app')
+        .slice(-1)[0]
+        .substr(1)
+        .replace(/\\/g, '/')
+        .replace('.page.js', '.js');
     }))
+    .pipe(webpackStream(
+      {
+        mode: argv.production ? 'production' : 'development',
+        output: { filename: '[name]' },
+        module: {
+          rules: [
+            {
+              test: /\.js$/,
+              exclude: /(node_modules|bower_components)/,
+              use: {
+                loader: 'babel-loader',
+                options: {
+                  presets: ['@babel/preset-env']
+                }
+              }
+            }
+          ]
+        }
+      },
+      webpack
+    ))
     .pipe(gulpIf(argv.production, uglify()))
     .pipe(gulp.dest(makeOutputPath()));
 }
@@ -179,10 +186,9 @@ exports.notebooks = notebooks;
  *
  */
 function npmScripts() {
-  const files = settings.npm.js.map(
-    jsPath => (jsPath.endsWith(':') ? `${jsPath.slice(0, -1)}.js` : jsPath)
-  )
-    .map(jsPath => `node_modules/${jsPath}`);
+  const files = settings.npm.js
+    .map((jsPath) => (jsPath.endsWith(':') ? `${jsPath.slice(0, -1)}.js` : jsPath))
+    .map((jsPath) => `node_modules/${jsPath}`);
 
   return gulp.src(files)
     .pipe(plumber())
@@ -197,7 +203,7 @@ exports.npmScripts = npmScripts;
  *
  */
 function npmStyles() {
-  const files = settings.npm.css.map(cssPath => `node_modules/${cssPath}`);
+  const files = settings.npm.css.map((cssPath) => `node_modules/${cssPath}`);
 
   return gulp.src(files)
     .pipe(concat('external.css'))
@@ -274,7 +280,8 @@ const build = gulp.series(
     assets,
     notebooks,
     npmStyles
-  ));
+  )
+);
 exports.build = build;
 
 

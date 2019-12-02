@@ -1,0 +1,25 @@
+{
+  "name": "create_test_fixture",
+  "doc": "Creates a pytest fixture for step testing within the current project.",
+  "params": [
+    {
+      "name": "test_file_path",
+      "index": 0,
+      "description": "\nPath to the test file being executed, usually `__file__`.",
+      "type": "str",
+      "optional": false
+    },
+    {
+      "name": "fixture_name",
+      "index": 1,
+      "description": "\nName of the fixture to use as the argument in tests. By default\nthis will be `tester`.",
+      "type": "str",
+      "optional": true,
+      "default": "tester"
+    }
+  ],
+  "returns": {
+    "type": null,
+    "description": "A pytest fixture that will be scoped to the test module in which\nit has been created."
+  }
+}

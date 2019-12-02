@@ -1,0 +1,19 @@
+.NumberedStepTitle {
+  display: flex;
+  margin: 2em 0 0.5em 0;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #AAA;
+
+  @include start-center;
+
+  &__icon {
+    display: block;
+    width: 28px;
+    margin-right: 1em;
+  }
+
+  &__title {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+}

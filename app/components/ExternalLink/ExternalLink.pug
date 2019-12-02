@@ -1,6 +1,6 @@
 mixin createExternalLink(title, src, imagePath)
   .ExternalLink__bar
-    a(class='ExternalLink' href=src)
+    a(class='ExternalLink' href=src target='_blank')
       if (imagePath)
         .ExternalLink__iconBox
           img(class='ExternalLink__icon' src=imagePath)

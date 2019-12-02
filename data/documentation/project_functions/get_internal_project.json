@@ -12,7 +12,7 @@
     }
   ],
   "returns": {
-    "type": "_ForwardRef('projects.Project'), NoneType",
+    "type": "ForwardRef('projects.Project'), NoneType",
     "description": ""
   }
 }

@@ -1,0 +1,32 @@
+include ../NumberedStepTitle/NumberedStepTitle
+
+.QuickStartSection
+  .QuickStartSection__container
+    .QuickStartSection__title.
+      Cauldron is completely free and open source. And all it takes to get started is...
+
+    +makeNumberedStepTitle(1, 'InstallPackage') Install Package
+    .QuickStartSection__group
+      .QuickStartSection__text.
+        Cauldron is distributed as a Python package that can be installed with pip:
+      :highlight(language="cli" lineNumbers=false)
+        $ pip install cauldron-notebook
+      .QuickStartSection__text.
+        or with conda:
+      :highlight(language="cli" lineNumbers=false)
+        $ conda install -c sernst cauldron
+      .QuickStartSection__info
+        | Cauldron requires Python 3.5.3+ and recommends Python 3.7.5+ for the best experience.
+
+    +makeNumberedStepTitle(2, 'LaunchCauldron') Launch Cauldron
+    .QuickStartSection__group
+      .QuickStartSection__text.
+        Start the Cauldron user interface from the command line with:
+      :highlight(language="cli" lineNumbers=false)
+        $ cauldron ui
+      .QuickStartSection__info
+        | Cauldron can also be run as an interactive command-line shell
+        | without the user interface. More information about that can
+        | be found in the&nbsp;
+        a.link(target="_blank" href="https://github.com/sernst/cauldron#getting-started") Cauldron Github README
+        | .

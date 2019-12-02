@@ -2,7 +2,7 @@
   background-color: $cauldron-green;
   padding: 3em 1em 10em 1em;
 
-  &__display {
+  &__container {
     max-width: $centered-page-width;
     margin: 0 auto;
   }
@@ -28,27 +28,16 @@
     margin: 1em 0 0.5em 0;
   }
 
-  &__image {
-    max-width: 800px;
-    width: 100%;
-    border: 1px solid #CCC;
-  }
-
-  &__textColumn {
+  &__buttonRow {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 400px;
-    margin-bottom: 1em;
-    margin-left: 1em;
 
-    @media #{$less-than-l} {
-      max-width: 800px;
-      margin-left: 0;
+    @media #{$less-than-m} {
+      flex-direction: column;
     }
   }
 
-  &__imageColumn {
-    max-width: 800px;
+  &__spacer {
+    width: 10px;
+    height: 10px;
   }
 }

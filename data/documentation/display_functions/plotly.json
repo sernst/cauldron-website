@@ -6,7 +6,7 @@
       "name": "data",
       "index": 0,
       "description": "\nThe Plotly trace data to be plotted.",
-      "type": "dict, list",
+      "type": "dict, list, typing.Any",
       "optional": true,
       "default": "None"
     },
@@ -14,7 +14,7 @@
       "name": "layout",
       "index": 1,
       "description": "\nThe layout data used for the plot.",
-      "type": "dict",
+      "type": "dict, typing.Any",
       "optional": true,
       "default": "None"
     },
@@ -30,7 +30,7 @@
       "name": "figure",
       "index": 3,
       "description": "\nIn cases where you need to create a figure instead of separate data\nand layout information, you can pass the figure here and leave the\ndata and layout values as None.",
-      "type": "dict",
+      "type": "dict, typing.Any",
       "optional": true,
       "default": "None"
     },

@@ -1,87 +1,116 @@
 {
   "name": "docs",
-  "sections":[
+  "areas": [
     {
-      "title": "Basic",
-      "folder": "basics",
-      "items": [
-        {"label": "Introduction", "id": "intro"},
-        {"label": "Notebook Display", "id": "display"},
-        {"label": "Shared Variables", "id": "shared-variables"}
+      "title": "Documentation",
+      "sections": [
+        {
+          "title": "Fundamentals",
+          "folder": "basics",
+          "items": [
+            {"label": "Introduction", "id": "intro"},
+            {"label": "Notebook Display", "id": "display"},
+            {"label": "Shared Variables", "id": "shared-variables"}
+          ]
+        },
+        {
+          "title": "Containers",
+          "folder": "containers",
+          "items": [
+            { "label":  "Introduction", "id":  "intro" },
+            { "label":  "UI Containers", "id":  "ui-containers" },
+            { "label":  "Kernel Containers", "id":  "kernel-containers" }
+          ]
+        },
+        {
+          "title": "Step Tests",
+          "folder": "testing",
+          "items": [
+            { "label": "Step Tests with unittest", "id": "class-based" },
+            { "label": "Step Tests with pytest", "id": "functional" }
+          ]
+        },
+        {
+          "title": "In Production",
+          "folder": "production",
+          "items": [
+            { "label": "Introduction", "id": "intro" },
+            { "label": "Parallelism (SIMD)", "id": "simd" }
+          ]
+        }
       ]
     },
     {
-      "title": "cauldron",
-      "folder": "top-level",
-      "items": [
-        { "label": "get_environment_info", "id": "get_environment_info" },
-        { "label": "refresh", "id": "refresh" },
-        { "label": "run_project", "id": "run_project" },
-        { "label": "run_server", "id": "run_server" },
-        { "label": "run_shell", "id": "run_shell" },
-        { "label": "shared", "id": "shared" }
-      ]
-    },
-    {
-      "title": "cauldron.display",
-      "folder": "display",
-      "items": [
-        { "label": "bokeh", "id": "bokeh" },
-        { "label": "code_block", "id": "code-block" },
-        { "label": "elapsed", "id": "elapsed" },
-        { "label": "head", "id": "head" },
-        { "label": "header", "id": "header" },
-        { "label": "html", "id": "html" },
-        { "label": "inspect", "id": "inspect" },
-        { "label": "jinja", "id": "jinja" },
-        { "label": "json", "id": "json" },
-        { "label": "latex", "id": "latex" },
-        { "label": "listing", "id": "listing" },
-        { "label": "list_grid", "id": "list_grid" },
-        { "label": "markdown", "id": "markdown" },
-        { "label": "plotly", "id": "plotly" },
-        { "label": "pyplot", "id": "pyplot" },
-        { "label": "status", "id": "status" },
-        { "label": "svg", "id": "svg" },
-        { "label": "table", "id": "table" },
-        { "label": "tail", "id": "tail" },
-        { "label": "text", "id": "text" },
-        { "label": "whitespace", "id": "whitespace" }
-      ]
-    },
-    {
-      "title": "cauldron.project",
-      "folder": "project",
-      "items": [
-        { "label": "stop", "id": "stop" }
-      ]
-    },
-    {
-      "title": "cauldron.step",
-      "folder": "step",
-      "items": [
-        { "label": "breathe", "id": "breathe" },
-        { "label": "render_to_console", "id": "render-to-console" },
-        { "label": "stop", "id": "stop" },
-        { "label": "visible", "id": "visible" },
-        { "label": "write_to_console", "id": "write-to-console" }
-      ]
-    },
-    {
-      "title": "Step Testing",
-      "folder": "testing",
-      "items": [
-        { "label": "Introduction", "id": "intro" },
-        { "label": "StepTestCase", "id": "StepTestCase" },
-        { "label": "StepTestRunResult", "id": "StepTestRunResult" }
-      ]
-    },
-    {
-      "title": "In Production",
-      "folder": "production",
-      "items": [
-        { "label": "Introduction", "id": "intro" },
-        { "label": "Parallelism (SIMD)", "id": "simd" }
+      "title": "API Reference",
+      "sections": [
+        {
+          "title": "cauldron",
+          "folder": "top-level",
+          "items": [
+            { "label": "get_environment_info", "id": "get_environment_info" },
+            { "label": "refresh", "id": "refresh" },
+            { "label": "run_project", "id": "run_project" },
+            { "label": "run_server", "id": "run_server" },
+            { "label": "run_shell", "id": "run_shell" },
+            { "label": "shared", "id": "shared" }
+          ]
+        },
+        {
+          "title": "cauldron.display",
+          "folder": "display",
+          "items": [
+            { "label": "bokeh", "id": "bokeh" },
+            { "label": "code_block", "id": "code-block" },
+            { "label": "elapsed", "id": "elapsed" },
+            { "label": "head", "id": "head" },
+            { "label": "header", "id": "header" },
+            { "label": "html", "id": "html" },
+            { "label": "image", "id": "image" },
+            { "label": "inspect", "id": "inspect" },
+            { "label": "jinja", "id": "jinja" },
+            { "label": "json", "id": "json" },
+            { "label": "latex", "id": "latex" },
+            { "label": "listing", "id": "listing" },
+            { "label": "list_grid", "id": "list_grid" },
+            { "label": "markdown", "id": "markdown" },
+            { "label": "plotly", "id": "plotly" },
+            { "label": "pyplot", "id": "pyplot" },
+            { "label": "status", "id": "status" },
+            { "label": "svg", "id": "svg" },
+            { "label": "table", "id": "table" },
+            { "label": "tail", "id": "tail" },
+            { "label": "text", "id": "text" },
+            { "label": "whitespace", "id": "whitespace" }
+          ]
+        },
+        {
+          "title": "cauldron.project",
+          "folder": "project",
+          "items": [
+            { "label": "stop", "id": "stop" }
+          ]
+        },
+        {
+          "title": "cauldron.step",
+          "folder": "step",
+          "items": [
+            { "label": "breathe", "id": "breathe" },
+            { "label": "render_to_console", "id": "render-to-console" },
+            { "label": "stop", "id": "stop" },
+            { "label": "visible", "id": "visible" },
+            { "label": "write_to_console", "id": "write-to-console" }
+          ]
+        },
+        {
+          "title": "cauldron.steptest",
+          "folder": "testing",
+          "items": [
+            { "label": "create_test_fixture", "id": "create-test-fixture" },
+            { "label": "StepTestRunResult", "id": "StepTestRunResult" },
+            { "label": "StepTestCase", "id": "StepTestCase" },
+            { "label": "CauldronTest", "id": "CauldronTest" }
+          ]
+        }
       ]
     }
   ]

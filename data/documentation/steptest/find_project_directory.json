@@ -1,0 +1,17 @@
+{
+  "name": "find_project_directory",
+  "doc": "Finds the root project directory from a subdirectory within the project\nfolder.",
+  "params": [
+    {
+      "name": "subdirectory",
+      "index": 0,
+      "description": "\nThe subdirectory to use to search for the project directory. The\nsubdirectory may also be the project directory.",
+      "type": "str",
+      "optional": false
+    }
+  ],
+  "returns": {
+    "type": "str, NoneType",
+    "description": "The project directory that contains the specified subdirectory or None\nif no project directory was found."
+  }
+}

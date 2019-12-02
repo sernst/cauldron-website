@@ -1,0 +1,141 @@
+extends /app/docs/DocsLayout
+
+block content
+  include /app/components/DirectoryStructure/DirectoryStructure
+  include /app/components/ExternalLink/ExternalLink
+
+  .Display__title Containers Introduction
+
+  .Display__p.
+    While Cauldron works great for local Python environments, it was designed to
+    for containerized workflows in both interactive and non-interactive (running
+    in production) modes. To ease working with containers, there are a number of
+    pre-built Docker containers that you can use either directly or as a base
+    image to customize for your needs. They are all located in the docker hub
+    repository at:
+
+  +createExternalLink(
+    'Cauldron Docker Hub Repository',
+    'https://hub.docker.com/r/swernst/cauldron',
+    '/assets/images/docker-logo.svg'
+  )
+
+  .Display__p.
+    Images come in 3 flavors of Python:
+
+  ul
+    li
+      em standard
+      | images are based on the
+      a.link(href='https://www.python.org/') Python.org's Official Python distribution.
+    li
+      em conda
+      | are based on Continuum IO's
+      a.link(href='https://www.anaconda.com/distribution/') Anaconda Python distribution.
+    li
+      em miniconda
+      | are based on Continuum IO's lighter-weight
+      a.link(href='https://docs.conda.io/en/latest/miniconda.html') Miniconda Python distribution.
+
+  .Display__p.
+    And there are two types of images that can be used that come in all three of the above
+    flavors:
+
+  .Display__h1 1. UI (User-Interface) Images
+
+  .Display__p.
+    These are images that run the Cauldron user-interface, which can be used
+    without having to run Cauldron from a local Python installation. The three
+    possible images that will always have the latest version of Cauldron are:
+
+  ul
+    li
+      code swernst/cauldron:current-ui-standard
+    li
+      code swernst/cauldron:current-ui-conda
+    li
+      code swernst/cauldron:current-ui-miniconda
+
+  .Display__p.
+    Or for cases where you want to pin to a specific Cauldron version the
+    <code>current</code> can be replaced with a version,
+    e.g. <code>swernst/cauldron:1.0.0-ui-standard</code>.
+
+  .Display__p.
+    To use these containers, one can be start a command such as this:
+
+  :highlight(language="cli" lineNumbers=false)
+    $ docker run --rm -it \
+      -v /path/to/notebooks:/notebooks \
+      -p 8899:8899 \
+      swernst/cauldron:current-ui-standard
+
+  .Display__p
+    code --rm
+    | to cleanup the container once it is finished running,
+
+  .Display__p
+    code -it
+    | to show the interactive output of the container while it is running,
+
+  .Display__p
+    code -v /path/to/notebooks:/notebooks
+    | to mount the local notebook files into the container so that the container
+    | has access to the notebook files when running.
+
+  .Display__p
+    code -p 8899:8899
+    | to connect the container port 8899 to the local host port 8899 so that the
+    | UI running in the container is accessible from the local host system.  A different
+    | local port can be used by changing the first port argument in the above command
+    | if needed (for example running multiple UI containers on the same local host).
+
+  .Display__p
+    | The UI can be loaded in the browser at
+    code http://127.0.0.1:8899
+    | after the container has started running.
+
+  .Display__h1 2. Remote Kernel Images
+
+  .Display__p.
+    These are images that run the Cauldron remote kernel, which can be used for Cauldron
+    execution on remote systems. A good example of this would be running Cauldron on a
+    cloud server. In this case the container is not located on the same system as the
+    notebook files and display. The three possible images that will always have the latest
+    version of Cauldron are:
+
+  ul
+    li
+      code swernst/cauldron:current-standard
+    li
+      code swernst/cauldron:current-conda
+    li
+      code swernst/cauldron:current-miniconda
+
+  .Display__p.
+    Or for cases where you want to pin to a specific Cauldron version the
+    <code>current</code> can be replaced with a version,
+    e.g. <code>swernst/cauldron:1.0.0-standard</code>.
+
+  .Display__p.
+    Starting a kernel container would look something like:
+
+  :highlight(language="cli" lineNumbers=false)
+    $ docker run --rm -it \
+      -p 5010:5010 \
+      swernst/cauldron:current-standard
+
+  .Display__p
+    code --rm
+    | to cleanup the container once it is finished running,
+
+  .Display__p
+    code -it
+    | to show the interactive output of the container while it is running,
+
+  .Display__p
+    code -p 5010:5010
+    | to connect the container port 5010 to the remote host port 5010 so that the
+    | kernel inside the container is accessible to the remote host system.  A different
+    | host port can be used by changing the first port argument in the above command
+    | if needed (for example running multiple kernels on the same remote host).

@@ -4,13 +4,16 @@ const fs = require('fs');
 const fsp = require('fs-promise');
 const path = require('path');
 const Rx = require('rx');
-const highlight = require('highlightjs');
+const highlight = require('highlight.js');
 const _ = require('lodash');
 const markdown = require('markdown-it')();
+const cliLanguage = require('./cli-language');
 
 const DATA_DIRECTORY = path.normalize(path.join(__dirname, 'data'));
 const DOCS_DIRECTORY = path.join(DATA_DIRECTORY, 'documentation');
 
+// Register the custom language for cli commands.
+highlight.registerLanguage('cli', cliLanguage.cli);
 
 /**
  * Returns a stream that has an observable for each file in the specified
@@ -24,7 +27,7 @@ function listFiles(directoryPath) {
   function fileStats(name) {
     const filePath = path.join(directoryPath, name);
     return fsp.stat(filePath)
-      .then(stats => ({
+      .then((stats) => ({
         sourceName: name,
         isFile: stats.isFile(),
         isDirectory: stats.isDirectory(),
@@ -34,7 +37,7 @@ function listFiles(directoryPath) {
 
   function getFileInfo() {
     return fsp.readdir(directoryPath)
-      .then(entries => Promise.all(entries.map(fileStats)));
+      .then((entries) => Promise.all(entries.map(fileStats)));
   }
 
   return Rx.Observable.fromPromise(getFileInfo())
@@ -73,7 +76,7 @@ function renderEntry(entry) {
   }
 
   if (Array.isArray(entry)) {
-    return entry.map(v => renderEntry(v));
+    return entry.map((v) => renderEntry(v));
   }
 
   if (_.isNull(entry) || _.isUndefined(entry)) {
@@ -121,7 +124,7 @@ function parseJson(source) {
 function readFile(fileData) {
   return Rx.Observable
     .fromNodeCallback(fs.readFile)(fileData.sourcePath, 'utf8')
-    .map(contents => Object.assign(parseJson(contents), fileData));
+    .map((contents) => Object.assign(parseJson(contents), fileData));
 }
 
 
@@ -137,7 +140,7 @@ function readFile(fileData) {
 function renderFile(fileData) {
   return Rx.Observable
     .fromNodeCallback(fs.readFile)(fileData.sourcePath, 'utf8')
-    .map(contents => Object.assign(renderEntry(parseJson(contents)), fileData));
+    .map((contents) => Object.assign(renderEntry(parseJson(contents)), fileData));
 }
 
 
@@ -152,7 +155,7 @@ function fromDateString(dateString) {
   const parts = dateString
     .replace(/\\/g, '-')
     .split('-')
-    .map(x => parseInt(x, 10));
+    .map((x) => parseInt(x, 10));
 
   return new Date(parts[2], parts[0] - 1, parts[1]);
 }
@@ -191,6 +194,7 @@ function sortByDate(firstEntry, secondEntry) {
  *  contents of files
  * @param folderName
  *  Name of the directory
+ * @param doRender
  * @returns {Disposable|IDisposable}
  *  Stream with observables for each file read
  */
@@ -198,9 +202,9 @@ function readAllFiles(parentDirectory, folderName, doRender) {
   const directoryPath = path.join(parentDirectory, folderName);
 
   return listFiles(directoryPath)
-    .flatMap(entry => entry)
-    .filter(entry => entry.isFile)
-    .map(p => (doRender ? renderFile(p) : readFile(p)))
+    .flatMap((entry) => entry)
+    .filter((entry) => entry.isFile)
+    .map((p) => (doRender ? renderFile(p) : readFile(p)))
     .concatAll()
     .toArray()
     .map((array) => {
@@ -257,18 +261,18 @@ function fetchLocals() {
   const configs$ = readAllFiles(DATA_DIRECTORY, 'configs', false);
 
   const documentation$ = listFiles(DOCS_DIRECTORY)
-    .flatMap(entry => entry)
-    .filter(entry => entry.isDirectory)
-    .map(entry => readAllFiles(DOCS_DIRECTORY, entry.sourceName, true))
+    .flatMap((entry) => entry)
+    .filter((entry) => entry.isDirectory)
+    .map((entry) => readAllFiles(DOCS_DIRECTORY, entry.sourceName, true))
     .concatAll();
 
   const functions = { versionFormatter };
 
   return Rx.Observable.merge(configs$, documentation$)
     .toArray()
-    .map(entries => entries.reduce(combineLocals, {}))
+    .map((entries) => entries.reduce(combineLocals, {}))
     .toPromise()
-    .then(locals => Object.assign({ functions }, locals));
+    .then((locals) => ({ functions, ...locals }));
 }
 exports.fetchLocals = fetchLocals;
 
@@ -281,16 +285,24 @@ exports.fetchLocals = fetchLocals;
  */
 function highlightFilter(text, options) {
   const code = text.trim();
-  const raw = highlight.highlight(options.language || 'Python', code).value;
+  const language = options.language || 'python';
+  const raw = highlight.highlight(language, code).value;
+  const styleSuffix = options.dark ? '--dark' : '--light';
   const lineNumbers = raw
     .split(/\n/g)
     .map((line, index) => {
       const number = index < 9 ? `0${index + 1}` : `${index + 1}`;
-      return `<div class="CodeBlock__lineNumber">${number}</div>`;
+      return `<div class="CodeBlock__lineNumber CodeBlock__lineNumber${styleSuffix}">${number}</div>`;
     })
     .join('\n');
 
-  return `<div class="CodeBlock"><div class="CodeBlock__lineNumbers">${lineNumbers}</div><div class="CodeBlock__code">${raw}</div></div>`;
+  const showLineNumbers = 'lineNumbers' in options ? options.lineNumbers : true;
+  const lineNumbersDom = showLineNumbers
+    ? `<div class="CodeBlock__lineNumbers CodeBlock__lineNumbers${styleSuffix}">${lineNumbers}</div>`
+    : '';
+
+  return `<div class="CodeBlock CodeBlock${styleSuffix}" data-higlight-language="${language}">${lineNumbersDom}`
+    + `<div class="CodeBlock__code CodeBlock__code${styleSuffix}">${raw}</div></div>`;
 }
 exports.highlightFilter = highlightFilter;
 

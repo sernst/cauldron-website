@@ -1,0 +1,4 @@
+{
+  "name": "CauldronTest",
+  "description": "\nA Dependency injection class for use with Pytest or similar testing\nframework.\n"
+}

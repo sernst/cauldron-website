@@ -1,0 +1,25 @@
+{
+  "name": "run_step",
+  "doc": "Runs the specified step by name its complete filename including extension",
+  "params": [
+    {
+      "name": "step_name",
+      "index": 0,
+      "description": "\nThe full filename of the step to be run including its extension.",
+      "type": "str",
+      "optional": false
+    },
+    {
+      "name": "allow_failure",
+      "index": 1,
+      "description": "\nWhether or not to allow a failed result to be returned. If False,\na failed attempt to run a step will cause the current test to\nfail immediately before returning a value from this function call.\nOverride this with a True value to have the step failure data\npassed back for inspection.",
+      "type": "bool",
+      "optional": true,
+      "default": "False"
+    }
+  ],
+  "returns": {
+    "type": "StepTestRunResult",
+    "description": "A StepTestRunResult instance containing information about the\nexecution of the step."
+  }
+}

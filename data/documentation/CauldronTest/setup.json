@@ -1,0 +1,9 @@
+{
+  "name": "setup",
+  "doc": "Handles initializing the environment and opening the project for\ntesting.",
+  "params": [],
+  "returns": {
+    "type": "CauldronTest",
+    "description": ""
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "name": "ExecutionResult",
+  "description": "Data Structure for data returned by batched project runs."
+}

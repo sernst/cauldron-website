@@ -1,10 +1,14 @@
 .Navigator {
   flex: 1;
-  max-width: 300px;
-  min-width: 150px;
 
   @media #{$less-than-m} {
     max-width: 100%;
+  }
+
+  @media #{$greater-than-s} {
+    max-width: 240px;
+    min-width: 220px;
+    padding-right: 2em;
   }
 }
 
@@ -24,6 +28,32 @@
 
 .NavigatorHideBtn {
   display: none;
+}
+
+.NavigatorArea {
+
+  &__title {
+    padding: 0.5em;
+    margin: 0.5em;
+    background-color: #EEE;
+    color: #666;
+    border-radius: 0.5em;
+    text-align: center;
+    font-size: 0.8em;
+
+    @media #{$less-than-m} {
+      display: none;
+    }
+  }
+
+  &__mobileTitle {
+    display: none;
+    padding: 0.5em;
+    background-color: #999;
+    color: #333;
+    text-align: center;
+    font-size: 0.8em;
+  }
 }
 
 .NavigatorSection {
@@ -92,6 +122,7 @@
     background-color: $cauldron-green;
     padding: 1em 0.5em;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: $cauldron-green-dark;
     transition:
       color 0.5s ease,
       background-color 0.5s ease;

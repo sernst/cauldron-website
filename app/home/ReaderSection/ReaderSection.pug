@@ -4,15 +4,26 @@ include ../../components/VerticalDotter/VerticalDotter
   .ReaderSection__display
     .ReaderSection__row
       .ReaderSection__textColumn
-        .ReaderSection__title A Dedicated Reader App
+        .ReaderSection__title Saving &amp; Sharing Results
 
         .ReaderSection__p
-          | for easily sharing your results with others while preserving the
-          | formatting and interactivity of your notebook. Like sharing a PDF
-          | but without corrupting the display.
+          | Cauldron notebooks can be saved as *.cauldron viewer files
+          | that can be easily shared and viewed by others. They preserve
+          | the notebook display just as it was when it was created. These
+          | files can be opened from the UI or directly from a command
+          | line:
+
+        .ReaderSection__code
+          :highlight(language="cli" lineNumbers=false)
+            $ cauldron view /path/to/file.cauldron
+
+        .ReaderSection__p
+          | These viewer files can also be served as static web pages if
+          | desired. That's what we did for the examples in the Cauldron Gallery.
 
         .ReaderSection--large
-          a.ActionButton.ActionButton--green(href="/reader") Learn More
+          .ReaderSection__buttonBox
+            a.ActionButton.ActionButton--green(href="/gallery") Cauldron Gallery
 
       .ReaderSection__imageColumn
         .ReaderSection__dotter
@@ -21,23 +32,22 @@ include ../../components/VerticalDotter/VerticalDotter
               img.ReaderSection__dot(src="/assets/images/create-dot.svg")
             .ReaderSection__infoColumn
               .ReaderSection__header Make It
-              .ReaderSection__info Use Cauldron to create your analysis.
+              .ReaderSection__info Create your Cauldron notebook.
           .ReaderSection__dotRow
             +makeDotter(class="ReaderSection__dotColumn")
               img.ReaderSection__dot(src="/assets/images/save-dot.svg")
             .ReaderSection__infoColumn
-              .ReaderSection__header Export It
+              .ReaderSection__header Save It
               .ReaderSection__info.
-                Save results as a Cauldron Reader file.
+                Save results as a Cauldron viewer (*.cauldron) file.
           .ReaderSection__dotRow
             +makeEndDotter(class="ReaderSection__dotColumn")
               img.ReaderSection__dot--big(src="/assets/images/share-dot-out.svg")
             .ReaderSection__infoColumn
               .ReaderSection__header Send It
               .ReaderSection__info.
-                Send it to others to view in the Cauldron Reader application.
-                They see exactly what you created with no display corruption
-                or loss in interactivity.
+                Send it to others to view themselves. They see exactly what
+                you created with no display corruption or loss in interactivity.
 
     .ReaderSection__textColumn.ReaderSection__textColumn--small
-      a.ActionButton.ActionButton--green(href="/reader") Learn More
+      a.ActionButton.ActionButton--green(href="/gallery") Cauldron Gallery

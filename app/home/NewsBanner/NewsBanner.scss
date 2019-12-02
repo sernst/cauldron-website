@@ -1,0 +1,26 @@
+.NewsBanner {
+  background-color: $cauldron-green;
+  color: black;
+  padding: 2em 1em;
+
+  &__container {
+    max-width: $centered-page-width;
+    margin: 0 auto;
+    display: flex;
+  }
+
+  &__icon {
+    margin-right: 0.5em;
+  }
+
+  &__header {
+    font-size: 1.2em;
+    font-weight: bolder;
+    margin-bottom: 3px;
+  }
+
+  &__message {
+    opacity: 0.8;
+    line-height: 1.5;
+  }
+}

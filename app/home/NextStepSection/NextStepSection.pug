@@ -1,11 +1,15 @@
 .NextStepSection
-  .NextStepSection__display
-    .NextStepSection__title Ready to get Started?
+  .NextStepSection__container
+    .NextStepSection__title Got Questions, Ideas or Issues?
     .NextStepSection__p.
-      Cauldron is free and open source. So why not give it a try? All you need
-      to do is install the Python package and desktop application and you will
-      be ready to go. Check out the installation guide for details and
-      download links.
+      We're an open community that is happy to help. Just reach out via one of these channels
+      and we'll do what we can to assist or respond.
 
-    a.ActionButton.ActionButton--black(href="/install") Install Cauldron
-
+    .NextStepSection__buttonRow
+      a.ActionButton.ActionButton--black(
+        href="https://gitter.im/cauldron-notebook/Lobby"
+      ) Chat on Gitter
+      .NextStepSection__spacer
+      a.ActionButton.ActionButton--black(
+        href="https://github.com/sernst/cauldron/issues"
+      ) Submit a GitHub Issue

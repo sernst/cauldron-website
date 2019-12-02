@@ -7,8 +7,10 @@ from cauldron.docgen import parsing
 from cauldron.session import display
 from cauldron.session.exposed import ExposedStep
 from cauldron.session.exposed import ExposedProject
+from cauldron import steptest
 from cauldron.steptest import StepTestCase
 from cauldron.steptest import StepTestRunResult
+from cauldron.steptest import CauldronTest
 from cauldron.session.caching import SharedCache
 import cauldron
 
@@ -81,6 +83,8 @@ def run():
     parse(ExposedProject, 'project_functions')
     parse(StepTestCase, 'StepTestCase')
     parse(StepTestRunResult, 'StepTestRunResult')
+    parse(CauldronTest, 'CauldronTest')
+    parse(steptest, 'steptest')
     parse(cauldron, 'cauldron_functions')
     parse(SharedCache, 'SharedCache')
 

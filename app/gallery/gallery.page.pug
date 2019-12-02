@@ -19,9 +19,9 @@ html
             reference in the Cauldron Gallery GitHub Repository
 
           +createExternalLink(
-          'Cauldron Gallery Github',
-          'https://github.com/Cauldron-Notebook/cauldron-gallery',
-          '/assets/images/octocat-logo-black.svg'
+            'Cauldron Gallery Github',
+            'https://github.com/Cauldron-Notebook/cauldron-gallery',
+            '/assets/images/octocat-logo-black.svg'
           )
 
         .GalleryPage__items
@@ -34,6 +34,11 @@ html
           +createNotebookLink('v1', 'plotly-basics', 'Plotly Basics')
             div
               | Basic plotting with Plotly inside Cauldron. Uses the Auto MPG
+              | dataset to create histogram, bar and scatter plots.
+
+          +createNotebookLink('v1', 'pyplot-basics', 'Pyplot Basics')
+            div
+              | Basic plotting with PyPlot inside Cauldron. Uses the Auto MPG
               | dataset to create histogram, bar and scatter plots.
 
           +createNotebookLink(

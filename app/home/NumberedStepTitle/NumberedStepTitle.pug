@@ -1,0 +1,7 @@
+mixin makeNumberedStepTitle(index, id)
+  .NumberedStepTitle(id=id)
+    img.NumberedStepTitle__icon(
+      src=`/assets/images/number-circle-${index}.svg`
+    )
+    .NumberedStepTitle__title
+      block

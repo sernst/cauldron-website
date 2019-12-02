@@ -1,6 +1,6 @@
 {
   "name": "run_shell",
-  "doc": "Starts the cauldron shell environment for console based interaction",
+  "doc": "Starts the cauldron shell environment for console based interaction.",
   "params": [],
   "returns": {
     "type": null,

@@ -2,8 +2,7 @@
   "npm": {
     "js": [],
     "css": [
-      "normalize-css/normalize.css",
-      "highlightjs/styles/github-gist.css"
+      "normalize-css/normalize.css"
     ]
   }
 }

@@ -1,0 +1,191 @@
+extends /app/docs/DocsLayout
+
+block content
+  include /app/components/DirectoryStructure/DirectoryStructure
+  include /app/components/StepCode/StepCode
+  include /app/components/NotebookLink/NotebookLink
+  include /app/components/FunctionDocumentation/FunctionDocumentation
+  include /app/components/ExternalLink/ExternalLink
+
+  .Display__h1 Step Testing with pytest
+
+  .Display__p.
+    Cauldron includes a #[em cauldron.steptest.create_test_fixture] function that allows
+    steps to be "unit" tested using standard Python testing methods in pytest. This function
+    wraps the functionality needed for automatically setting up and tearing down the Cauldron
+    project state before and after each test.
+
+  .Display__h2 A Simple Example
+
+  .Display__p.
+    The code for this example can be found in the Cauldron Gallery at:
+
+  +createExternalLink(
+    'Step Testing with Pytest Example Notebook',
+    'https://github.com/Cauldron-Notebook/cauldron-gallery/tree/master/testing/hello-tests-pytest',
+    '/assets/images/octocat-logo-black.svg'
+  )
+
+  .Display__p.
+    This example is highly simplified to emphasize the key concepts of step
+    testing. We start with a notebook containing two steps.
+
+  +makeDirectoryStructure
+    +makeFolder(0, 'example-notebook', 'cauldron')(open=true)
+    +makeFile(1, 'cauldron.json', 'cauldron')
+    +makeFile(1, 'S01-Load-Data.py', 'python')
+    +makeFile(1, 'S02-Create-Total.py', 'python')
+
+  .Display__p.
+    The first step loads data from a CSV file into a Panda's DataFrame:
+
+  +stepCode('S01-Load-Data.py', 1)
+    :highlight()
+      import cauldron as cd
+      import pandas as pd
+
+      # Load the CSV data into a DataFrame.
+      df: pd.DataFrame = pd.read_csv('data.csv')
+
+      # Show the DataFrame in the display.
+      cd.display.table(df)
+
+      # Store the DataFrame in shared variables for other steps
+      # to access.
+      cd.shared.df = df
+
+  .Display__p.
+    The second step adds a new "total" column to that data frame that is based
+    on the addition of two existing columns in the data frame:
+
+  +stepCode('S02-Create-Total.py', 2)
+    :highlight()
+      import cauldron as cd
+      import pandas as pd
+
+      # Retrieve the stored data DataFrame.
+      df: pd.DataFrame = cd.shared.df
+
+      df['total'] = df['part_one'] + df['part_two']
+
+      # Show the DataFrame in the display.
+      cd.display.table(df)
+
+      # Share the updated data frame.
+      cd.shared.df = df
+
+  .Display__p.
+    If the data.csv contains missing values in either the 'part_one' or
+    'part_two' columns we will end up with a NaN value in the new 'total' column.
+    That's not the behavior that we want. Instead, any NaN value in the 'part_one'
+    or 'part_two' columns should be treated as zero during the summation of the
+    total value.
+
+  .Display__p.
+    If you're familiar with Pandas, you probably already have ideas on how to
+    achieve this. But first we're going to create a step unit test that will
+    validate our solution and fail given the current code in the second step.
+
+  .Display__p.
+    We begin by creating a Python file to contain our unit test.
+
+  +createBullet()
+    div.
+      This file must be placed somewhere within the notebook folder or Cauldron
+      will be unable to locate the notebook and automatically initialize it
+      for running the tests.
+
+  .Display__p.
+    For this example we will place it within a step_tests subdirectory beneath the root
+    notebook directory and call it #[em ./step_tests/test_notebook.py]. Inside this file
+    we include the following:
+
+  :highlight()
+    import cauldron as cd
+    from cauldron import steptest
+    import pandas as pd
+    import numpy as np
+
+    test_fixture = steptest.create_test_fixture(__file__)
+
+    def test_missing_values(tester: steptest.CauldronTest):
+        """ should not have NaN values in the total column """
+
+        # Assign to the shared df variable a fictional data frame with only
+        # a single row and the part_one column value will is missing
+        cd.shared.df = pd.DataFrame(dict(
+            part_one=[None],
+            part_two=[12]
+        ))
+
+        # Run the step
+        tester.run_step('S02-Create-Total.py')
+
+        # Retrieve the modified data frame from the shared variables
+        df = cd.shared.df
+
+        # Confirm that the total column value is not NaN
+        assert not np.isnan(df['total'].values[0])
+
+  .Display__p.
+    There are many ways to run Python unit tests depending on your choice of
+    development tools. In this example we'll run the test from the command line
+    using the command:
+
+  :highlight(language='bash')
+    $ python -m pytest test_notebook.py
+
+  .Display__p.
+    which must be executed from within the step_tests folder within the root directory
+    of the notebook. The execution of this command yields the following console output:
+
+  .Display__pre.
+    ================================ FAILURES =========================================
+    ____________________________ test_missing_values __________________________________
+
+    tester = <cauldron.steptest.functional.CauldronTest object at 0x000001ACF76877B8>
+
+    ...
+
+    >       assert not np.isnan(df['total'].values[0])
+    E       AssertionError: assert not True
+    E        +  where True = <ufunc 'isnan'>(nan)
+    E        +    where <ufunc 'isnan'> = np.isnan
+
+    test_notebook.py:26: AssertionError
+
+    ================== 1 failed, 0 warnings in 3.27 seconds ===========================
+
+  .Display__p.
+    The test has failed because the total column contains a NaN value. We can
+    now go back to the second step and change our code so that it handles missing
+    values within the source columns. The updated code looks like this:
+
+  +stepCode('S02-Create-Total.py', 2)
+    :highlight()
+      import cauldron as cd
+      import pandas as pd
+
+      # Retrieve the stored data DataFrame.
+      df: pd.DataFrame = cd.shared.df
+
+      df['total'] = df['part_one'].fillna(0) + df['part_two'].fillna(0)
+
+      # Show the DataFrame in the display.
+      cd.display.table(df)
+
+      # Share the updated data frame.
+      cd.shared.df = df
+
+  .Display__p.
+    Running the test again with these changes yields a successful output:
+
+  .Display__pre.
+    ================== 1 passed, 0 warnings in 2.61 seconds ===========================
+
+  .Display__p.
+    We now have a test that validates the desired behavior of avoiding NaN in
+    the 'total' column. This unit test can be run at any time to confirm that
+    the code continues to behave properly as changes are made to the notebook.
+    It is good practice to run unit tests regularly as you make changes to the
+    notebook to make sure that changes haven't caused unintended issues.

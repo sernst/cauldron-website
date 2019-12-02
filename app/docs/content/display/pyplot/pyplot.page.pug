@@ -8,4 +8,44 @@ block content
     | pyplot
   .Display__breadcrumb cauldron.display.pyplot()
 
+  +createBullet('warning')
+    div.
+      The beautifulSoup4 library needs to be installed to use Pyplot in Cauldron,
+      which is not installed by default. If that library is not installed, an error
+      will be shown instead of the plot.
+
   +createFunctionDoc(display_functions.pyplot)(hideTitle=true)
+
+  .Display__h1 Basic Usage
+
+  .Display__p.
+    The example below shows how to plot a histogram of data with pyplot. It does
+    not pass any variables to the cd.display.pyplot() call, which uses the current
+    figure for plotting as the default.
+
+  :highlight(language="python")
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import cauldron as cd
+
+    # Create data to plot
+    mu = 100
+    sigma = 15
+    x = mu + sigma * np.random.randn(10000)
+
+    # Histogram of the data
+    n, bins, patches = plt.hist(
+       x=x,
+       bins=50,
+       facecolor='green',
+       alpha=0.75,
+       density=1,
+    )
+
+    plt.xlabel('Smarts')
+    plt.ylabel('Probability')
+    plt.title(r'$\mathrm{Histogram\ of\ IQ:}\ \mu=100,\ \sigma=15$')
+    plt.axis([40, 160, 0, 0.03])
+    plt.grid(True)
+
+    cd.display.pyplot()

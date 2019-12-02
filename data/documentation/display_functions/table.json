@@ -32,6 +32,22 @@
       "type": "int",
       "optional": true,
       "default": "500"
+    },
+    {
+      "name": "sample_rows",
+      "index": 4,
+      "description": "\nWhen set to a positive integer value, the DataFrame will be randomly\nsampled to the specified number of rows when displayed in the table.\nIf the value here is larger than the number of rows in the DataFrame,\nthe sampling will have no effect and the entire DataFrame will be\ndisplayed instead.",
+      "type": "int, NoneType",
+      "optional": true,
+      "default": "None"
+    },
+    {
+      "name": "formats",
+      "index": 5,
+      "description": "\nAn optional dictionary that, when specified, should contain a mapping\nbetween column names and formatting strings to apply to that column\nfor display purposes. For example, ``{'foo': '{:,.2f}%'}`` would\ntransform a column ``foo = [12.2121, 34.987123, 42.72839]`` to\ndisplay as ``foo = [12.21%, 34.99%, 42.73%]``. The formatters should\nfollow the standard Python string formatting guidelines the same as\nthe ``str.format()`` command having the value of the column as the only\npositional argument in the format arguments. A string value can also\nbe specified for uniform formatting of all columns (or if displaying\na series with only a single value).",
+      "type": "str, typing.Any, str, str, str, typing.Any, str",
+      "optional": true,
+      "default": "None"
     }
   ],
   "returns": {

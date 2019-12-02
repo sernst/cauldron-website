@@ -1,0 +1,43 @@
+extends /app/docs/DocsLayout
+
+block content
+  include /app/components/FunctionDocumentation/FunctionDocumentation
+  include /app/components/NotebookLink/NotebookLink
+
+  .Display__title
+    .Display__titleClass class
+    | CauldronTest
+  .Display__breadcrumb cauldron.steptest.CauldronTest
+
+  .Display__p!=CauldronTest.CauldronTest.description
+
+  +createBullet()
+    div.
+      This class isn't meant to be instantiated outside of a pytest fixture. Instead it
+      is exposed for usage documentation within pytest fixtures and for typing.
+
+  .Display__h2 Methods
+
+  .Display__entry1
+    +createFunctionDoc(CauldronTest.run_step)
+
+  .Display__h1 Basic Usage
+
+  :highlight()
+    import cauldron as cd
+    import pandas as pd
+    from cauldron import steptest
+
+    test_fixture = steptest.create_test_fixture(__file__)
+
+    def test_missing_column(tester: steptest.CauldronTest):
+        """ should not fail if the data frame is missing the "b" column """
+
+        # Create a test data frame that has an "a" column but no "b" column
+        cd.shared.df = pd.DataFrame(dict(a=[12, 24, 36]))
+
+        # Run the step
+        result = tester.run_step("S02-Merge-Columns.py")
+
+        # Validate that the step ran successfully
+        assert result.success

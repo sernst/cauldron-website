@@ -1,0 +1,24 @@
+{
+  "name": "make_temp_path",
+  "doc": "Creates a temporary path within a named directory created\nfor the test being executed. If any directories in the path don't exist\nalready, they will be created before returning the path.",
+  "params": [
+    {
+      "name": "identifier",
+      "index": 0,
+      "description": "\nThe identifier for the test the is used to name the folder in which\nthe temp path will reside within the root test folder for the given\ntest.",
+      "type": "Any",
+      "optional": false
+    },
+    {
+      "name": "args",
+      "index": 1,
+      "description": "\nAny additional path elements to identify the path that will\nappear beneath the identifier folder.",
+      "type": "Any",
+      "optional": false
+    }
+  ],
+  "returns": {
+    "type": "str",
+    "description": ""
+  }
+}

@@ -5,8 +5,9 @@ block content
   include /app/components/StepCode/StepCode
   include /app/components/NotebookLink/NotebookLink
   include /app/components/FunctionDocumentation/FunctionDocumentation
+  include /app/components/ExternalLink/ExternalLink
 
-  .Display__h1 Step Testing
+  .Display__h1 Step Testing with unittest
 
   .Display__p.
     Cauldron includes a #[em StepTestCase] class that allows steps to be "unit"
@@ -15,6 +16,15 @@ block content
     down the Cauldron project state before and after each test.
 
   .Display__h2 A Simple Example
+
+  .Display__p.
+    The code for this example can be found in the Cauldron Gallery at:
+
+  +createExternalLink(
+    'Step Testing with Unittest Example Notebook',
+    'https://github.com/Cauldron-Notebook/cauldron-gallery/tree/master/testing/hello-tests-unittest',
+    '/assets/images/octocat-logo-black.svg'
+  )
 
   .Display__p.
     This example is highly simplified to emphasize the key concepts of step
@@ -34,7 +44,15 @@ block content
       import cauldron as cd
       import pandas as pd
 
-      cd.shared.df = pd.read_csv('data.csv')
+      # Load the CSV data into a DataFrame.
+      df: pd.DataFrame = pd.read_csv('data.csv')
+
+      # Show the DataFrame in the display.
+      cd.display.table(df)
+
+      # Store the DataFrame in shared variables for other steps
+      # to access.
+      cd.shared.df = df
 
   .Display__p.
     The second step adds a new "total" column to that data frame that is based
@@ -45,12 +63,15 @@ block content
       import cauldron as cd
       import pandas as pd
 
-      # Retrieve the stored data data frame
-      df = cd.shared.df  # type: pd.DataFrame
+      # Retrieve the stored data DataFrame.
+      df: pd.DataFrame = cd.shared.df
 
       df['total'] = df['part_one'] + df['part_two']
 
-      # Share the updated data frame
+      # Show the DataFrame in the display.
+      cd.display.table(df)
+
+      # Share the updated data frame.
       cd.shared.df = df
 
   .Display__p.
@@ -75,8 +96,9 @@ block content
       for running the tests.
 
   .Display__p.
-    For this example we will place it in the top-level notebook directory and
-    call it #[em test_notebook.py]. Inside this file we include the following:
+    For this example we will place it within a step_tests subdirectory beneath the root
+    notebook directory and call it #[em ./step_tests/test_notebook.py]. Inside this file
+    we include the following:
 
   :highlight()
     import cauldron as cd
@@ -110,14 +132,14 @@ block content
   .Display__p.
     There are many ways to run Python unit tests depending on your choice of
     development tools. In this example we'll run the test from the command line
-    using the command:
+    within the step_tests folder of our project using the command:
 
   :highlight(language='bash')
-    $ python -m unittest test_notebook
+    $ python -m unittest test_notebook.py
 
   .Display__p.
-    which must be executed from within the root folder for our notebook. The
-    execution of this command yields the following console output:
+    which must be executed from within the step_tests folder within the root directory
+    of the notebook. The execution of this command yields the following console output:
 
   .Display__pre.
     ======================================================================
@@ -144,12 +166,15 @@ block content
       import cauldron as cd
       import pandas as pd
 
-      # Retrieve the stored data data frame
-      df = cd.shared.df  # type: pd.DataFrame
+      # Retrieve the stored data DataFrame.
+      df: pd.DataFrame = cd.shared.df
 
       df['total'] = df['part_one'].fillna(0) + df['part_two'].fillna(0)
 
-      # Share the updated data frame
+      # Show the DataFrame in the display.
+      cd.display.table(df)
+
+      # Share the updated data frame.
       cd.shared.df = df
 
   .Display__p.

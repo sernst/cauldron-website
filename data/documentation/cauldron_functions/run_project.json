@@ -34,8 +34,24 @@
       "default": "None"
     },
     {
-      "name": "kwargs",
+      "name": "reload_project_libraries",
       "index": 4,
+      "description": "\nWhether or not to reload all project libraries prior to execution of\nthe project. By default this is False, but can be enabled in cases\nwhere refreshing the project libraries before execution is needed.",
+      "type": "bool",
+      "optional": true,
+      "default": "False"
+    },
+    {
+      "name": "forget_project",
+      "index": 5,
+      "description": "",
+      "type": "bool",
+      "optional": true,
+      "default": "False"
+    },
+    {
+      "name": "kwargs",
+      "index": 6,
       "description": "\nAny variables to be available in the cauldron.shared object during\nexecution of the project can be specified here as keyword arguments.",
       "type": "Any",
       "optional": true,
@@ -43,7 +59,7 @@
     }
   ],
   "returns": {
-    "type": "Response",
-    "description": "A response object that contains information about the run process."
+    "type": "ExecutionResult",
+    "description": "A response object that contains information about the run process\nand the shared data from the final state of the project."
   }
 }

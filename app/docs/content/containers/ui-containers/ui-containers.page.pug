@@ -1,0 +1,152 @@
+extends /app/docs/DocsLayout
+
+block content
+  include /app/components/DirectoryStructure/DirectoryStructure
+
+  .Display__title UI (User Interface) Containers
+
+  .Display__p.
+    User-interface containers are used to run the Cauldron user interface in
+    a containerized fashion on a host system (computer) that shares access
+    with the notebook development files. Using these containers is useful
+    to isolate the Cauldron environment from the host computer, e.g. as a
+    container-based python environment.
+
+  .Display__p.
+    Prebuilt UI images are available on docker hub with the following
+    repository tages:
+
+  ul
+    li
+      code swernst/cauldron:current-ui-standard
+    li
+      code swernst/cauldron:current-ui-conda
+    li
+      code swernst/cauldron:current-ui-miniconda
+
+  .Display__p.
+    If you want to pin to a specific Cauldron version instead of
+    keeping up with the latest one, the <code>current</code> can be replaced
+    with a version, e.g. <code>swernst/cauldron:1.0.0-ui-standard</code>.
+
+  .Display__p.
+    There are two ways to use these images:
+
+  .Display__h2 Local Containerized Environment
+
+  .Display__p.
+    This is the most common case, where the UI container will be executed
+    locally and serve as the Cauldron execution kernel as well as the UI.
+    To start such a container run a command like:
+
+  :highlight(language="cli" lineNumbers=false)
+    $ docker run --rm -it \
+      -v /path/to/notebooks:/notebooks \
+      -p 8899:8899 \
+      swernst/cauldron:current-ui-standard
+
+  .Display__p
+    code --rm
+    | to cleanup the container once it is finished running,
+
+  .Display__p
+    code -it
+    | to show the interactive output of the container while it is running,
+
+  .Display__p
+    code -v /path/to/notebooks:/notebooks
+    | to mount the local notebook files into the container so that the container
+    | has access to the notebook files when running. By default, these containers
+    | will be looking for Cauldron notebook folders within the <code>/notebooks</code>
+    | directory in the container, so it is recommended that the volume mount be there.
+    | However, those comfortable with volume mounting can choose to mount multiple
+    | volumes or use different locations entirely.
+
+  .Display__p
+    code -p 8899:8899
+    | to connect the container port 8899 to the local host port 8899 so that the
+    | UI running in the container is accessible from the local host system.  A different
+    | local port can be used by changing the first port argument in the above command
+    | if needed (for example running multiple UI containers on the same local host).
+
+  .Display__p
+    | The UI can be loaded in the browser at
+    code http://127.0.0.1:8899
+    | after the container has started running.
+
+  .Display__p.
+    In this scenario the Cauldron notebook will be executing inside the UI container
+    and communicating through the specified port mapping - port 8899 by default - with
+    the web-based UI running in the browser on the host system.
+
+  .Display__h2 Remote-Connected Containerized Environment
+
+  .Display__p
+    | The more advanced case is where the UI container will be used to communicate
+    | with a remote kernel container running on a different host system (usually
+    | in the cloud). For more information on how to setup a remote kernel container,
+    | see the
+    a.link(href='/docs/content/containers/kernel-containers') Kernel Containers
+    | documentation page.
+
+  .Display__p.
+    Assuming that you have a remote kernel container running, the process for
+    running the UI container is similar to the previous use-case except that
+    additional arguments must be passed to the UI container to direct it to
+    connect to the remote kernel container for execution. In this case a
+    command would look like:
+
+  :highlight(language="cli" lineNumbers=false)
+    $ docker run --rm -it \
+      -v /path/to/notebooks:/notebooks \
+      -p 8899:8899 \
+      swernst/cauldron:current-ui-standard \
+      --port=8899 \
+      --connect=127.0.0.1:5010
+
+  .Display__p
+    code --rm
+    | to cleanup the container once it is finished running,
+
+  .Display__p
+    code -it
+    | to show the interactive output of the container while it is running,
+
+  .Display__p
+    code -v /path/to/notebooks:/notebooks
+    | to mount the local notebook files into the container so that the container
+    | has access to the notebook files when running. By default, these containers
+    | will be looking for Cauldron notebook folders within the <code>/notebooks</code>
+    | directory in the container, so it is recommended that the volume mount be there.
+    | However, those comfortable with volume mounting can choose to mount multiple
+    | volumes or use different locations entirely.
+
+  .Display__p
+    code -p 8899:8899
+    | to connect the container port 8899 to the local host port 8899 so that the
+    | UI running in the container is accessible from the local host system.  A different
+    | local port can be used by changing the first port argument in the above command
+    | if needed (for example running multiple UI containers on the same local host).
+
+  .Display__p
+    code --port=8899
+    | must be specified when overriding the default container arguments as this
+    | argument is no longer defaulted.
+
+  .Display__p
+    code --connect=127.0.0.1:5010
+    | directs the UI container to not serve as the execution kernel, but instead
+    | communicate with the remote kernel that has been made available at that
+    | host and port location.
+
+  .Display__p
+    | The UI can be loaded in the browser the same as before at
+    code http://127.0.0.1:8899
+    | after the container has started running.
+
+  .Display__p.
+    In this scenario the Cauldron notebook will be executing inside the remote kernel
+    container and communicating with the UI container through the connection host and
+    port. The UI container will only have the responsibility of managing the connection
+    between the web-based UI, local host files and the remotely running execution
+    kernel.

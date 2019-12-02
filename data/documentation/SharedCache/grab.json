@@ -18,7 +18,7 @@
     }
   ],
   "returns": {
-    "type": "Tuple",
+    "type": "typing.Tuple",
     "description": "A tuple containing values for each of the keys specified in the\narguments"
   }
 }

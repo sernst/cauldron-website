@@ -1,0 +1,38 @@
+.QuickStartSection {
+  &__container {
+    margin: 0 auto;
+    padding: 0 2em 2em 2em;
+    max-width: $centered-page-width;
+
+    min-height: 400px;
+
+    @media #{$less-than-m} {
+      flex-direction: column;
+      min-height: 100px;
+    }
+  }
+
+  &__text {
+    margin: 1em 0;
+    line-height: 1.5em;
+    color: #333;
+    font-size: 1.1em;
+  }
+
+  &__title {
+    font-size: 1.3em;
+    margin-top: 2em;
+  }
+
+  &__info {
+    color: #666;
+    margin-top: 1em;
+    font-size: 0.8em;
+    line-height: 1.5em;
+  }
+
+  &__group {
+    margin-left: 2em;
+    max-width: 640px;
+  }
+}

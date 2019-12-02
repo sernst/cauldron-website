@@ -103,6 +103,14 @@
     line-height: 1.5;
     font-size: 1.1em;
     margin: 0.5em auto 1em auto;
+
+    code {
+      font-size: 0.9em;
+      color: #777;
+      background-color: #EFEFEF;
+      padding: 2px 4px;
+      margin: 0 5px;
+    }
   }
 
   &__pre {
@@ -141,10 +149,11 @@
 
   li {
     margin: 0.25em 0;
-    color: #666;
-    padding-left: 30px;
-    text-indent: -30px;
     vertical-align: top;
+  }
+
+  em {
+    margin-right: 6px;
   }
 
   strong {
@@ -184,8 +193,6 @@
   &__info {
     opacity: 0.8;
   }
-
-
 
   &__item {
     display: flex;

@@ -1,0 +1,41 @@
+{
+  "name": "image",
+  "doc": "Adds an image to the display. The image must be located within the\nassets directory of the Cauldron notebook's folder.",
+  "params": [
+    {
+      "name": "filename",
+      "index": 0,
+      "description": "\nName of the file within the assets directory,",
+      "type": "str",
+      "optional": false
+    },
+    {
+      "name": "width",
+      "index": 1,
+      "description": "\nOptional width in pixels for the image.",
+      "type": "int",
+      "optional": true,
+      "default": "None"
+    },
+    {
+      "name": "height",
+      "index": 2,
+      "description": "\nOptional height in pixels for the image.",
+      "type": "int",
+      "optional": true,
+      "default": "None"
+    },
+    {
+      "name": "justify",
+      "index": 3,
+      "description": "\nOne of 'left', 'center' or 'right', which specifies how the image\nis horizontally justified within the notebook display.",
+      "type": "str",
+      "optional": true,
+      "default": "left"
+    }
+  ],
+  "returns": {
+    "type": null,
+    "description": ""
+  }
+}

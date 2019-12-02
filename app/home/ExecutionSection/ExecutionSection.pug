@@ -1,26 +1,53 @@
 .ExecutionSection
   .ExecutionSection__display
+    .ExecutionSection__title Choose Your Workflow
+    .ExecutionSection__p
+      | Cauldron supports many different workflows so you can pick the one or
+      | many that work best for you. It works great run locally, but has also
+      | been developed to be ideal for containerized usage.
+
     .ExecutionSection__row
-      .ExecutionSection__imageColumn
-        img.ExecutionSection__image(
-          src="/assets/notebook-thumbnails/v1/application.png"
-        )
-      .ExecutionSection__textColumn
-        .ExecutionSection__title An Execution Environment
+      .ExecutionSection__number 1.
+      .ExecutionSection__block
+        .ExecutionSection__box
+          .ExecutionSection__header Local Environment
+          .ExecutionSection__info
+            | Develop on a locally installed python environment by
+            | launching the UI from your local terminal.
+        .ExecutionSection__code
+          :highlight(language="cli" dark=true lineNumbers=false)
+            $ cauldron ui
 
-        .ExecutionSection__p
-          | wrapped inside a multi-threaded desktop application that provides
-          | native functionality for interactive analyses.&nbsp;
-          span.ExecutionSection--large.
-            Browse the documentation for details on how you can take
-            advantage of Cauldron's many features in your notebooks.
+    .ExecutionSection__row
+      .ExecutionSection__number 2.
+      .ExecutionSection__block
+        .ExecutionSection__box
+          .ExecutionSection__header Local Containerized Environment
+          .ExecutionSection__info
+            | Developing within a locally running docker container by launching a
+            | Cauldron-configured UI container on your local machine. Make sure to
+            | mount the directory containing the notebook folder(s) and the UI
+            | port as well. After that, open the UI in your browser at:
+            | http://localhost:8899
+        .ExecutionSection__code
+          :highlight(language="cli" dark=true lineNumbers=false)
+            $ docker run --rm -it \
+            -v /my/notebooks/are/in/here:/notebooks \
+            -p 8899:8899 \
+            swernst/cauldron:ui-current-standard
 
-        div.ExecutionSection--large
-          a.ActionButton.ActionButton--green(href="/docs") Documentation
-
-    .ExecutionSection__textColumn.ExecutionSection__textColumn--small
-      .ExecutionSection__p.
-        Browse the documentation for details on how you can take
-        advantage of Cauldron's many features in your notebooks.
-
-      a.ActionButton.ActionButton--green(href="/docs") Documentation
+    .ExecutionSection__row
+      .ExecutionSection__number 3.
+      .ExecutionSection__block
+        .ExecutionSection__box
+          .ExecutionSection__header Remote Containerized Environment
+          .ExecutionSection__info
+            | Develop within a container running on a remote system by
+            | creating an SSH tunnel between the remote location and
+            | your local computer on the default Cauldron kernel port of
+            | 5010. After that launch the Cauldron UI on your local
+            | system with a connection argument to connect to the remote
+            | Cauldron kernel environment.
+        .ExecutionSection__code
+          :highlight(language="cli" dark=true lineNumbers=false)
+            $ cauldron ui --connect=127.0.0.1:5010

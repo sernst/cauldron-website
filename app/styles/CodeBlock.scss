@@ -2,13 +2,35 @@
   display: flex;
   font-family: "Lucida Console", Monaco, "Courier New", Courier, monospace;
   line-height: 1.6;
-  background-color: #f9f9f9;
-  border: 1px solid #DDD;
+
+  &--light {
+    @import "../../node_modules/highlight.js/styles/github-gist";
+
+    color: black;
+    background-color: #f9f9f9;
+    border: 1px solid #DDD;
+  }
+
+  &--dark {
+    @import "../../node_modules/highlight.js/styles/atelier-plateau-dark";
+
+    color: #BBB;
+    background-color: #333;
+    border: 1.5px solid #222;
+  }
 
   &__lineNumbers {
     padding: 0.5em;
-    background-color: #DDD;
-    opacity: 0.2;
+
+    &--light {
+      background-color: #DDD;
+      opacity: 0.2;
+    }
+
+    &--dark {
+      color: #555;
+      background-color: #222;
+    }
   }
 
   &__code {

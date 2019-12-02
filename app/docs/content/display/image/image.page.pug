@@ -1,0 +1,23 @@
+extends /app/docs/DocsLayout
+
+block content
+  include /app/components/FunctionDocumentation/FunctionDocumentation
+
+  .Display__title
+    .Display__titleFunc def
+    | image
+  .Display__breadcrumb cauldron.display.image()
+
+  +createFunctionDoc(display_functions.image)(hideTitle=true)
+
+  .Display__h1 Basic Usage
+
+  +createBullet('warning')
+    div.
+      Images must be located in the project's assets directory.
+
+  :highlight()
+    import cauldron as cd
+
+    cd.display.image('plot.png')
+
