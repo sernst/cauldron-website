@@ -69,4 +69,14 @@
       margin-top: 1em;
     }
   }
+
+  &__break {
+    height: 10px;
+  }
+
+  &__codeInfo {
+    font-size: 0.9em;
+    opacity: 0.8;
+    margin: 0.5em;
+  }
 }

@@ -3,8 +3,9 @@
     .ExecutionSection__title Choose Your Workflow
     .ExecutionSection__p
       | Cauldron supports many different workflows so you can pick the one or
-      | many that work best for you. It works great run locally, but has also
-      | been developed to be ideal for containerized usage.
+      | many that work best for you. It works great run in a locally installed
+      | Python environment, but Cauldron has also been developed to be even
+      | better when run in containers for both the kernel and the UI.
 
     .ExecutionSection__row
       .ExecutionSection__number 1.
@@ -27,14 +28,25 @@
             | Developing within a locally running docker container by launching a
             | Cauldron-configured UI container on your local machine. Make sure to
             | mount the directory containing the notebook folder(s) and the UI
-            | port as well. After that, open the UI in your browser at:
-            | http://localhost:8899
+            | port as well.
+            .ExecutionSection__break
+            | Cauldron also has a CLI command to help make the invocation easier.
+            | It will automatically map the current directory into the container
+            | for you.
+            .ExecutionSection__break
+            | After that, open the UI in your browser at:
+            | http://localhost:8899 (or at whatever port you map to the container)
         .ExecutionSection__code
           :highlight(language="cli" dark=true lineNumbers=false)
             $ docker run --rm -it \
             -v /my/notebooks/are/in/here:/notebooks \
             -p 8899:8899 \
             swernst/cauldron:current-ui-standard
+          .ExecutionSection__codeInfo.
+            Or using the Cauldron CLI to launch the container:
+          :highlight(language="cli" dark=true lineNumbers=false)
+            $ cd /my/notebooks/are/in/here
+            $ cauldron uidocker --port=8899
 
     .ExecutionSection__row
       .ExecutionSection__number 3.
@@ -45,9 +57,27 @@
             | Develop within a container running on a remote system by
             | creating an SSH tunnel between the remote location and
             | your local computer on the default Cauldron kernel port of
-            | 5010. After that launch the Cauldron UI on your local
+            | 5010.
+            .ExecutionSection__break
+            | It's even possible to use a containerized local UI container
+            | in conjunction with a remote kernel. In this case
+            | the SSH tunnel to the remote location is created
+            | inside the UI container based on the specified arguments.
+            .ExecutionSection__break
+            | After that launch the Cauldron UI on your local
             | system with a connection argument to connect to the remote
             | Cauldron kernel environment.
         .ExecutionSection__code
           :highlight(language="cli" dark=true lineNumbers=false)
             $ cauldron ui --connect=127.0.0.1:5010
+          .ExecutionSection__codeInfo.
+              Or using a containerized version of the UI:
+          :highlight(language="cli" dark=true lineNumbers=false)
+            $ cd /my/notebooks/are/in/here
+            $ cauldron uidocker \
+                --remote=user@remote-host-name:5010 \
+                --ssh-key=my-access-key
+
+    .ExecutionSection__p.
+      You can find out more about how to use the containerized versions of Cauldron
+      in the "containers" section of the Cauldron documentation.

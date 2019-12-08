@@ -40,6 +40,13 @@ block content
     To start such a container run a command like:
 
   :highlight(language="cli" lineNumbers=false)
+    $ cd /path/to/notebooks
+    $ cauldron uidocker
+
+  .Display__p.
+    Or directly as a Docker command like this:
+
+  :highlight(language="cli" lineNumbers=false)
     $ docker run --rm -it \
       -v /path/to/notebooks:/notebooks \
       -p 8899:8899 \
@@ -61,6 +68,12 @@ block content
     | directory in the container, so it is recommended that the volume mount be there.
     | However, those comfortable with volume mounting can choose to mount multiple
     | volumes or use different locations entirely.
+  .Display__p.
+    If you use the <code>cauldron uidocker</code> command, the current directory will
+    be mounted to the <code>/notebooks</code> directory in the container. It's possible
+    to override this with by specifying the
+    <code>cauldron uidocker --directory=/path/to/notebooks</code> flag as part of the
+    command.
 
   .Display__p
     code -p 8899:8899
@@ -68,11 +81,16 @@ block content
     | UI running in the container is accessible from the local host system.  A different
     | local port can be used by changing the first port argument in the above command
     | if needed (for example running multiple UI containers on the same local host).
+  .Display__p.
+    If you use the <code>cauldron uidocker</code> command, a port will be automatically
+    found and used. A specific port can be specified with the
+    <code>cauldron uidocker --port=8899</code> flag.
 
   .Display__p
     | The UI can be loaded in the browser at
     code http://127.0.0.1:8899
-    | after the container has started running.
+    | after the container has started running (or whatever port is specified during
+    | the command invocation).
 
   .Display__p.
     In this scenario the Cauldron notebook will be executing inside the UI container
@@ -84,69 +102,6 @@ block content
   .Display__p
     | The more advanced case is where the UI container will be used to communicate
     | with a remote kernel container running on a different host system (usually
-    | in the cloud). For more information on how to setup a remote kernel container,
-    | see the
-    a.link(href='/docs/content/containers/kernel-containers') Kernel Containers
-    | documentation page.
-
-  .Display__p.
-    Assuming that you have a remote kernel container running, the process for
-    running the UI container is similar to the previous use-case except that
-    additional arguments must be passed to the UI container to direct it to
-    connect to the remote kernel container for execution. In this case a
-    command would look like:
-
-  :highlight(language="cli" lineNumbers=false)
-    $ docker run --rm -it \
-      -v /path/to/notebooks:/notebooks \
-      -p 8899:8899 \
-      swernst/cauldron:current-ui-standard \
-      --port=8899 \
-      --connect=127.0.0.1:5010
-
-  .Display__p
-    code --rm
-    | to cleanup the container once it is finished running,
-
-  .Display__p
-    code -it
-    | to show the interactive output of the container while it is running,
-
-  .Display__p
-    code -v /path/to/notebooks:/notebooks
-    | to mount the local notebook files into the container so that the container
-    | has access to the notebook files when running. By default, these containers
-    | will be looking for Cauldron notebook folders within the <code>/notebooks</code>
-    | directory in the container, so it is recommended that the volume mount be there.
-    | However, those comfortable with volume mounting can choose to mount multiple
-    | volumes or use different locations entirely.
-
-  .Display__p
-    code -p 8899:8899
-    | to connect the container port 8899 to the local host port 8899 so that the
-    | UI running in the container is accessible from the local host system.  A different
-    | local port can be used by changing the first port argument in the above command
-    | if needed (for example running multiple UI containers on the same local host).
-
-  .Display__p
-    code --port=8899
-    | must be specified when overriding the default container arguments as this
-    | argument is no longer defaulted.
-
-  .Display__p
-    code --connect=127.0.0.1:5010
-    | directs the UI container to not serve as the execution kernel, but instead
-    | communicate with the remote kernel that has been made available at that
-    | host and port location.
-
-  .Display__p
-    | The UI can be loaded in the browser the same as before at
-    code http://127.0.0.1:8899
-    | after the container has started running.
-
-  .Display__p.
-    In this scenario the Cauldron notebook will be executing inside the remote kernel
-    container and communicating with the UI container through the connection host and
-    port. The UI container will only have the responsibility of managing the connection
-    between the web-based UI, local host files and the remotely running execution
-    kernel.
+    | in the cloud). For more information on how this works, see the
+    a.link(href='/docs/content/containers/ui-kernel-containers') UI + Kernel Containers
+    | topic.
