@@ -19,7 +19,8 @@
           "items": [
             { "label":  "Introduction", "id":  "intro" },
             { "label":  "UI Containers", "id":  "ui-containers" },
-            { "label":  "Kernel Containers", "id":  "kernel-containers" }
+            { "label":  "Kernel Containers", "id":  "kernel-containers" },
+            { "label":  "UI + Kernel Containers", "id":  "ui-kernel-containers" }
           ]
         },
         {

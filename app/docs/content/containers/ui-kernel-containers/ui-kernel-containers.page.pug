@@ -1,0 +1,79 @@
+extends /app/docs/DocsLayout
+
+block content
+  .Display__title UI + Kernel Containers
+
+  .Display__p
+      | A more advanced configuration is to use both kernel and UI containers together for
+      | a fully containerized environment. There are a few benefits to this, which include
+      | better performance, environment isolation and greater portability. In this
+      | configuration the remote kernel container usage is identical to its usage with a
+      | non-containerized-ui. For details on how to use the remote kernel images, see
+      | the
+      a.link(href='/docs/content/containers/kernel-containers') Kernel Containers
+      | documentation.
+
+  .Display__p.
+      However, the UI container is utilized slightly differently in this configuration
+      because the UI container needs to connect to and communicate with the remote
+      kernel container instead of operating as both the UI and kernel together. For this
+      to work, the UI container needs to create an SSH tunnel to the remote host running
+      the kernel container on the kernel container's published port. The command to do
+      this looks like:
+
+  :highlight(language='cli' lineNumbers=false)
+    $ docker run --rm -it \
+      -v /path/to/notebooks:/notebooks \
+      -v /home/my/.ssh:/host_ssh \
+      -p 8899:8899 \
+      swernst/cauldron:current-ui-standard \
+      --remote=remote-user@remote-server:5010 \
+      --ssh-key=remote-server.pem
+
+  .Display__p
+      code --rm
+      | to cleanup the container once it is finished running,
+
+  .Display__p
+      code -it
+      | to show the interactive output of the container while it is running,
+
+  .Display__p
+      code -v /path/to/notebooks:/notebooks
+      | to mount the local notebook files into the container so that the container
+      | has access to the notebook files when running. By default, these containers
+      | will be looking for Cauldron notebook folders within the <code>/notebooks</code>
+      | directory in the container, so it is recommended that the volume mount be there.
+      | However, those comfortable with volume mounting can choose to mount multiple
+      | volumes or use different locations entirely.
+
+  .Display__p
+      code -v /home/my/.ssh:/host_ssh
+      | assumes that establishing an SSH tunnel to the remote host where the kernel
+      | container is running requires authentication with an SSH key. This mounts
+      | the folder in which the necessary SSH key resides from the local system into
+      | the "/host_ssh" directory in the container. Files in this directory are made
+      | available to the ssh tunneling command.
+
+  .Display__p
+      code -p 8899:8899
+      | to connect the container port 8899 to the local host port 8899 so that the
+      | UI running in the container is accessible from the local host system.  A different
+      | local port can be used by changing the first port argument in the above command
+      | if needed (for example running multiple UI containers on the same local host).
+
+  .Display__p
+      code --remote=remote-user@remote-server:5010
+      | specifies that a remote tunnel should be established to the given remote host. The
+      | format of the remote value is USER@HOST:PORT.
+
+  .Display__p
+      code --ssh-key=remote-server.pem
+      | specifies the name of the SSH key file in the mounted "/host_ssh" directory for
+      | authentication during the SSH tunnel setup process.
+
+  .Display__p.
+      After executing that command to start the container, Cauldron will setup an SSH tunnel
+      inside the container and pass that information to the Cauldron UI process as connection
+      arguments resulting in a containerized UI that will communicate execution commands to the
+      remote kernel container running at the other end of the SSH tunnel.
