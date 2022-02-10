@@ -44,7 +44,7 @@
     "lodash": "^4.17.15",
     "markdown-it": "^10.0.0",
     "merge-stream": "^2.0.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "rx": "^4.1.0",
     "vinyl-named": "^1.1.0",
     "webpack": "^4.41.2",
