@@ -15,7 +15,7 @@
     "aws-sdk": "^2.580.0",
     "@babel/cli": "^7.7.4",
     "@babel/core": "^7.7.4",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "^8.3.0",
     "babel-plugin-transform-es2015-modules-systemjs": "^6.24.1",
     "@babel/polyfill": "^7.7.0",
     "babel-preset-airbnb": "^4.4.0",
@@ -47,8 +47,8 @@
     "node-sass": "^4.13.0",
     "rx": "^4.1.0",
     "vinyl-named": "^1.1.0",
-    "webpack": "^4.41.2",
-    "webpack-stream": "^5.2.1",
+    "webpack": "^5.75.0",
+    "webpack-stream": "^7.0.0",
     "yargs": "^15.0.2"
   }
 }
